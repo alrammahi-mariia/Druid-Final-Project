@@ -1,0 +1,36 @@
+uuid: 3255d8b1-37f5-465d-b2fc-41486c804e60
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.home.body
+    - field.field.node.home.field_home
+    - node.type.home
+  module:
+    - text
+    - user
+id: node.home.default
+targetEntityType: node
+bundle: home
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_home:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden: {  }

@@ -1,0 +1,19 @@
+uuid: 6a349b91-11e0-457b-b39f-baf8a54278b2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_home
+    - node.type.home
+id: node.home.field_home
+field_name: field_home
+entity_type: node
+bundle: home
+label: home
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long
