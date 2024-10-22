@@ -1,0 +1,4 @@
+name: druid-final-project
+recipe: drupal10
+config:
+  webroot: web
