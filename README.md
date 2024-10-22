@@ -80,3 +80,10 @@ To start the frontend React app, run the following command:
 npm run dev
 ```
 This will launch the React app on http://localhost:5173, fetching data from the Drupal backend. Make sure that the drupal app is up and running.
+
+## Contributers
+- Saurov
+- Bishnu
+- Arina
+- Mariia
+- Bimesh
