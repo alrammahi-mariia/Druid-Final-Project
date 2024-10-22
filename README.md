@@ -1,5 +1,4 @@
-
-## Setup and Usage in Drupal site 
+## Setup and Usage in Drupal site
 
 To get started, follow these steps:
 
@@ -64,7 +63,8 @@ Access the content through the API at a URL like:
 ```bash
 http://my-drupal-portfolio.lndo.site/jsonapi/node/home
 ```
- ## Setup and Usage in frontend
+
+## Setup and Usage in frontend
 
 ### Step 1: Install Dependencies
 
@@ -73,17 +73,25 @@ Navigate to the frontend folder and install the necessary dependencies:
 ```bash
 npm install
 ```
+
 ### Step 2: Start the React App
+
 To start the frontend React app, run the following command:
 
 ```bash
 npm run dev
 ```
+
 This will launch the React app on http://localhost:5173, fetching data from the Drupal backend. Make sure that the drupal app is up and running.
 
 ## Contributers
+
 - Saurov
 - Bishnu
 - Arina
 - Mariia
 - Bimesh
+
+## Workflow
+
+### Database workflow
