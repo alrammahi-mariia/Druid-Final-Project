@@ -1,4 +1,22 @@
-## Setup and Usage in Drupal site
+# Druid-Final-Project
+
+The Druid-Final-Project integrates Drupal as the backend and React.js as the frontend, developed in collaboration with Druid Oy to meet their specific requirements. This project demonstrates a seamless interaction between these technologies, where Drupal handles content management, and React provides a dynamic front-end interface using JSON. The communication between the two platforms is facilitated through JSON:API, with the React app managing all frontend presentation. Additionally, CORS issues between the two were resolved by implementing a services.yml file in the Drupal configuration.
+
+## Technologies Used
+### In Drupal site
+- **Drupal 10**: For managing and storing the backend content.
+- **JSON:API**: Used for managing API requests between Drupal and the React app.
+- **Lando**: A local development environment for setting up and managing the Drupal project.
+- **YAML**: For configuring the `services.yml` file, solving CORS issues between the frontend and backend.
+
+### In React site
+- **React.js**: Create a frondend folder for building the frontend UI.
+- **Node.js & NPM**: Required to manage the React environment.
+- **Axios**: For making HTTP requests.
+- **React Router DOM**: For routing within your React application.
+- **React Bootstrap**: For using Bootstrap components in React.
+
+## Setup and Usage in Drupal site 
 
 To get started, follow these steps:
 
@@ -61,10 +79,9 @@ lando drush en jsonapi -y
 Access the content through the API at a URL like:
 
 ```bash
-http://my-drupal-portfolio.lndo.site/jsonapi/node/home
+http://Druid-Final-Project.lndo.site/jsonapi/node/home
 ```
-
-## Setup and Usage in frontend
+ ## Setup and Usage in frontend
 
 ### Step 1: Install Dependencies
 
@@ -73,28 +90,37 @@ Navigate to the frontend folder and install the necessary dependencies:
 ```bash
 npm install
 ```
-
 ### Step 2: Start the React App
-
 To start the frontend React app, run the following command:
 
 ```bash
 npm run dev
 ```
-
 This will launch the React app on http://localhost:5173, fetching data from the Drupal backend. Make sure that the drupal app is up and running.
 
-## Contributers
+## Live Page
 
-- Saurov
-- Bishnu
-- Arina
-- Mariia
-- Bimesh
+  *Not yet available.*
 
-## Workflow
+## Screenshot
 
-### Database workflow
+  *Not yet available.*
 
-## contributer as me (saurov)
-comment for just test
+## Sources
+
+- [GitHub Guides - Mastering Markdown](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
+- [Make a README](https://www.makeareadme.com/)
+- [Drupal JSON Documentation](https://www.drupal.org/docs/core-modules-and-themes/core-modules/jsonapi-module)
+- [Lando Documentation](https://docs.lando.dev/getting-started/)
+- [React Documentation](https://react.dev/learn)
+
+## Authors and Acknowledgments
+
+This project was developed with contributions from the following individuals:
+- **[Mariia](https://github.com/alrammahi-mariia)**  
+- **[Arina](https://github.com/Nanao907)**  
+- **[Saurov](https://github.com/saurov-paul)**  
+- **[Bimesh](https://github.com/Bimesh-1)**  
+- **[Bishnu](https://github.com/bishnu-suyel)**  
+
+We as a team appreciate each others efforts and collaboration in making this project a success!
