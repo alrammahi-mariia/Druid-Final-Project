@@ -1,19 +1,18 @@
-uuid: af906eee-98e0-4e5e-9f40-9beb3935bb49
+uuid: 71a24233-688f-4c10-8a43-b5416afc3d87
 langcode: en
 status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
-    - field.field.node.home.body
-    - field.field.node.home.field_home
-    - field.field.node.home.field_image1
-    - node.type.home
+    - field.field.node.services.body
+    - field.field.node.services.field_image_file
+    - node.type.services
   module:
     - text
     - user
-id: node.home.teaser
+id: node.services.teaser
 targetEntityType: node
-bundle: home
+bundle: services
 mode: teaser
 content:
   body:
@@ -30,5 +29,4 @@ content:
     weight: 100
     region: content
 hidden:
-  field_home: true
-  field_image1: true
+  field_image_file: true
