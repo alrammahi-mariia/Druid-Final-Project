@@ -1,8 +1,8 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:51431/jsonapi/";
+const API_URL = "http://druid-final-project.lndo.site/home";
 
-export const fetchContent = async (contentType) => {
-  const response = await axios.get(`${API_URL}/${contentType}`);
-  return response.data;
+export const fetchContent = async () => {
+  const response = await axios.get(API_URL);
+  return response.data; // This should return the full data array
 };

@@ -6,6 +6,7 @@ dependencies:
     - core.entity_view_mode.node.teaser
     - field.field.node.home.body
     - field.field.node.home.field_home
+    - field.field.node.home.field_service_images
     - node.type.home
   module:
     - text
@@ -30,3 +31,4 @@ content:
     region: content
 hidden:
   field_home: true
+  field_service_images: true
