@@ -1,0 +1,19 @@
+uuid: 0e90a3b1-a193-4d2f-960a-bc20d78864d5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_alt
+    - media.type.image
+id: media.image.field_alt
+field_name: field_alt
+entity_type: media
+bundle: image
+label: Alt_text
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
