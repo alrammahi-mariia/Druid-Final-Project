@@ -1,16 +1,18 @@
 import axios from "axios";
 
-const API_URL = "https://localhost:62786/jsonapi";
 
-export const fetchContent = async (contentType) => {
-  const response = await axios.get(`${API_URL}/${contentType}`);
-  return response.data;
+const API_URL = "http://druid-final-project.lndo.site/home";
+
+
+export const fetchContent = async () => {
+  const response = await axios.get(API_URL);
+  return response.data; // This should return the full data array
 };
 
 export const fetchImages = async () => {
   try {
     const response = await axios.get(
-      `${API_URL}/media/image?include=field_media_image&fields[file--file]=uri,url`
+      `${API_URL}/jsonapi/media/image?include=field_media_image&fields[file--file]=uri,url`
     );
 
     console.log("Fetched data:", response.data); // Log the fetched data

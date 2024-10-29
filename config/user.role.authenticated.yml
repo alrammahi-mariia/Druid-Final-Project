@@ -9,6 +9,7 @@ dependencies:
     - contact
     - file
     - filter
+    - rest
     - media
     - search
     - shortcut
@@ -24,6 +25,7 @@ permissions:
   - 'access content'
   - 'access shortcuts'
   - 'access site-wide contact form'
+  - 'administer rest resources'
   - 'delete own files'
   - 'post comments'
   - 'search content'

@@ -5,9 +5,13 @@ dependencies:
   config:
     - field.field.node.home.body
     - field.field.node.home.field_home
+    - field.field.node.home.field_service_images
+    - image.style.thumbnail
+    - node.type.home
     - field.field.node.home.field_image1
     - node.type.home
   module:
+    - image
     - media_library
     - path
     - text
@@ -40,6 +44,13 @@ content:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
+  field_service_images:
+    type: image_image
+    weight: 123
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
   field_image1:
     type: media_library_widget
     weight: 123
