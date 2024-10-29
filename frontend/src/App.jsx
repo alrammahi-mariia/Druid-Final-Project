@@ -4,6 +4,7 @@ import Home from "./components/Home";
 import Layout from "./pages/Layout";
 import About from "./components/About";
 import Contact from "./components/Contact";
+import Services from "./components/Services";
 
 
 const App = () => {
@@ -12,6 +13,7 @@ const App = () => {
       <Layout>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/services" element={<Services />} />
           <Route path="/about" element={<About />} />
           {/* <Route path="/blog" element={<Blog />} /> */}
           <Route path="/contact" element={<Contact />} />

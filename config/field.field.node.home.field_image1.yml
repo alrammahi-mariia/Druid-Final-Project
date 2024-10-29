@@ -1,0 +1,29 @@
+uuid: f2bf203b-b1af-4ae3-9417-6c5cb88b3c70
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_image1
+    - media.type.image
+    - node.type.home
+id: node.home.field_image1
+field_name: field_image1
+entity_type: node
+bundle: home
+label: Image
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

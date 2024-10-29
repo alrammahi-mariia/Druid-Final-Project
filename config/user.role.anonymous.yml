@@ -9,6 +9,7 @@ dependencies:
     - contact
     - filter
     - rest
+    - media
     - search
     - system
 _core:
@@ -24,3 +25,4 @@ permissions:
   - 'administer rest resources'
   - 'search content'
   - 'use text format restricted_html'
+  - 'view media'

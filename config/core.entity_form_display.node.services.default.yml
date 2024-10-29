@@ -1,23 +1,19 @@
-uuid: 13357ba5-d893-45ca-b5a2-ef2f37c0da5b
+uuid: 087d80d9-df73-4ad2-820e-f158a6b6103b
 langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.home.body
-    - field.field.node.home.field_home
-    - field.field.node.home.field_service_images
+    - field.field.node.services.body
+    - field.field.node.services.field_image_file
     - image.style.thumbnail
-    - node.type.home
-    - field.field.node.home.field_image1
-    - node.type.home
+    - node.type.services
   module:
     - image
-    - media_library
     - path
     - text
-id: node.home.default
+id: node.services.default
 targetEntityType: node
-bundle: home
+bundle: services
 mode: default
 content:
   body:
@@ -36,27 +32,13 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_home:
-    type: string_textarea
-    weight: 122
-    region: content
-    settings:
-      rows: 5
-      placeholder: ''
-    third_party_settings: {  }
-  field_service_images:
+  field_image_file:
     type: image_image
-    weight: 123
+    weight: 122
     region: content
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
-  field_image1:
-    type: media_library_widget
-    weight: 123
-    region: content
-    settings:
-      media_types: {  }
     third_party_settings: {  }
   path:
     type: path
