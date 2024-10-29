@@ -1,40 +1,35 @@
 import React, { useEffect, useState } from "react";
-import { fetchContent } from "../services/api";
+import { fetchImages } from "../services/api";
 
 const Services = () => {
-  const [content, setContent] = useState(null);
   const [loading, setLoading] = useState(true);
   const [imageData, setImageData] = useState([]);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetchContent(
-      "media/image?include=field_media_image&fields[file--file]=uri,url" //include a uuid in the request to get specific image
-    )
-      .then((data) => {
-        console.log("Fetched data:", data); // Log the fetched data
-        console.log("Image url:", data.included); // Log the fetched data
-        setContent(data.data[0]); // Access the first item in the data array
-        setImageData(data.included); // Access the image url array and set it to imageData state in an array
+    const loadImages = async () => {
+      try {
+        const data = await fetchImages();
+
+        console.log("Fetched data:", data); // Log the data
+        if (data && data.included) {
+          console.log("Image URL array:", data.included); // Confirm 'included' object exists
+          setImageData(data.included);
+        } else {
+          console.warn("No 'included' field in response data");
+          setImageData([]); // Set empty array if no data to prevent errors
+        }
+
         setLoading(false);
-      })
-      .catch((error) => {
-        console.error("Error fetching image:", error); // Log any errors
+      } catch (error) {
+        console.error("Error fetching image:", error);
         setError(error);
         setLoading(false);
-      });
+      }
+    };
 
-    //   fetch("https://localhost:62786/jsonapi/images-api")
-    //     .then((response) => response.json())
-    //     .then((data) => {
-    //       console.log("Fetched data:", data); // Log the fetched data
-    //       setContent(data); // Access the first item in the data array
-    //       setLoading(false);
-    //     })
-    //     .catch((imgError) => console.error("Error fetching image:", imgError));
-  }, []);
-
-  console.log("image data", imageData);
+    loadImages();
+  }, []); // Empty dependency array to run only once on mount
 
   if (loading) {
     return <div>Loading...</div>;
@@ -47,11 +42,11 @@ const Services = () => {
   return (
     <div>
       <h1>Services</h1>
-      {/* // <img src={`https://localhost:62786/${imageUrl}`} /> */}
       <div>
         {imageData.map((item, index) => {
           return (
             <div key={index}>
+              {/* Add localhost prefix to access image full url */}
               <img src={`https://localhost:62786${item.attributes.uri.url}`} />
             </div>
           );
