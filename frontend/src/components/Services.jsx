@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { fetchServicesData, fetchServiceCards } from "../services/api_services";
 import ServiceCard from "./ServiceCard";
 import { Container, Row, Col, Image, Card } from "react-bootstrap";
-import "../Services.css"; // Import custom CSS for additional styling
+import "../Services.css";
 
 const Services = () => {
   const [content, setContent] = useState(null);
@@ -64,7 +64,7 @@ const Services = () => {
           <h2 className="text-center mb-4">Our Services</h2>
           <Row className="services-container justify-content-center">
             {services.map((service) => (
-              <Col md={4} sm={6} className="mb-4" key={service.id}>
+              <Col lg={3} md={6} sm={12} className="mb-4" key={service.id}>
                 <ServiceCard
                   title={service.attributes.field_card_title}
                   text={service.attributes.body.value}
@@ -77,8 +77,8 @@ const Services = () => {
         </section>
 
         {/* Testimonials Section */}
-        <section className="testimonials-section text-center my-5">
-          <h2 className="mb-4">Testimonials</h2>
+        <section className="testimonials-section text-center my-5 p-5">
+          <h2 className="mb-4 heading text-white">Testimonials</h2>
           <blockquote className="blockquote">
             <div
               className="lead"
@@ -94,61 +94,62 @@ const Services = () => {
 
         {/* Features Section */}
         <section className="features-section my-5">
-          <h2 className="text-center mb-4">
+          <h2 className="text-center mb-5">
             {content.attributes.field_feature_title}
           </h2>
 
-          <Row className="align-items-center mb-4">
-            <Col md={6}>
-              <Image
-                src={`${API_URL}${imageData[1].attributes.uri.url}`}
-                fluid
-                className="feature-image"
-              />
-            </Col>
-            <Col md={6}>
-              <div
-                className="feature-text"
-                dangerouslySetInnerHTML={{
-                  __html: content.attributes.field_feature.value,
-                }}
-              />
-            </Col>
-          </Row>
-          <Row className="align-items-center mb-4">
-            <Col md={6}>
-              <Image
-                src={`${API_URL}${imageData[2].attributes.uri.url}`}
-                fluid
-                className="feature-image"
-              />
-            </Col>
-            <Col md={6}>
-              <div
-                className="feature-text"
-                dangerouslySetInnerHTML={{
-                  __html: content.attributes.field_feature_2.value,
-                }}
-              />
-            </Col>
-          </Row>
-          <Row className="align-items-center mb-4">
-            <Col md={6}>
-              <Image
-                src={`${API_URL}${imageData[3].attributes.uri.url}`}
-                fluid
-                className="feature-image"
-              />
-            </Col>
-            <Col md={6}>
-              <div
-                className="feature-text"
-                dangerouslySetInnerHTML={{
-                  __html: content.attributes.field_feature_3.value,
-                }}
-              />
-            </Col>
-          </Row>
+          <div className="mx-2 mb-2">
+            <Row className="align-items-center mb-4">
+              <Col md={2}>
+                <Image
+                  src={`${API_URL}${imageData[1].attributes.uri.url}`}
+                  className="feature-image"
+                />
+              </Col>
+              <Col md={10}>
+                <div
+                  className="feature-text"
+                  dangerouslySetInnerHTML={{
+                    __html: content.attributes.field_feature.value,
+                  }}
+                />
+              </Col>
+            </Row>
+            <Row className="align-items-center mb-4">
+              <Col md={2}>
+                <Image
+                  src={`${API_URL}${imageData[2].attributes.uri.url}`}
+                  fluid
+                  className="feature-image"
+                />
+              </Col>
+              <Col md={10}>
+                <div
+                  className="feature-text"
+                  dangerouslySetInnerHTML={{
+                    __html: content.attributes.field_feature_2.value,
+                  }}
+                />
+              </Col>
+            </Row>
+            <Row className="align-items-center mb-4">
+              <Col md={2}>
+                <Image
+                  src={`${API_URL}${imageData[3].attributes.uri.url}`}
+                  fluid
+                  className="feature-image"
+                />
+              </Col>
+              <Col md={10}>
+                <div
+                  className="feature-text"
+                  dangerouslySetInnerHTML={{
+                    __html: content.attributes.field_feature_3.value,
+                  }}
+                />
+              </Col>
+            </Row>
+          </div>
         </section>
       </Container>
     </div>
