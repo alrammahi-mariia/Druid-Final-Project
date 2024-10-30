@@ -1,59 +1,64 @@
+// ServicesPage.js
 import React, { useEffect, useState } from "react";
-import { fetchImages } from "../services/api";
+import { fetchServicesData, fetchServiceCards } from "../services/api_services";
+import ServiceCard from "./ServiceCard";
 
-const Services = () => {
+const ServicesPage = () => {
+  const [content, setContent] = useState(null);
+  const [services, setServices] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [imageData, setImageData] = useState([]);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const loadImages = async () => {
+    const fetchData = async () => {
       try {
-        const data = await fetchImages();
+        const serviceData = await fetchServicesData();
+        const serviceCards = await fetchServiceCards();
 
-        console.log("Fetched data:", data); // Log the data
-        if (data && data.included) {
-          console.log("Image URL array:", data.included); // Confirm 'included' object exists
-          setImageData(data.included);
-        } else {
-          console.warn("No 'included' field in response data");
-          setImageData([]); // Set empty array if no data to prevent errors
-        }
-
-        setLoading(false);
-      } catch (error) {
-        console.error("Error fetching image:", error);
-        setError(error);
+        setContent(serviceData?.data[0]);
+        setServices(serviceCards?.data);
+      } catch (err) {
+        setError(err);
+      } finally {
         setLoading(false);
       }
     };
 
-    loadImages();
-  }, []); // Empty dependency array to run only once on mount
+    fetchData();
+  }, []);
 
-  if (loading) {
-    return <div>Loading...</div>;
-  }
+  console.log(content);
+  console.log(services);
 
-  if (error) {
-    return <div>Error loading content: {error.message}</div>;
-  }
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error loading data: {error.message}</div>;
 
   return (
     <div>
-      <h1>Services</h1>
-      <div>
-        {imageData.map((item, index) => {
-          return (
-            <div key={index}>
-              {/* Add localhost prefix to access image full url */}
-              <img src={`https://localhost:62786${item.attributes.uri.url}`} />
-            </div>
-          );
-        })}
-      </div>
+      {/* Hero Section */}
+      <section>
+        <h1>{title}</h1>
+        <h2>{subtitle}</h2>
+        <p dangerouslySetInnerHTML={{ __html: text }} />
+      </section>
+
+      {/* Services Section */}
+      <section>
+        <h2>Our Services</h2>
+        <div className="services-container">
+          {services.map((service) => (
+            <ServiceCard
+              key={service.id}
+              title={service.attributes.title}
+              subtitle={service.attributes.subtitle}
+              image={service.attributes.field_image}
+              link={service.attributes.link}
+            />
+          ))}
+        </div>
+      </section>
     </div>
   );
 };
 
-export default Services;
+export default ServicesPage;
