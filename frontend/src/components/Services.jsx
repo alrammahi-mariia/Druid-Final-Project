@@ -9,6 +9,7 @@ const Services = () => {
   const [services, setServices] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const API_URL = "https://localhost:62786";
 
   useEffect(() => {
     const fetchData = async () => {
@@ -19,7 +20,7 @@ const Services = () => {
         console.log("Service Data:", serviceData);
         console.log("Service Cards:", serviceCards);
 
-        setImageData(serviceData.included[0]);
+        setImageData(serviceData.included);
         setContent(serviceData.data[0]);
         setServices(serviceCards.data);
       } catch (err) {
@@ -37,8 +38,8 @@ const Services = () => {
 
   return (
     <div>
-      {/* Hero section */}
-      <img src={`https://localhost:62786${imageData.attributes.uri.url}`} />
+      {/* Hero Section */}
+      <img src={`${API_URL}${imageData[0].attributes.uri.url}`} />
       <h1>{content.attributes.field_hero_title.value}</h1>
       <div
         className="lead text-center"
@@ -62,7 +63,7 @@ const Services = () => {
         </div>
       </section>
 
-      {/* Testimonials section */}
+      {/* Testimonials Section */}
       <div
         className="lead text-center"
         dangerouslySetInnerHTML={{
@@ -70,6 +71,30 @@ const Services = () => {
         }}
       />
       <p>{content.attributes.field_title}</p>
+
+      {/* Features Section */}
+      <img src={`${API_URL}${imageData[1].attributes.uri.url}`} />
+      <p></p>
+      <div
+        className="lead text-center"
+        dangerouslySetInnerHTML={{
+          __html: content.attributes.field_feature.value,
+        }}
+      />
+      <img src={`${API_URL}${imageData[2].attributes.uri.url}`} />
+      <div
+        className="lead text-center"
+        dangerouslySetInnerHTML={{
+          __html: content.attributes.field_feature_2.value,
+        }}
+      />
+      <img src={`${API_URL}${imageData[3].attributes.uri.url}`} />
+      <div
+        className="lead text-center"
+        dangerouslySetInnerHTML={{
+          __html: content.attributes.field_feature_3.value,
+        }}
+      />
     </div>
   );
 };

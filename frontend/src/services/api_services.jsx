@@ -5,7 +5,7 @@ const API_URL = "https://localhost:62786/jsonapi";
 // Fetch service page data
 export const fetchServicesData = async () => {
   const response = await axios.get(
-    `${API_URL}/node/services?include=field_hero_img&fields[file--file]=uri,url`
+    `${API_URL}/node/services?include=field_hero_img, field_feature_image, field_feature_image_2,field_feature_image_3&fields[file--file]=uri,url`
   );
   return response.data;
 };
