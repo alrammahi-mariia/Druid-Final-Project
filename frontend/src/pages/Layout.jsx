@@ -43,8 +43,7 @@ const Layout = ({ children }) => {
           </Navbar.Collapse>
         </Container>
       </Navbar>
-      <Container className="mt-5">
-        {" "}
+      <Container className="my-5" fluid>
         {/* Add margin to avoid overlapping with the navbar */}
         <main>{children}</main>
       </Container>

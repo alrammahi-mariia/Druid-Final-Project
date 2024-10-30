@@ -1,7 +1,7 @@
-import { Button, Card, Col } from "react-bootstrap";
+import { Button, Card } from "react-bootstrap";
 
 const ServiceCard = ({ title, text }) => (
-  <Card>
+  <Card className="h-100">
     <Card.Body>
       <Card.Title>{title}</Card.Title>
       <Card.Text>

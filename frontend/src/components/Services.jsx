@@ -40,31 +40,33 @@ const Services = () => {
 
   return (
     <div>
-      <Container fluid className="p-0">
+      <Container fluid className="m-0 p-0">
         {/* Hero Section */}
-        <section className="hero-section position-relative">
-          <Image
-            src={`${API_URL}${imageData[0].attributes.uri.url}`}
-            fluid
-            className="w-100 hero-image"
-          />
-          <div className="hero-overlay d-flex flex-column justify-content-center align-items-center text-center text-white">
-            <h1>{content.attributes.field_hero_title.value}</h1>
-            <div
-              className="hero-text"
-              dangerouslySetInnerHTML={{
-                __html: content.attributes.field_hero_text.value,
-              }}
+        <Row>
+          <section className="hero-section position-relative">
+            <Image
+              src={`${API_URL}${imageData[0].attributes.uri.url}`}
+              fluid
+              className="w-100 hero-image"
             />
-          </div>
-        </section>
-
+            <div className="hero-overlay d-flex flex-column justify-content-center align-items-center text-center text-white">
+              <h1>{content.attributes.field_hero_title.value}</h1>
+              <div
+                className="hero-text"
+                dangerouslySetInnerHTML={{
+                  __html: content.attributes.field_hero_text.value,
+                }}
+              />
+            </div>
+          </section>
+        </Row>
+      </Container>
+      <Container>
         {/* Services Section */}
         <section className="my-5">
-          <h2 className="text-center mb-4">Our Services</h2>
           <Row className="services-container justify-content-center">
             {services.map((service) => (
-              <Col lg={3} md={6} sm={12} className="mb-4" key={service.id}>
+              <Col lg={6} md={4} sm={12} className="mb-4" key={service.id}>
                 <ServiceCard
                   title={service.attributes.field_card_title}
                   text={service.attributes.body.value}
@@ -77,23 +79,27 @@ const Services = () => {
         </section>
 
         {/* Testimonials Section */}
-        <section className="testimonials-section text-center my-5 p-5">
-          <h2 className="mb-4 heading text-white">Testimonials</h2>
-          <blockquote className="blockquote">
-            <div
-              className="lead"
-              dangerouslySetInnerHTML={{
-                __html: content.attributes.field_text.value,
-              }}
-            />
-            <footer className="blockquote-footer">
-              {content.attributes.field_title}
-            </footer>
-          </blockquote>
-        </section>
+        <Container fluid className="p-0 m-0">
+          <Row>
+            <section className="testimonials-section text-center my-5 p-5">
+              <h2 className="mb-4 heading text-white">Testimonials</h2>
+              <blockquote className="blockquote">
+                <div
+                  className="lead"
+                  dangerouslySetInnerHTML={{
+                    __html: content.attributes.field_text.value,
+                  }}
+                />
+                <footer className="blockquote-footer">
+                  {content.attributes.field_title}
+                </footer>
+              </blockquote>
+            </section>
+          </Row>
+        </Container>
 
         {/* Features Section */}
-        <section className="features-section my-5">
+        <section className="features-section mb-5">
           <h2 className="text-center mb-5">
             {content.attributes.field_feature_title}
           </h2>
@@ -132,7 +138,7 @@ const Services = () => {
                 />
               </Col>
             </Row>
-            <Row className="align-items-center mb-4">
+            <Row className="align-items-center mb-5">
               <Col md={2}>
                 <Image
                   src={`${API_URL}${imageData[3].attributes.uri.url}`}

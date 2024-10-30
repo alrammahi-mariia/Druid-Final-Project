@@ -1,11 +1,15 @@
 /* Hero Section Styling */
+
 .hero-section {
   position: relative;
+  width: 100vw;
+  height: 100vh;
   height: 60vh;
   overflow: hidden;
 }
 .hero-image {
   height: 100%;
+  width: 100%;
   object-fit: cover;
 }
 .hero-overlay {
@@ -32,14 +36,14 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s;
 }
-.services-container .card:hover {
+/* .services-container .card:hover {
   transform: scale(1.05);
-}
+} */
 
 /* Testimonials Section */
 .testimonials-section {
   background-color: #000;
-  margin: 0; /* Removes side margins */
+  width: 100vw;
 }
 
 .testimonials-section heading {
