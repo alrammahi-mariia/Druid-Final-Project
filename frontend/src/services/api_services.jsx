@@ -8,6 +8,6 @@ export const fetchServicesData = async () => {
 
 // Fetch services cards
 export const fetchServiceCards = async () => {
-  const response = await axios.get(`${API_URL}/hero_section_data`);
+  const response = await axios.get(`${API_URL}/node/service_card`);
   return response.data;
 };

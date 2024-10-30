@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Navbar, Nav, Container } from "react-bootstrap";
 
-
 const Layout = ({ children }) => {
   return (
     <div className="d-flex flex-column min-vh-100">
@@ -13,7 +12,7 @@ const Layout = ({ children }) => {
           {/* Left-aligned Logo */}
           <Navbar.Brand as={Link} to="/" className="logo me-auto">
             <img
-              src="/public/logo.svg"
+              src="/logo.svg"
               alt="Druid Logo"
               style={{ width: "50px", height: "auto" }}
             />
@@ -33,6 +32,9 @@ const Layout = ({ children }) => {
               </Nav.Link>
               <Nav.Link as={Link} to="/about" className="text-light">
                 About Us
+              </Nav.Link>
+              <Nav.Link as={Link} to="/services" className="text-light">
+                Services
               </Nav.Link>
               <Nav.Link as={Link} to="/contact" className="text-light">
                 Contact
