@@ -1,0 +1,18 @@
+uuid: 7844c167-23d3-48ac-8ce5-06ce1f307388
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: 'Contact us demo'
+type: contact_us_demo
+description: null
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: true
