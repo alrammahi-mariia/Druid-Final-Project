@@ -73,6 +73,7 @@ const Services = () => {
       <p>{content.attributes.field_title}</p>
 
       {/* Features Section */}
+      <h2>{content.attributes.field_feature_title}</h2>
       <img src={`${API_URL}${imageData[1].attributes.uri.url}`} />
       <p></p>
       <div
