@@ -1,0 +1,37 @@
+uuid: 22404393-2488-4fba-9584-f4d9418b6f6a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.service_card.body
+    - field.field.node.service_card.field_card_title
+    - node.type.service_card
+  module:
+    - text
+    - user
+id: node.service_card.default
+targetEntityType: node
+bundle: service_card
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_card_title:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden: {  }

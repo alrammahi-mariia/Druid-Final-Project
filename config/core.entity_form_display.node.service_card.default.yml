@@ -1,19 +1,17 @@
-uuid: 13357ba5-d893-45ca-b5a2-ef2f37c0da5b
+uuid: 916774b6-2d07-4ba7-9630-a1960da3432c
 langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.home.body
-    - field.field.node.home.field_home
-    - field.field.node.home.field_image1
-    - node.type.home
+    - field.field.node.service_card.body
+    - field.field.node.service_card.field_card_title
+    - node.type.service_card
   module:
-    - media_library
     - path
     - text
-id: node.home.default
+id: node.service_card.default
 targetEntityType: node
-bundle: home
+bundle: service_card
 mode: default
 content:
   body:
@@ -32,20 +30,13 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_home:
-    type: string_textarea
+  field_card_title:
+    type: string_textfield
     weight: 122
     region: content
     settings:
-      rows: 5
+      size: 60
       placeholder: ''
-    third_party_settings: {  }
-  field_image1:
-    type: media_library_widget
-    weight: 123
-    region: content
-    settings:
-      media_types: {  }
     third_party_settings: {  }
   path:
     type: path

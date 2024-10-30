@@ -5,11 +5,9 @@ dependencies:
   config:
     - field.field.node.home.body
     - field.field.node.home.field_home
-    - field.field.node.home.field_service_images
     - field.field.node.home.field_image1
     - node.type.home
   module:
-    - image
     - text
     - user
 id: node.home.default
@@ -31,14 +29,6 @@ content:
     third_party_settings: {  }
     weight: 102
     region: content
-  field_service_images:
-    type: image
-    label: above
-    settings:
-      image_link: ''
-      image_style: ''
-      image_loading:
-        attribute: lazy
   field_image1:
     type: entity_reference_entity_view
     label: above

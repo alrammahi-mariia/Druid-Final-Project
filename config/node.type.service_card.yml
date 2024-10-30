@@ -1,4 +1,4 @@
-uuid: b79ff8c6-cf51-448d-bd0c-506b6fa7d792
+uuid: adebbc25-b71c-4bab-9d6d-bebfd62a5e26
 langcode: en
 status: true
 dependencies:
@@ -9,8 +9,8 @@ third_party_settings:
     available_menus:
       - main
     parent: 'main:'
-name: Service_page
-type: services
+name: Service_card
+type: service_card
 description: null
 help: null
 new_revision: true

@@ -3,11 +3,17 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.services.body
-    - field.field.node.services.field_image_file
+    - field.field.node.services.field_hero_image
+    - field.field.node.services.field_hero_subtitle
+    - field.field.node.services.field_hero_text
+    - field.field.node.services.field_hero_title
+    - field.field.node.services.field_section_image
+    - field.field.node.services.field_service_1
+    - field.field.node.services.field_service_2
+    - field.field.node.services.field_text
+    - field.field.node.services.field_title
     - node.type.services
   module:
-    - image
     - text
     - user
 id: node.services.default
@@ -15,23 +21,75 @@ targetEntityType: node
 bundle: services
 mode: default
 content:
-  body:
+  field_hero_image:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 104
+    region: content
+  field_hero_subtitle:
     type: text_default
-    label: hidden
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  field_hero_text:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 103
+    region: content
+  field_hero_title:
+    type: text_default
+    label: above
     settings: {  }
     third_party_settings: {  }
     weight: 101
     region: content
-  field_image_file:
-    type: image
+  field_section_image:
+    type: entity_reference_entity_view
     label: above
     settings:
-      image_link: ''
-      image_style: ''
-      image_loading:
-        attribute: lazy
+      view_mode: default
+      link: false
     third_party_settings: {  }
-    weight: 102
+    weight: 107
+    region: content
+  field_service_1:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 108
+    region: content
+  field_service_2:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 109
+    region: content
+  field_text:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 106
+    region: content
+  field_title:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 105
     region: content
   links:
     settings: {  }
