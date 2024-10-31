@@ -1,8 +1,7 @@
-// ServicesPage.js
 import React, { useEffect, useState } from "react";
 import { fetchServicesData, fetchServiceCards } from "../services/api_services";
 import ServiceCard from "./ServiceCard";
-import { Container, Row, Col, Image, Card } from "react-bootstrap";
+import { Container, Row, Col, Image } from "react-bootstrap";
 import "../Services.css";
 
 const Services = () => {
@@ -11,7 +10,7 @@ const Services = () => {
   const [services, setServices] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const API_URL = "https://localhost:62786";
+  const API_URL = "https://druid-final-project.lndo.site/";
 
   useEffect(() => {
     const fetchData = async () => {
