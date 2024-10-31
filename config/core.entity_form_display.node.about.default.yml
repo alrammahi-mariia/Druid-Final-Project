@@ -1,22 +1,17 @@
-uuid: 916774b6-2d07-4ba7-9630-a1960da3432c
+uuid: 747422a5-76bf-4c9a-9ac3-6060cb0152b4
 langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.service_card.body
-    - field.field.node.service_card.field_card_image
-    - field.field.node.service_card.field_card_link
-    - field.field.node.service_card.field_card_title
-    - image.style.thumbnail
-    - node.type.service_card
+    - field.field.node.about.body
+    - field.field.node.about.field_section_title
+    - node.type.about
   module:
-    - image
-    - link
     - path
     - text
-id: node.service_card.default
+id: node.about.default
 targetEntityType: node
-bundle: service_card
+bundle: about
 mode: default
 content:
   body:
@@ -35,23 +30,7 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_card_image:
-    type: image_image
-    weight: 123
-    region: content
-    settings:
-      progress_indicator: throbber
-      preview_image_style: thumbnail
-    third_party_settings: {  }
-  field_card_link:
-    type: link_default
-    weight: 124
-    region: content
-    settings:
-      placeholder_url: ''
-      placeholder_title: ''
-    third_party_settings: {  }
-  field_card_title:
+  field_section_title:
     type: string_textfield
     weight: 122
     region: content

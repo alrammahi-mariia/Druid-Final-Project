@@ -1,20 +1,17 @@
-uuid: 15af1761-6cc9-4e8b-93f4-ae701185d40b
+uuid: 5d971b30-042b-4b4d-8a01-9ba19e21d1f4
 langcode: en
 status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
-    - field.field.node.service_card.body
-    - field.field.node.service_card.field_card_image
-    - field.field.node.service_card.field_card_link
-    - field.field.node.service_card.field_card_title
-    - node.type.service_card
+    - field.field.node.contact_us_demo.body
+    - node.type.contact_us_demo
   module:
     - text
     - user
-id: node.service_card.teaser
+id: node.contact_us_demo.teaser
 targetEntityType: node
-bundle: service_card
+bundle: contact_us_demo
 mode: teaser
 content:
   body:
@@ -30,7 +27,4 @@ content:
     third_party_settings: {  }
     weight: 100
     region: content
-hidden:
-  field_card_image: true
-  field_card_link: true
-  field_card_title: true
+hidden: {  }

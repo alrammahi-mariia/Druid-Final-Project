@@ -1,0 +1,28 @@
+uuid: 6eac4e23-8e90-46c0-9198-3d2aa8408d49
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.contact_us_demo.body
+    - node.type.contact_us_demo
+  module:
+    - text
+    - user
+id: node.contact_us_demo.default
+targetEntityType: node
+bundle: contact_us_demo
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden: {  }

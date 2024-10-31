@@ -1,4 +1,4 @@
-uuid: b79ff8c6-cf51-448d-bd0c-506b6fa7d792
+uuid: 892e710f-6ded-4cc8-b33b-b2109b28d469
 langcode: en
 status: true
 dependencies:
@@ -9,8 +9,8 @@ third_party_settings:
     available_menus:
       - main
     parent: 'main:'
-name: Services
-type: services
+name: 'about us demo'
+type: about_us_demo
 description: null
 help: null
 new_revision: true

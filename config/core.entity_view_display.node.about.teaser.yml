@@ -1,20 +1,18 @@
-uuid: 15af1761-6cc9-4e8b-93f4-ae701185d40b
+uuid: 67e66a0c-651b-4b2b-ad28-969a551fe0f0
 langcode: en
 status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
-    - field.field.node.service_card.body
-    - field.field.node.service_card.field_card_image
-    - field.field.node.service_card.field_card_link
-    - field.field.node.service_card.field_card_title
-    - node.type.service_card
+    - field.field.node.about.body
+    - field.field.node.about.field_section_title
+    - node.type.about
   module:
     - text
     - user
-id: node.service_card.teaser
+id: node.about.teaser
 targetEntityType: node
-bundle: service_card
+bundle: about
 mode: teaser
 content:
   body:
@@ -31,6 +29,4 @@ content:
     weight: 100
     region: content
 hidden:
-  field_card_image: true
-  field_card_link: true
-  field_card_title: true
+  field_section_title: true

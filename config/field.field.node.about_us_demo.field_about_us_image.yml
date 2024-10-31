@@ -1,0 +1,38 @@
+uuid: 096e3230-8736-41b0-b2ff-1256740a5856
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_about_us_image
+    - node.type.about_us_demo
+  module:
+    - image
+id: node.about_us_demo.field_about_us_image
+field_name: field_about_us_image
+entity_type: node
+bundle: about_us_demo
+label: 'about us image'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'png gif jpg jpeg webp'
+  max_filesize: ''
+  max_resolution: ''
+  min_resolution: ''
+  alt_field: true
+  alt_field_required: true
+  title_field: false
+  title_field_required: false
+  default_image:
+    uuid: ''
+    alt: ''
+    title: ''
+    width: null
+    height: null
+field_type: image

@@ -1,16 +1,16 @@
-uuid: b55fce3a-614f-41d5-b786-9ba95fe4312c
+uuid: 407411de-2c0a-4021-a988-d2446eb69e9a
 langcode: en
 status: true
 dependencies:
   module:
     - node
-id: node.field_service_2
-field_name: field_service_2
+    - text
+id: node.field_feature
+field_name: field_feature
 entity_type: node
-type: entity_reference
-settings:
-  target_type: node
-module: core
+type: text_long
+settings: {  }
+module: text
 locked: false
 cardinality: 1
 translatable: true
