@@ -8,7 +8,7 @@ const ServiceCard = ({ service }) => (
       <Card.Text>
         <div
           dangerouslySetInnerHTML={{
-            __html: service.attributes.body.value,
+            __html: service.attributes.field_card_text.value,
           }}
         />
       </Card.Text>
