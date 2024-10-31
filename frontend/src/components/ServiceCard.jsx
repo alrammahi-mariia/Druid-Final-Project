@@ -1,17 +1,24 @@
 import { Button, Card } from "react-bootstrap";
+import { LinkContainer } from "react-router-bootstrap";
 
-const ServiceCard = ({ title, text }) => (
+const ServiceCard = ({ service }) => (
   <Card className="h-100">
     <Card.Body>
-      <Card.Title>{title}</Card.Title>
+      <Card.Title>{service.attributes.field_card_title}</Card.Title>
       <Card.Text>
         <div
           dangerouslySetInnerHTML={{
-            __html: text,
+            __html: service.attributes.body.value,
           }}
         />
       </Card.Text>
-      <Button variant="danger">Learn more</Button>
+      <LinkContainer
+        to={`/services/${service.id}`}
+        state={{ service: service }}
+        style={{ cursor: "pointer" }}
+      >
+        <Button variant="danger">Learn more</Button>
+      </LinkContainer>
     </Card.Body>
   </Card>
 );

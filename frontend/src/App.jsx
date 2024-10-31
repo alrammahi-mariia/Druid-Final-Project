@@ -5,6 +5,7 @@ import Layout from "./pages/Layout";
 import About from "./components/About";
 import Contact from "./components/Contact";
 import Services from "./components/Services";
+import ServiceSingle from "./components/ServiceSingle";
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/services" element={<Services />} />
+          <Route path="/services/:single" element={<ServiceSingle />} />
           <Route path="/about" element={<About />} />
           {/* <Route path="/blog" element={<Blog />} /> */}
           <Route path="/contact" element={<Contact />} />

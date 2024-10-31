@@ -67,12 +67,7 @@ const Services = () => {
           <Row className="services-container justify-content-center">
             {services.map((service) => (
               <Col lg={6} md={4} sm={12} className="mb-4" key={service.id}>
-                <ServiceCard
-                  title={service.attributes.field_card_title}
-                  text={service.attributes.body.value}
-                  image={service.attributes.field_image}
-                  link={service.attributes.link}
-                />
+                <ServiceCard service={service} />
               </Col>
             ))}
           </Row>
@@ -99,7 +94,7 @@ const Services = () => {
         </Container>
 
         {/* Features Section */}
-        <section className="features-section mb-5">
+        <section className="features-section my-5">
           <h2 className="text-center mb-5">
             {content.attributes.field_feature_title}
           </h2>
