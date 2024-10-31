@@ -1,8 +1,6 @@
 import axios from "axios";
 
-
 const API_URL = "http://druid-final-project.lndo.site/home";
-
 
 export const fetchContent = async () => {
   const response = await axios.get(API_URL);
@@ -12,7 +10,7 @@ export const fetchContent = async () => {
 export const fetchImages = async () => {
   try {
     const response = await axios.get(
-      `${API_URL}/jsonapi/media/image?include=field_media_image&fields[file--file]=uri,url`
+      `${API_URL}/jsonapi/media/image?include=field_media_img&fields[file--file]=uri,url`
     );
 
     console.log("Fetched data:", response.data); // Log the fetched data

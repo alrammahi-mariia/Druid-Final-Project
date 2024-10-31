@@ -5,6 +5,8 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.service_card.body
+    - field.field.node.service_card.field_card_image
+    - field.field.node.service_card.field_card_link
     - field.field.node.service_card.field_card_title
     - node.type.service_card
   module:
@@ -29,4 +31,6 @@ content:
     weight: 100
     region: content
 hidden:
+  field_card_image: true
+  field_card_link: true
   field_card_title: true

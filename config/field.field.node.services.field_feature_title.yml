@@ -1,15 +1,15 @@
-uuid: ef668907-b7d2-497b-8889-bbee3f87c664
+uuid: 49b7afe9-5562-4cbc-b5ae-50ec2151f3d6
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_title
+    - field.storage.node.field_feature_title
     - node.type.services
-id: node.services.field_title
-field_name: field_title
+id: node.services.field_feature_title
+field_name: field_feature_title
 entity_type: node
 bundle: services
-label: 'testimonial source'
+label: 'Feature title'
 description: ''
 required: false
 translatable: false
