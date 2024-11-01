@@ -1,6 +1,7 @@
 import axios from "axios";
 
 export const API_URL = "https://druid-final-project.lndo.site/jsonapi";
+export const URL = "https://druid-final-project.lndo.site/";
 
 // Fetch service page data
 export const fetchServicesData = async () => {

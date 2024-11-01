@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { fetchHeroParagraph } from "../services/api_services";
-import { API_URL } from "../services/api_services";
+import { URL } from "../services/api_services";
 import { Image } from "react-bootstrap";
 
 const HeroSection = ({ parentId }) => {
@@ -29,7 +29,7 @@ const HeroSection = ({ parentId }) => {
   return (
     <div>
       <Image
-        src={`${API_URL}${imageData[0].attributes.uri.url}`}
+        src={`${URL}${imageData[0].attributes.uri.url}`}
         fluid
         className="w-100 hero-image"
       />
