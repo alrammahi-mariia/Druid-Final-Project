@@ -3,6 +3,7 @@ import { fetchServicesData, fetchServiceCards } from "../services/api_services";
 import ServiceCard from "../components/ServiceCard";
 import { Container, Row, Col, Image } from "react-bootstrap";
 import "../Services.css";
+import HeroSection from "../components/HeroSection";
 
 const Services = () => {
   const [content, setContent] = useState(null);
@@ -11,6 +12,7 @@ const Services = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const API_URL = "https://druid-final-project.lndo.site/";
+  const parentId = "2";
 
   useEffect(() => {
     const fetchData = async () => {
@@ -39,8 +41,10 @@ const Services = () => {
 
   return (
     <div>
-      <Container fluid className="m-0 p-0">
-        {/* Hero Section */}
+      {/* Hero Section */}
+      <HeroSection parentId={parentId} />
+
+      {/* <Container fluid className="m-0 p-0">
         <Row>
           <section className="hero-section position-relative">
             <Image
@@ -59,7 +63,7 @@ const Services = () => {
             </div>
           </section>
         </Row>
-      </Container>
+      </Container> */}
       <Container>
         {/* Services Section */}
         <section className="my-5">

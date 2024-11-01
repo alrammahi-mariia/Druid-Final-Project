@@ -13,12 +13,14 @@ const HeroSection = ({ parentId }) => {
       const filteredData = data.data.find(
         (paragraph) => paragraph.attributes.parent_id === parentId
       );
-      const images = data.included;
-      console.log(images);
-      console.log(filteredData);
-      setHeroData(filteredData);
+      const filteredImageData = data.included.filter(
+        (image) => (filteredData) => filteredData.id === image.id
+      );
+      // console.log(images);
+      console.log("Filtered data", filteredData);
 
-      setImageData(images);
+      setHeroData(filteredData);
+      setImageData(filteredImageData);
     };
 
     fetchData();
@@ -29,7 +31,7 @@ const HeroSection = ({ parentId }) => {
   return (
     <div>
       <Image
-        src={`${URL}${imageData[0].attributes.uri.url}`}
+        src={`${URL}${imageData.attributes.uri.url}`}
         fluid
         className="w-100 hero-image"
       />
