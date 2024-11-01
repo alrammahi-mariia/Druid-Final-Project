@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { fetchServicesData, fetchServiceCards } from "../services/api_services";
-import ServiceCard from "./ServiceCard";
+import ServiceCard from "../components/ServiceCard";
 import { Container, Row, Col, Image } from "react-bootstrap";
 import "../Services.css";
 

@@ -4,8 +4,9 @@ import Home from "./components/Home";
 import Layout from "./pages/Layout";
 import About from "./components/About";
 import Contact from "./components/Contact";
-import Services from "./components/Services";
-import ServiceSingle from "./components/ServiceSingle";
+import Services from "./pages/Services";
+import ServiceSingle from "./pages/ServiceSingle";
+import ServicePage from "./pages/ServicePage";
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
           <Route path="/about" element={<About />} />
           {/* <Route path="/blog" element={<Blog />} /> */}
           <Route path="/contact" element={<Contact />} />
+          <Route path="/service-single" element={<ServicePage />} />
         </Routes>
       </Layout>
     </Router>

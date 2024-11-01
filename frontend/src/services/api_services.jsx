@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "https://druid-final-project.lndo.site/jsonapi";
+export const API_URL = "https://druid-final-project.lndo.site/jsonapi";
 
 // Fetch service page data
 export const fetchServicesData = async () => {
@@ -13,5 +13,19 @@ export const fetchServicesData = async () => {
 // Fetch services cards
 export const fetchServiceCards = async () => {
   const response = await axios.get(`${API_URL}/node/service_card`);
+  return response.data;
+};
+
+// Fetch paragraph data
+export const fetchHeroParagraph = async () => {
+  const response = await axios.get(
+    `${API_URL}/paragraph/hero_paragraph?include=field_image&fields[file--file]=uri,url`
+  );
+  return response.data;
+};
+export const fetchTextImage = async () => {
+  const response = await axios.get(
+    `${API_URL}/paragraph/text_image?include=field_image&fields[file--file]=uri,url`
+  );
   return response.data;
 };
