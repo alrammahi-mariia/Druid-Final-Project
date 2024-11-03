@@ -1,13 +1,28 @@
 import React from "react";
 import { URL } from "../services/api_services";
+import { Col, Container, Image, Row } from "react-bootstrap";
 
 const TextImage = ({ title, text, imageUrl }) => {
   return (
-    <section className="hero">
-      <h1>{title}</h1>
-      <p>{text}</p>
-      {imageUrl && <img src={`${URL}${imageUrl}`} alt={title} />}
-    </section>
+    <Container fluid>
+      <Row>
+        <Col md={6}>
+          {imageUrl && (
+            <Image
+              src={`${URL}${imageUrl}`}
+              alt={title}
+              style={{ width: "600px" }}
+            />
+          )}
+        </Col>
+        <Col md={6}>
+          <div>
+            <h1>{title}</h1>
+            <p>{text}</p>
+          </div>
+        </Col>
+      </Row>
+    </Container>
   );
 };
 
