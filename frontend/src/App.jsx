@@ -6,7 +6,7 @@ import About from "./components/About";
 import Contact from "./components/Contact";
 import Services from "./pages/Services";
 import ServiceSingle from "./pages/ServiceSingle";
-import ServicePage from "./pages/ServicePage";
+import ServicePage from "./pages/ServiceSingle";
 
 const App = () => {
   return (
