@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import HeroSection from "../components/HeroSection";
 import TextImageSection from "../components/TextImageSection";
+import TextSection from "../components/TextSection";
 
 const ServicePage = () => {
   const [heroData, setHeroData] = useState([]);
   const [sectionData, setSectionData] = useState([]);
+  const [textSectionData, setTextSectionData] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -52,6 +54,19 @@ const ServicePage = () => {
             };
           });
         setSectionData(sections);
+
+        // Filter text sections data
+        const textSections = data.included
+          .filter((item) => item.type === "paragraph--text")
+          .map((text) => {
+            return {
+              id: text.id,
+              title: text.attributes.field_text_title,
+              text: text.attributes.field_section_text.value,
+            };
+          });
+
+        setTextSectionData(textSections);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -63,6 +78,8 @@ const ServicePage = () => {
   return (
     <div>
       {heroData && <HeroSection {...heroData} />}
+      {textSectionData &&
+        textSectionData.map((text) => <TextSection key={text.id} {...text} />)}
       {sectionData &&
         sectionData.map((section) => (
           <TextImageSection key={section.id} {...section} />
