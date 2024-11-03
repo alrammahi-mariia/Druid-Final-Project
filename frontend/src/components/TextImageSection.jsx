@@ -4,7 +4,7 @@ import { Col, Container, Image, Row } from "react-bootstrap";
 
 const TextImage = ({ title, text, imageUrl }) => {
   return (
-    <Container fluid>
+    <Container fluid className="my-5">
       <Row>
         <Col md={6}>
           {imageUrl && (

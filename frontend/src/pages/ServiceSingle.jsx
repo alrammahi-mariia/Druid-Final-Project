@@ -78,12 +78,18 @@ const ServicePage = () => {
   return (
     <div>
       {heroData && <HeroSection {...heroData} />}
+      {sectionData &&
+        sectionData.map(
+          (section, index) =>
+            index === 0 && <TextImageSection key={index} {...section} />
+        )}
       {textSectionData &&
         textSectionData.map((text) => <TextSection key={text.id} {...text} />)}
       {sectionData &&
-        sectionData.map((section) => (
-          <TextImageSection key={section.id} {...section} />
-        ))}
+        sectionData.map(
+          (section, index) =>
+            index >= 1 && <TextImageSection key={index} {...section} />
+        )}
     </div>
   );
 };

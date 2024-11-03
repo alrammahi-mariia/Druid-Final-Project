@@ -3,7 +3,7 @@ import { Container, Row } from "react-bootstrap";
 
 const TextSection = ({ title, text }) => {
   return (
-    <Container fluid>
+    <Container className="testimonials-section text-left p-5 my-5">
       <Row>
         <div>
           <h1>{title}</h1>

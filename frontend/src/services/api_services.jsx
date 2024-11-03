@@ -16,17 +16,3 @@ export const fetchServiceCards = async () => {
   const response = await axios.get(`${API_URL}/node/service_card`);
   return response.data;
 };
-
-// Fetch paragraph data
-export const fetchHeroParagraph = async () => {
-  const response = await axios.get(
-    `${API_URL}/paragraph/hero_paragraph?include=field_image&fields[file--file]=uri,url`
-  );
-  return response.data;
-};
-export const fetchTextImage = async () => {
-  const response = await axios.get(
-    `${API_URL}/paragraph/text_image?include=field_image&fields[file--file]=uri,url`
-  );
-  return response.data;
-};
