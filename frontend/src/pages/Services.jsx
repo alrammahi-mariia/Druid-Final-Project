@@ -42,7 +42,7 @@ const Services = () => {
   return (
     <div>
       {/* Hero Section */}
-      <HeroSection parentId={parentId} />
+      <HeroSection />
 
       {/* <Container fluid className="m-0 p-0">
         <Row>

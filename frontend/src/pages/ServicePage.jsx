@@ -3,14 +3,14 @@ import HeroSection from "../components/HeroSection";
 import TextImageSection from "../components/TextImageSection";
 
 const ServicePage = () => {
-  const [heroData, setHeroData] = useState(null);
-  const [sectionData, setSectionData] = useState(null);
+  const [heroData, setHeroData] = useState([]);
+  const [sectionData, setSectionData] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          "https://localhost:52824/jsonapi/node/servicesingle?include=field_hero,field_hero.field_image,field_section_1.field_text_image"
+          "https://localhost:52824/jsonapi/node/servicesingle?include=field_content,field_content.field_image,field_content.field_text_image"
         );
         const data = await response.json();
         console.log(data);
@@ -31,21 +31,27 @@ const ServicePage = () => {
           imageUrl: heroImage.attributes.uri.url,
         });
 
-        // Filter image-text section data
-        const section = data.included.find(
-          (item) => item.type === "paragraph--image_text"
-        );
-        const sectionImage = data.included.find(
-          (item) =>
-            item.type === "file--file" &&
-            item.id === section.relationships.field_image.data.id
-        );
+        // Filter image-text section data and include image URLs
+        const sections = data.included
+          .filter((item) => item.type === "paragraph--text_image")
+          .map((section) => {
+            // Check if field_text_image.data exists and has an ID
+            const sectionImage = section.relationships.field_text_image.data
+              ? data.included.find(
+                  (item) =>
+                    item.type === "file--file" &&
+                    item.id === section.relationships.field_text_image.data?.id
+                )
+              : null;
 
-        setSectionData({
-          title: section.attributes.field_title,
-          text: section.attributes.field_text,
-          imageUrl: sectionImage.attributes.uri.url,
-        });
+            return {
+              id: section.id,
+              title: section.attributes.field_section_title,
+              text: section.attributes.field_text.value,
+              imageUrl: sectionImage ? sectionImage.attributes.uri.url : null,
+            };
+          });
+        setSectionData(sections);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -57,7 +63,10 @@ const ServicePage = () => {
   return (
     <div>
       {heroData && <HeroSection {...heroData} />}
-      {sectionData && <TextImageSection {...sectionData} />}
+      {sectionData &&
+        sectionData.map((section) => (
+          <TextImageSection key={section.id} {...section} />
+        ))}
     </div>
   );
 };
