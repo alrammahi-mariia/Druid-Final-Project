@@ -2,18 +2,20 @@ import React, { useEffect, useState } from "react";
 import HeroSection from "../components/HeroSection";
 import CardComponent from "../components/CardComponent";
 import { URL } from "../services/api_services";
-import "../Services.css";
-import { Col, Row } from "react-bootstrap";
+import { Col, Row, Container } from "react-bootstrap";
+import Testimonial from "../components/Testimonial";
 
 const Services = () => {
   const [heroData, setHeroData] = useState([]);
   const [cardData, setCardData] = useState([]);
+  const [testimonialData, setTestimonialData] = useState([]);
+  const [featureData, setFeatureData] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `${URL}/jsonapi/node/services?include=field_services_content,field_services_content.field_image`
+          `${URL}/jsonapi/node/services?include=field_services_content,field_services_content.field_image,field_services_content.field_feature_image`
         );
         const data = await response.json();
         console.log(data);
@@ -46,6 +48,15 @@ const Services = () => {
           });
 
         setCardData(cards);
+
+        // Filter testimonial data
+        const testimonial = data.included.find(
+          (item) => item.type === "paragraph--testimonial"
+        );
+        setTestimonialData({
+          text: testimonial.attributes.field_testimonial,
+          author: testimonial.attributes.field_author,
+        });
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -56,17 +67,24 @@ const Services = () => {
 
   return (
     <div>
+      {/* Hero section */}
       {heroData && <HeroSection {...heroData} />}
+      {/* Card section */}
       <section className="my-5">
-        <Row className="services-container justify-content-center">
-          {cardData &&
-            cardData.map((card) => (
-              <Col lg={6} md={4} sm={12} className="mb-4" key={card.id}>
-                <CardComponent {...card} />
-              </Col>
-            ))}
-        </Row>
+        <Container>
+          <Row className="services-container justify-content-center">
+            {cardData &&
+              cardData.map((card) => (
+                <Col lg={6} md={4} sm={12} className="mb-4" key={card.id}>
+                  <CardComponent {...card} />
+                </Col>
+              ))}
+          </Row>
+        </Container>
       </section>
+      {/* Testimonial section */}
+      {testimonialData && <Testimonial {...testimonialData} />}
+      {/* Features section */}
     </div>
   );
 };
