@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import HeroSection from "../components/HeroSection";
 import TextImageSection from "../components/TextImageSection";
 import TextSection from "../components/TextSection";
+import { URL } from "../services/api_services";
 
 const ServicePage = () => {
   const [heroData, setHeroData] = useState([]);
@@ -12,7 +13,7 @@ const ServicePage = () => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          "https://localhost:52824/jsonapi/node/servicesingle?include=field_content,field_content.field_image,field_content.field_text_image"
+          `${URL}/jsonapi/node/servicesingle?include=field_content,field_content.field_image,field_content.field_text_image`
         );
         const data = await response.json();
         console.log(data);
