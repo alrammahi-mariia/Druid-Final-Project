@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import HeroSection from "../components/HeroSection";
 import CardComponent from "../components/CardComponent";
 import { URL } from "../services/api_services";
+import "../Services.css";
+import { Col, Row } from "react-bootstrap";
 
 const Services = () => {
   const [heroData, setHeroData] = useState([]);
@@ -55,8 +57,16 @@ const Services = () => {
   return (
     <div>
       {heroData && <HeroSection {...heroData} />}
-      {cardData &&
-        cardData.map((card) => <CardComponent key={card.id} {...card} />)}
+      <section className="my-5">
+        <Row className="services-container justify-content-center">
+          {cardData &&
+            cardData.map((card) => (
+              <Col lg={6} md={4} sm={12} className="mb-4" key={card.id}>
+                <CardComponent {...card} />
+              </Col>
+            ))}
+        </Row>
+      </section>
     </div>
   );
 };
