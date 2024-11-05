@@ -4,7 +4,9 @@ import { fetchPageContent } from "../store/contentSlice";
 import HeroSection from "../components/HeroSection";
 import CardComponent from "../components/CardComponent";
 import Testimonial from "../components/Testimonial";
-import { Col, Row, Container } from "react-bootstrap";
+import { Row, Container, Col } from "react-bootstrap";
+import TextSection from "../components/TextSection";
+import Feature from "../components/Feature";
 
 const Services = () => {
   const dispatch = useDispatch();
@@ -16,9 +18,9 @@ const Services = () => {
       fetchPageContent({
         contentType: "services",
         includedFields: [
-          "field_services_content.field_image",
           "field_services_content",
           "field_services_content.field_feature_image",
+          "field_services_content.field_image",
         ],
       })
     );
@@ -29,7 +31,8 @@ const Services = () => {
   console.log("Data from Redux", serviceData);
 
   // Destructure the data from serviceData
-  const { heroData, cardData, testimonialData } = serviceData;
+  const { heroData, cardData, testimonialData, textData, featureData } =
+    serviceData;
 
   return (
     <div>
@@ -51,6 +54,17 @@ const Services = () => {
       {/* Testimonial section */}
       {serviceData.testimonialData && <Testimonial {...testimonialData} />}
       {/* Features section */}
+      {serviceData.textData && <TextSection {...textData} />}
+      <section className="my-5">
+        <Container>
+          <Row className="services-container justify-content-center">
+            {serviceData.featureData &&
+              serviceData.featureData.map((feature) => (
+                <Feature {...feature} key={feature.id} />
+              ))}
+          </Row>
+        </Container>
+      </section>
     </div>
   );
 };

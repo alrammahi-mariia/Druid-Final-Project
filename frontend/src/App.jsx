@@ -1,9 +1,9 @@
 import React from "react";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
-import Home from "./components/Home";
+import Home from "./pages/Home";
 import Layout from "./pages/Layout";
-import About from "./components/About";
-import Contact from "./components/Contact";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
 import Services from "./pages/Services";
 import ServiceSingle from "./pages/ServiceSingle";
 import ServicePage from "./pages/ServiceSingle";
