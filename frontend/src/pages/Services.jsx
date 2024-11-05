@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchPageContent } from "../store/contentSlice";
 import HeroSection from "../components/HeroSection";
@@ -15,14 +15,21 @@ const Services = () => {
     dispatch(
       fetchPageContent({
         contentType: "services",
-        includedFields:
-          "field_services_content,field_services_content.field_image,field_services_content.field_feature_image",
+        includedFields: [
+          "field_services_content.field_image",
+          "field_services_content",
+          "field_services_content.field_feature_image",
+        ],
       })
     );
   }, [dispatch]);
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error}</p>;
+  console.log("Data from Redux", serviceData);
+
+  // Destructure the data from serviceData
+  const { heroData, cardData, testimonialData } = serviceData;
 
   return (
     <div>
@@ -32,8 +39,8 @@ const Services = () => {
       <section className="my-5">
         <Container>
           <Row className="services-container justify-content-center">
-            {cardData &&
-              serviceData.cardData?.map((card) => (
+            {serviceData.cardData &&
+              serviceData.cardData.map((card) => (
                 <Col lg={6} md={4} sm={12} className="mb-4" key={card.id}>
                   <CardComponent {...card} />
                 </Col>

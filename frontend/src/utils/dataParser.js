@@ -1,8 +1,8 @@
 export const processIncludedData = (included) => {
   const data = {
-    heroData: null,
+    heroData: [],
     cardData: [],
-    testimonialData: null,
+    testimonialData: [],
   };
 
   included.forEach((item) => {
@@ -27,6 +27,7 @@ export const processIncludedData = (included) => {
           title: item.attributes.field_card_title,
           text: item.attributes.field_card_description,
         });
+
         break;
 
       case "paragraph--testimonial":

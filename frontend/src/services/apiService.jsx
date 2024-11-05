@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const URL = "https://druid-final-project.lndo.site/";
+export const URL = "https://druid-final-project.lndo.site";
 
 // Function to fetch data based on content type with specific included fields
 export const fetchPageData = async (contentType, includedFields) => {
@@ -9,6 +9,7 @@ export const fetchPageData = async (contentType, includedFields) => {
     ? `?include=${includedFields.join(",")}`
     : "";
   const apiUrl = `${URL}/jsonapi/node/${contentType}${fieldsQuery}`;
+  console.log("Fetching from URL:", apiUrl);
 
   try {
     const response = await axios.get(apiUrl);

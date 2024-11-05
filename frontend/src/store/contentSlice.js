@@ -8,6 +8,7 @@ export const fetchPageContent = createAsyncThunk(
   async ({ contentType, includedFields }, thunkAPI) => {
     try {
       const data = await fetchPageData(contentType, includedFields);
+      console.log("API response data:", data);
       return processIncludedData(data.included);
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -45,6 +46,7 @@ const contentSlice = createSlice({
       .addCase(fetchPageContent.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload;
+        console.error("Error fetching page content:", action.payload);
       });
   },
 });
