@@ -1,5 +1,5 @@
 import React from "react";
-import { URL } from "../services/api_services";
+import { URL } from "../services/apiService";
 import { Container, Image, Row } from "react-bootstrap";
 
 const HeroSection = ({ title, description, imageUrl }) => {
