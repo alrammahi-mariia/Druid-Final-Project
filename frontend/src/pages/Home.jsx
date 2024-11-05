@@ -1,130 +1,56 @@
-import React, { useEffect, useState } from "react";
-import { fetchContent } from "../services/api";
-import { Card, Row, Col, Container } from "react-bootstrap";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchPageContent } from "../store/contentSlice";
+import HeroSection from "../components/HeroSection";
+import CardComponent from "../components/CardComponent";
+import { Row, Container, Col } from "react-bootstrap";
+import TextSection from "../components/TextSection";
 
 const Home = () => {
-  const [content, setContent] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const dispatch = useDispatch();
+  const { data, loading, error } = useSelector((state) => state.content);
+  const homeData = data.home || {};
 
   useEffect(() => {
-    fetchContent() // Fetching content directly from the API
-      .then((data) => {
-        console.log("Fetched data:", data); // Log fetched data
-        setContent(data); // Set the fetched content
-        setLoading(false);
+    dispatch(
+      fetchPageContent({
+        contentType: "home",
+        includedFields: [
+          "field_home_content",
+          "field_home_content.field_image",
+        ],
       })
-      .catch((error) => {
-        console.error("Error fetching content:", error);
-        setError(error);
-        setLoading(false);
-      });
-  }, []);
+    );
+  }, [dispatch]);
 
-  if (loading) {
-    return <div>Loading...</div>;
-  }
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error}</p>;
+  console.log("Data from Redux", homeData);
 
-  if (error) {
-    return <div>Error loading content: {error.message}</div>;
-  }
+  // Destructure the data from homeData
+  const { heroData, cardData, textData } = homeData;
 
   return (
-    <Container style={{ margin: "0 20px" }}>
-      {" "}
-      {/* Apply left and right margin */}
-      {/* <h1 className="mt-4">Home</h1> */}
-      {content.length > 0 ? (
-        <Row className="mt-4">
-          {content.map((item) => (
-            <div key={item.nid[0].value} className="mb-4">
-              {/* Render body content directly */}
-              {item.body && item.body.length > 0 && (
-                <div
-                  dangerouslySetInnerHTML={{ __html: item.body[0].value }}
-                  className="mb-3"
-                  style={{
-                    height: "40%",
-                    overflowY: "auto",
-                    fontSize: "50px",
-                    display: "flex",
-                    alignItems: "start",
-                    justifyContent: "center",
-                  }}
-                />
-              )}
-
-              {/* Display field_service_images */}
-              {item.field_service_images &&
-                item.field_service_images.length > 0 &&
-                item.field_service_images.map((image, index) => (
-                  <Row key={index} className="mb-4" style={{ width: "100%" }}>
-                    {index % 2 === 0 ? (
-                      <>
-                        {/* Even index: Image on left, text on right */}
-                        <Col md={6}>
-                          <Card className="card-custom">
-                            <Card.Img
-                              variant="top"
-                              src={image.url}
-                              alt={image.alt || "Image"}
-                              className="card-img-custom"
-                              style={{
-                                width: "100%",
-                                height: "600px",
-                                objectFit: "cover",
-                              }} 
-                            />
-                          </Card>
-                        </Col>
-                        <Col md={6} className="d-flex align-items-center">
-                          <Card className="card-custom">
-                            <Card.Body className="card-body-custom">
-                              <Card.Text className="text-center">
-                                {image.alt || "Image description"}
-                              </Card.Text>
-                            </Card.Body>
-                          </Card>
-                        </Col>
-                      </>
-                    ) : (
-                      // Odd index: Image on right, text on left
-                      <>
-                        <Col md={6} className="d-flex align-items-center">
-                          <Card className="card-custom">
-                            <Card.Body className="card-body-custom">
-                              <Card.Text className="text-center">
-                                {image.alt || "Image description"}
-                              </Card.Text>
-                            </Card.Body>
-                          </Card>
-                        </Col>
-                        <Col md={6}>
-                          <Card className="card-custom">
-                            <Card.Img
-                              variant="top"
-                              src={image.url}
-                              alt={image.alt || "Image"}
-                              className="card-img-custom"
-                              style={{
-                                width: "100%",
-                                height: "600px",
-                                objectFit: "cover",
-                              }} 
-                            />
-                          </Card>
-                        </Col>
-                      </>
-                    )}
-                  </Row>
-                ))}
-            </div>
-          ))}
-        </Row>
-      ) : (
-        <div>No content available</div>
-      )}
-    </Container>
+    <div>
+      {/* Hero section */}
+      {homeData.heroData && <HeroSection {...heroData} />}
+      {/* Text section */}
+      {homeData.textData && <TextSection {...textData} />}
+      {/* Cards section */}
+      <section className="my-5">
+        <Container>
+          <Row className="services-container justify-content-center">
+            {homeData.cardData &&
+              homeData.cardData.map((card) => (
+                <Col lg={6} md={4} sm={12} className="mb-4" key={card.id}>
+                  <CardComponent {...card} />
+                </Col>
+              ))}
+          </Row>
+        </Container>
+      </section>
+      {homeData.textData && <TextSection {...textData} />}
+    </div>
   );
 };
 
