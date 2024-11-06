@@ -11,7 +11,7 @@ const Feature = ({ title, text, imageUrl }) => {
             <Image
               src={`${URL}${imageUrl}`}
               alt={title}
-              style={{ width: "200px" }}
+              style={{ width: "5em" }}
             />
           )}
         </Col>

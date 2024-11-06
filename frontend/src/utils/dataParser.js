@@ -49,7 +49,7 @@ export const processIncludedData = (included) => {
 
       case "paragraph--text_image":
         // Find associated images if they exist (returns an array or null)
-        const sectionImages = item.relationships.field_text_image.data
+        const sectionImages = item.relationships.field_text_image?.data
           ? included.filter(
               (img) =>
                 img.type === "file--file" &&
@@ -73,24 +73,25 @@ export const processIncludedData = (included) => {
         break;
 
       case "paragraph--feature":
-        const featureImages = included.filter(
-          (img) =>
-            img.type === "file--file" &&
-            img.id === item.relationships.field_feature_image?.id
-        );
-        // Check if featureImages array has any items and use the first image if it exists
-        let imageUrl = null;
-        if (
-          featureImages.length > 0 &&
-          featureImages[0].attributes &&
-          featureImages[0].attributes.uri
-        ) {
-          imageUrl = featureImages[0].attributes.uri.url; // Assuming the correct path is uri.url
-        }
+        const featureImages = item.relationships.field_feature_image?.data
+          ? included.filter(
+              (img) =>
+                img.type === "file--file" &&
+                item.relationships.field_feature_image.data.id === img.id
+            )
+          : [];
+        // Get the URL(s) for images: if only one image is needed, take the first; otherwise, map all URLs
+        const featureImageUrls = featureImages.length
+          ? featureImages.map((img) => img.attributes.uri.url)
+          : null;
+
         data.featureData.push({
           text: item.attributes.field_feature_description,
           title: item.attributes.field_feature_title,
-          imageUrl: imageUrl,
+          imageUrl:
+            featureImageUrls.length === 1
+              ? featureImageUrls[0]
+              : featureImageUrls,
         });
         break;
 
