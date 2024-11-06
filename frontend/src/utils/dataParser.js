@@ -48,15 +48,27 @@ export const processIncludedData = (included) => {
         break;
 
       case "paragraph--text_image":
-        // const image = included.filter(
-        //   (img) =>
-        //     img.type === "file--file" &&
-        //     img.id === item.relationships.field_text_image?.id
-        // );
+        // Find associated images if they exist (returns an array or null)
+        const sectionImages = item.relationships.field_text_image.data
+          ? included.filter(
+              (img) =>
+                img.type === "file--file" &&
+                item.relationships.field_text_image.data.id === img.id
+            )
+          : [];
+
+        // Get the URL(s) for images: if only one image is needed, take the first; otherwise, map all URLs
+        const imageUrls = sectionImages.length
+          ? sectionImages.map((img) => img.attributes.uri.url)
+          : null;
+
         data.textImageData.push({
-          text_long: item.attributes.field_text_long?.processed,
+          id: item.id,
           title: item.attributes.field_section_title,
+          text_long: item.attributes.field_text_long?.processed,
           text_short: item.attributes.field_text,
+          // If only one image is needed, use `imageUrls[0]`; if all are needed, use `imageUrls`
+          imageUrl: imageUrls.length === 1 ? imageUrls[0] : imageUrls,
         });
         break;
 
