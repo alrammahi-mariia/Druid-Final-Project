@@ -1,6 +1,6 @@
 import React from "react";
 import { URL } from "../services/apiService";
-import { Container, Image, Row } from "react-bootstrap";
+import { Button, Container, Image, Row } from "react-bootstrap";
 
 const HeroSection = ({ title, description, imageUrl }) => {
   return (
@@ -19,6 +19,7 @@ const HeroSection = ({ title, description, imageUrl }) => {
             <div className="hero-overlay d-flex flex-column justify-content-center align-items-center text-center text-white">
               <h1>{title}</h1>
               {description}
+              <Button variant="danger">Explore more</Button>
             </div>
           </section>
         </Row>

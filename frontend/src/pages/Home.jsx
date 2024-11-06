@@ -35,7 +35,7 @@ const Home = () => {
       {/* Hero section */}
       {homeData.heroData && <HeroSection {...heroData} />}
       {/* Text section */}
-      {homeData.textData && <TextSection {...textData} />}
+      {homeData.textData && <TextSection {...textData[0]} />}
       {/* Cards section */}
       <section className="my-5">
         <Container>
@@ -49,7 +49,7 @@ const Home = () => {
           </Row>
         </Container>
       </section>
-      {homeData.textData && <TextSection {...textData} />}
+      {homeData.textData && <TextSection {...textData[1]} />}
     </div>
   );
 };

@@ -40,10 +40,10 @@ export const processIncludedData = (included) => {
         break;
 
       case "paragraph--text":
-        data.textData = {
-          text: item.attributes.field_section_text,
+        data.textData.push({
+          text: item.attributes.field_section_text.processed,
           title: item.attributes.field_text_title,
-        };
+        });
         break;
 
       case "paragraph--feature":

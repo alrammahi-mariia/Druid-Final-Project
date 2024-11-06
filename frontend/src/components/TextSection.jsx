@@ -7,7 +7,7 @@ const TextSection = ({ title, text }) => {
       <Row>
         <div>
           <h1>{title}</h1>
-          <p>{text}</p>
+          <div dangerouslySetInnerHTML={{ __html: text }} />
         </div>
       </Row>
     </Container>
