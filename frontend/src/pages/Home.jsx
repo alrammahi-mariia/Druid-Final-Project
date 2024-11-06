@@ -4,6 +4,7 @@ import { fetchPageContent } from "../store/contentSlice";
 import HeroSection from "../components/HeroSection";
 import CardComponent from "../components/CardComponent";
 import { Row, Container, Col } from "react-bootstrap";
+import TextImageLeft from "../components/TextImageLeft";
 import TextSection from "../components/TextSection";
 
 const Home = () => {
@@ -50,6 +51,18 @@ const Home = () => {
         </Container>
       </section>
       {homeData.textData && <TextSection {...textData[1]} />}
+      <section className="my-5">
+        <Container>
+          <Row className="services-container justify-content-center">
+            {homeData.cardData &&
+              homeData.cardData.map((card) => (
+                <Col lg={6} md={4} sm={12} className="mb-4" key={card.id}>
+                  <CardComponent {...card} />
+                </Col>
+              ))}
+          </Row>
+        </Container>
+      </section>
     </div>
   );
 };

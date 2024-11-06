@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import HeroSection from "../components/HeroSection";
-import TextImageSection from "../components/TextImageSection";
+import TextImageLeft from "../components/TextImageLeft";
 import TextSection from "../components/TextSection";
 import { URL } from "../services/api_services";
 
@@ -82,14 +82,14 @@ const ServicePage = () => {
       {sectionData &&
         sectionData.map(
           (section, index) =>
-            index === 0 && <TextImageSection key={index} {...section} />
+            index === 0 && <TextImageLeft key={index} {...section} />
         )}
       {textSectionData &&
         textSectionData.map((text) => <TextSection key={text.id} {...text} />)}
       {sectionData &&
         sectionData.map(
           (section, index) =>
-            index >= 1 && <TextImageSection key={index} {...section} />
+            index >= 1 && <TextImageRight key={index} {...section} />
         )}
     </div>
   );

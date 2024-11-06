@@ -5,6 +5,7 @@ export const processIncludedData = (included) => {
     testimonialData: [],
     featureData: [],
     textData: [],
+    textImageData: [],
   };
 
   included.forEach((item) => {
@@ -41,8 +42,21 @@ export const processIncludedData = (included) => {
 
       case "paragraph--text":
         data.textData.push({
-          text: item.attributes.field_section_text.processed,
+          text: item.attributes.field_section_text?.processed,
           title: item.attributes.field_text_title,
+        });
+        break;
+
+      case "paragraph--text_image":
+        // const image = included.filter(
+        //   (img) =>
+        //     img.type === "file--file" &&
+        //     img.id === item.relationships.field_text_image?.id
+        // );
+        data.textImageData.push({
+          text_long: item.attributes.field_text_long?.processed,
+          title: item.attributes.field_section_title,
+          text_short: item.attributes.field_text,
         });
         break;
 
