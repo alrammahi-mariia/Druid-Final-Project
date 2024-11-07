@@ -53,7 +53,7 @@ const Layout = () => {
           <Outlet />
         </Row>
         {/* Footer */}
-        <Row>
+        {/* <Row>
           <div className="custom-margin">
             <footer className="text-center bg-light text-dark py-3 fixed-bottom">
               <p>
@@ -61,7 +61,7 @@ const Layout = () => {
               </p>
             </footer>
           </div>
-        </Row>
+        </Row> */}
       </Container>
     </div>
   );

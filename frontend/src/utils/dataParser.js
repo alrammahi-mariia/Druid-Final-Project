@@ -6,6 +6,7 @@ export const processIncludedData = (included) => {
     featureData: [],
     textData: [],
     textImageData: [],
+    cardImageData: [],
   };
 
   included.forEach((item) => {
@@ -29,6 +30,29 @@ export const processIncludedData = (included) => {
           id: item.id,
           title: item.attributes.field_card_title,
           text: item.attributes.field_card_description,
+        });
+
+        break;
+
+      case "paragraph--card_image":
+        const cardImages = item.relationships.field_card_image?.data
+          ? included.filter(
+              (img) =>
+                img.type === "file--file" &&
+                item.relationships.field_card_image.data.id === img.id
+            )
+          : [];
+
+        const cardImageUrls = cardImages.length
+          ? cardImages.map((img) => img.attributes.uri.url)
+          : null;
+
+        data.cardImageData.push({
+          id: item.id,
+          title: item.attributes.field_cardimg_title,
+          text: item.attributes.field_cardimg_text.processed,
+          imageUrl:
+            cardImageUrls.length === 1 ? cardImageUrls[0] : cardImageUrls,
         });
 
         break;

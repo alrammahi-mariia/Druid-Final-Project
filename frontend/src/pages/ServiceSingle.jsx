@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import HeroSection from "../components/HeroSection";
 import TextImageLeft from "../components/TextImageLeft";
+import TextImageRight from "../components/TextImageRight";
 import TextSection from "../components/TextSection";
 import { URL } from "../services/api_services";
 

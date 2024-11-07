@@ -4,8 +4,8 @@ import { fetchPageContent } from "../store/contentSlice";
 import HeroSection from "../components/HeroSection";
 import CardComponent from "../components/CardComponent";
 import { Row, Container, Col } from "react-bootstrap";
-import TextImageLeft from "../components/TextImageLeft";
 import TextSection from "../components/TextSection";
+import CardImageBg from "../components/CardImageBg";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -19,6 +19,7 @@ const Home = () => {
         includedFields: [
           "field_home_content",
           "field_home_content.field_image",
+          "field_home_content.field_card_image",
         ],
       })
     );
@@ -29,7 +30,7 @@ const Home = () => {
   console.log("Data from Redux", homeData);
 
   // Destructure the data from homeData
-  const { heroData, cardData, textData } = homeData;
+  const { heroData, cardData, textData, cardImageData } = homeData;
 
   return (
     <div>
@@ -54,10 +55,10 @@ const Home = () => {
       <section className="my-5">
         <Container>
           <Row className="services-container justify-content-center">
-            {homeData.cardData &&
-              homeData.cardData.map((card) => (
+            {homeData.cardImageData &&
+              homeData.cardImageData.map((card) => (
                 <Col lg={6} md={4} sm={12} className="mb-4" key={card.id}>
-                  <CardComponent {...card} />
+                  <CardImageBg {...card} />
                 </Col>
               ))}
           </Row>
