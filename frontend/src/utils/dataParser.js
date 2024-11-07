@@ -104,7 +104,6 @@ export const processIncludedData = (included) => {
                 item.relationships.field_feature_image.data.id === img.id
             )
           : [];
-        // Get the URL(s) for images: if only one image is needed, take the first; otherwise, map all URLs
         const featureImageUrls = featureImages.length
           ? featureImages.map((img) => img.attributes.uri.url)
           : null;

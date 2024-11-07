@@ -6,7 +6,10 @@ const CardComponent = ({ title, text }) => (
     <Card.Body>
       <Card.Title>{title}</Card.Title>
       <Card.Text>{text}</Card.Text>
-      <LinkContainer to={`/services/`} style={{ cursor: "pointer" }}>
+      <LinkContainer
+        to={`/services/service-single`}
+        style={{ cursor: "pointer" }}
+      >
         <Button variant="danger">Learn more</Button>
       </LinkContainer>
     </Card.Body>

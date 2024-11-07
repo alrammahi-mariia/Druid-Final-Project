@@ -30,7 +30,6 @@ const Services = () => {
   if (error) return <p>Error: {error}</p>;
   console.log("Data from Redux", serviceData);
 
-  // Destructure the data from serviceData
   const { heroData, cardData, testimonialData, textData, featureData } =
     serviceData;
 

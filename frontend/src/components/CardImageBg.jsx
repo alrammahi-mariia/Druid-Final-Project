@@ -13,9 +13,7 @@ const CardImageBg = ({ title, text, imageUrl }) => {
           />
         )}
         <Card.Title className="mt-3">{title}</Card.Title>
-        <Card.Text>
-          <div dangerouslySetInnerHTML={{ __html: text }} />
-        </Card.Text>
+        <div dangerouslySetInnerHTML={{ __html: text }} />
       </Card.Body>
     </Card>
   );
