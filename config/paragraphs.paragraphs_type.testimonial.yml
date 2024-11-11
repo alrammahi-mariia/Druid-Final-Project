@@ -1,0 +1,10 @@
+uuid: 6e3195a5-70a0-42d6-b10b-962798667f47
+langcode: en
+status: true
+dependencies: {  }
+id: testimonial
+label: testimonial
+icon_uuid: null
+icon_default: null
+description: 'Testimonial text with author.'
+behavior_plugins: {  }

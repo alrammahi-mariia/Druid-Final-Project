@@ -1,0 +1,32 @@
+uuid: bbe8dd45-5455-4e05-bea5-621ea8acedf6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.testimonial.field_author
+    - field.field.paragraph.testimonial.field_testimonial
+    - paragraphs.paragraphs_type.testimonial
+id: paragraph.testimonial.default
+targetEntityType: paragraph
+bundle: testimonial
+mode: default
+content:
+  field_author:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_testimonial:
+    type: string_textarea
+    weight: 0
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

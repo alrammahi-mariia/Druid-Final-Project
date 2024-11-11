@@ -1,0 +1,10 @@
+uuid: 4cfc2ab1-93e6-4c3f-9e3f-cd4520ccbb17
+langcode: en
+status: true
+dependencies: {  }
+id: card_image
+label: card_image
+icon_uuid: null
+icon_default: null
+description: 'Card with title, text, link and image.'
+behavior_plugins: {  }

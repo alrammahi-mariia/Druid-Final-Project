@@ -1,0 +1,39 @@
+uuid: 707f867c-49f6-4aca-908c-6a9e6772db8b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.servicesingle.body
+    - field.field.node.servicesingle.field_content
+    - node.type.servicesingle
+  module:
+    - entity_reference_revisions
+    - text
+    - user
+id: node.servicesingle.default
+targetEntityType: node
+bundle: servicesingle
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_content:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden: {  }

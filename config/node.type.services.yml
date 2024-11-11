@@ -11,7 +11,7 @@ third_party_settings:
     parent: 'main:'
 name: Services
 type: services
-description: null
+description: 'Page listing all services offered by the company'
 help: null
 new_revision: true
 preview_mode: 1

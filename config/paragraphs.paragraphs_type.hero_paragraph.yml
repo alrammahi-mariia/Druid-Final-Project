@@ -1,0 +1,10 @@
+uuid: 87538e82-9a97-46e6-819f-78af203b2cb8
+langcode: en
+status: true
+dependencies: {  }
+id: hero_paragraph
+label: hero
+icon_uuid: null
+icon_default: null
+description: 'Hero banner with image to be used in basic pages.'
+behavior_plugins: {  }
