@@ -1,0 +1,47 @@
+uuid: b20d72e1-4cd6-4fc9-ad6f-920bf95a0b78
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_about_content
+    - node.type.about
+  module:
+    - entity_reference_revisions
+id: node.about.field_about_content
+field_name: field_about_content
+entity_type: node
+bundle: about
+label: 'about content'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles: null
+    negate: 0
+    target_bundles_drag_drop:
+      card:
+        weight: 8
+        enabled: false
+      card_list:
+        weight: 9
+        enabled: false
+      feature:
+        weight: 10
+        enabled: false
+      hero_paragraph:
+        weight: 11
+        enabled: false
+      testimonial:
+        weight: 12
+        enabled: false
+      text:
+        weight: 13
+        enabled: false
+      text_image:
+        weight: 14
+        enabled: false
+field_type: entity_reference_revisions

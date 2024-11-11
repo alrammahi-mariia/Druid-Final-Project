@@ -1,4 +1,4 @@
-uuid: b79ff8c6-cf51-448d-bd0c-506b6fa7d792
+uuid: afece9f0-3f42-4ce7-b485-796ce42bfb80
 langcode: en
 status: true
 dependencies:
@@ -9,9 +9,9 @@ third_party_settings:
     available_menus:
       - main
     parent: 'main:'
-name: Services
-type: services
-description: 'Page listing all services offered by the company'
+name: Home
+type: home
+description: Homepage
 help: null
 new_revision: true
 preview_mode: 1

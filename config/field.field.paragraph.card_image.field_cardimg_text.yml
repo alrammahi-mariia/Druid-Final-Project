@@ -1,0 +1,24 @@
+uuid: c308cdfc-5974-4480-b62f-e2e3d4b7a0b3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_cardimg_text
+    - filter.format.full_html
+    - paragraphs.paragraphs_type.card_image
+  module:
+    - text
+id: paragraph.card_image.field_cardimg_text
+field_name: field_cardimg_text
+entity_type: paragraph
+bundle: card_image
+label: cardImg_text
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - full_html
+field_type: text_long

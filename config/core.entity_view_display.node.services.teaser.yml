@@ -4,19 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
-    - field.field.node.services.field_feature
-    - field.field.node.services.field_feature_2
-    - field.field.node.services.field_feature_3
-    - field.field.node.services.field_feature_image
-    - field.field.node.services.field_feature_image_2
-    - field.field.node.services.field_feature_image_3
-    - field.field.node.services.field_feature_title
-    - field.field.node.services.field_hero_img
-    - field.field.node.services.field_hero_subtitle
-    - field.field.node.services.field_hero_text
-    - field.field.node.services.field_hero_title
-    - field.field.node.services.field_text
-    - field.field.node.services.field_title
+    - field.field.node.services.field_services_content
     - node.type.services
   module:
     - user
@@ -31,16 +19,4 @@ content:
     weight: 100
     region: content
 hidden:
-  field_feature: true
-  field_feature_2: true
-  field_feature_3: true
-  field_feature_image: true
-  field_feature_image_2: true
-  field_feature_image_3: true
-  field_feature_title: true
-  field_hero_img: true
-  field_hero_subtitle: true
-  field_hero_text: true
-  field_hero_title: true
-  field_text: true
-  field_title: true
+  field_services_content: true

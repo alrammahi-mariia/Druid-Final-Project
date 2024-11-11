@@ -1,27 +1,39 @@
-uuid: 087d80d9-df73-4ad2-820e-f158a6b6103b
+uuid: 1a05bdcd-a3bd-48e6-b03d-9ef3b5ccebd4
 langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.services.field_services_content
-    - node.type.services
+    - field.field.node.home.body
+    - field.field.node.home.field_home_content
+    - node.type.home
   module:
     - paragraphs
     - path
-id: node.services.default
+    - text
+id: node.home.default
 targetEntityType: node
-bundle: services
+bundle: home
 mode: default
 content:
+  body:
+    type: text_textarea_with_summary
+    weight: 121
+    region: content
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+      show_summary: false
+    third_party_settings: {  }
   created:
     type: datetime_timestamp
-    weight: 2
+    weight: 10
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_services_content:
+  field_home_content:
     type: paragraphs
-    weight: 26
+    weight: 122
     region: content
     settings:
       title: Paragraph
@@ -39,34 +51,34 @@ content:
     third_party_settings: {  }
   path:
     type: path
-    weight: 5
+    weight: 30
     region: content
     settings: {  }
     third_party_settings: {  }
   promote:
     type: boolean_checkbox
-    weight: 3
+    weight: 15
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 6
+    weight: 120
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
-    weight: 4
+    weight: 16
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   title:
     type: string_textfield
-    weight: 0
+    weight: -5
     region: content
     settings:
       size: 60
@@ -74,7 +86,7 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 1
+    weight: 5
     region: content
     settings:
       match_operator: CONTAINS

@@ -4,7 +4,6 @@ export const URL = "https://druid-final-project.lndo.site";
 
 // Function to fetch data based on content type with specific included fields
 export const fetchPageData = async (contentType, includedFields) => {
-  // Construct the URL dynamically based on contentType and includedFields
   const fieldsQuery = includedFields
     ? `?include=${includedFields.join(",")}`
     : "";

@@ -1,0 +1,10 @@
+uuid: d98b7070-4aeb-44dc-a0ff-2e18901c8e5b
+langcode: en
+status: true
+dependencies: {  }
+id: feature
+label: feature
+icon_uuid: null
+icon_default: null
+description: 'A single feature and image'
+behavior_plugins: {  }
