@@ -1,12 +1,13 @@
-uuid: 747422a5-76bf-4c9a-9ac3-6060cb0152b4
+uuid: 37c8169c-0281-40bd-abef-0a408244fb39
 langcode: en
 status: true
 dependencies:
   config:
     - field.field.node.about.body
-    - field.field.node.about.field_section_title
+    - field.field.node.about.field_about_content
     - node.type.about
   module:
+    - paragraphs
     - path
     - text
 id: node.about.default
@@ -30,13 +31,23 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_section_title:
-    type: string_textfield
+  field_about_content:
+    type: paragraphs
     weight: 122
     region: content
     settings:
-      size: 60
-      placeholder: ''
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+      features:
+        collapse_edit_all: collapse_edit_all
+        duplicate: duplicate
     third_party_settings: {  }
   path:
     type: path

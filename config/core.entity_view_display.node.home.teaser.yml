@@ -1,12 +1,11 @@
-uuid: af906eee-98e0-4e5e-9f40-9beb3935bb49
+uuid: e637504d-f0b7-4db2-ba0e-1eaf0ae853c0
 langcode: en
 status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.home.body
-    - field.field.node.home.field_home
-    - field.field.node.home.field_image1
+    - field.field.node.home.field_home_content
     - node.type.home
   module:
     - text
@@ -30,5 +29,4 @@ content:
     weight: 100
     region: content
 hidden:
-  field_home: true
-  field_image1: true
+  field_home_content: true

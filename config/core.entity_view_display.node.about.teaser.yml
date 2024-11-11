@@ -1,11 +1,11 @@
-uuid: 67e66a0c-651b-4b2b-ad28-969a551fe0f0
+uuid: d846d995-325e-47d8-b952-4e67a5afb545
 langcode: en
 status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.about.body
-    - field.field.node.about.field_section_title
+    - field.field.node.about.field_about_content
     - node.type.about
   module:
     - text
@@ -29,4 +29,4 @@ content:
     weight: 100
     region: content
 hidden:
-  field_section_title: true
+  field_about_content: true

@@ -1,4 +1,4 @@
-uuid: a5a4a619-6f2c-4f57-a2a3-2e12602a632d
+uuid: afece9f0-3f42-4ce7-b485-796ce42bfb80
 langcode: en
 status: true
 dependencies:
@@ -9,9 +9,9 @@ third_party_settings:
     available_menus:
       - main
     parent: 'main:'
-name: home
+name: Home
 type: home
-description: null
+description: Homepage
 help: null
 new_revision: true
 preview_mode: 1

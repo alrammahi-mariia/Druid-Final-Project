@@ -1,13 +1,13 @@
-uuid: 3255d8b1-37f5-465d-b2fc-41486c804e60
+uuid: d34c59b2-83a0-4a30-858d-ce33ec6996c1
 langcode: en
 status: true
 dependencies:
   config:
     - field.field.node.home.body
-    - field.field.node.home.field_home
-    - field.field.node.home.field_image1
+    - field.field.node.home.field_home_content
     - node.type.home
   module:
+    - entity_reference_revisions
     - text
     - user
 id: node.home.default
@@ -22,21 +22,14 @@ content:
     third_party_settings: {  }
     weight: 101
     region: content
-  field_home:
-    type: basic_string
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 102
-    region: content
-  field_image1:
-    type: entity_reference_entity_view
+  field_home_content:
+    type: entity_reference_revisions_entity_view
     label: above
     settings:
       view_mode: default
-      link: false
+      link: ''
     third_party_settings: {  }
-    weight: 103
+    weight: 102
     region: content
   links:
     settings: {  }

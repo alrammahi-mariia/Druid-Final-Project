@@ -1885,7 +1885,11 @@
             ],
             "authors": [
                 {
+
                     "name": "berdir",
+
+                    "name": "Berdir",
+
                     "homepage": "https://www.drupal.org/user/214652"
                 },
                 {
@@ -1905,7 +1909,11 @@
                     "homepage": "https://www.drupal.org/user/227761"
                 },
                 {
+
                     "name": "primsi",
+
+                    "name": "Primsi",
+
                     "homepage": "https://www.drupal.org/user/282629"
                 }
             ],
@@ -6681,5 +6689,6 @@
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": [],
+
     "plugin-api-version": "2.6.0"
 }

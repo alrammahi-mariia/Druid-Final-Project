@@ -36,15 +36,12 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s;
 }
-/* .services-container .card:hover {
-  transform: scale(1.05);
-} */
 
 /* Testimonials Section */
-.testimonials-section {
-  background-color: #000;
+/* .testimonials-section {
+  background-color: rgb(28, 25, 25);
   width: 100vw;
-}
+} */
 
 .testimonials-section heading {
   color: white;
@@ -53,12 +50,19 @@
 .testimonials-section blockquote {
   font-size: 1.5rem;
   font-style: italic;
-  color: #fff;
+  color: white;
 }
 .testimonials-section .blockquote-footer {
   font-size: 1rem;
-  color: #ccc;
+  color: white;
 }
+
+/* Text Section */
+
+/* .text-section {
+  background-color: rgb(241, 240, 240);
+  width: 100vw;
+} */
 
 /* Features Section */
 .features-section .feature-icon {

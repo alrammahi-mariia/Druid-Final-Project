@@ -1,0 +1,10 @@
+uuid: 2bc9404f-4482-43cc-8965-8abf5b265c96
+langcode: en
+status: true
+dependencies: {  }
+id: text
+label: text
+icon_uuid: null
+icon_default: null
+description: 'Text paragraph with title and short/long text.'
+behavior_plugins: {  }

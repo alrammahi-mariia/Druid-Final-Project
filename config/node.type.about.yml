@@ -1,4 +1,4 @@
-uuid: 8319f41c-53a4-44fe-b165-da18a169201c
+uuid: 9d421dcc-6497-4aec-8b3c-16fd9934e73e
 langcode: en
 status: true
 dependencies:
@@ -11,7 +11,7 @@ third_party_settings:
     parent: 'main:'
 name: About
 type: about
-description: null
+description: 'About us page'
 help: null
 new_revision: true
 preview_mode: 1

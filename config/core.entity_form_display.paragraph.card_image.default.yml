@@ -1,0 +1,45 @@
+uuid: 02f2a76a-e8b4-41d8-8c14-3a0cd4614757
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.card_image.field_card_image
+    - field.field.paragraph.card_image.field_cardimg_text
+    - field.field.paragraph.card_image.field_cardimg_title
+    - image.style.thumbnail
+    - paragraphs.paragraphs_type.card_image
+  module:
+    - image
+    - text
+id: paragraph.card_image.default
+targetEntityType: paragraph
+bundle: card_image
+mode: default
+content:
+  field_card_image:
+    type: image_image
+    weight: 0
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_cardimg_text:
+    type: text_textarea
+    weight: 2
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_cardimg_title:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true
