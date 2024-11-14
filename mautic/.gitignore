@@ -1,4 +1,4 @@
- 
+
 !.github
 !.gitignore
 !.htaccess
@@ -145,6 +145,7 @@
 
 /translations
 
+
 # Exclude all environment files
 .env*
 !/.env.*.dist
@@ -172,3 +173,4 @@
 .eslintrc
 .prettierignore
 .prettierrc
+
