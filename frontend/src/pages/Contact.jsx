@@ -1,5 +1,6 @@
 import React from "react";
 import { Container, Card } from "react-bootstrap";
+import MauticForm from "../components/MauticForm";
 
 const Contact = () => {
   return (
@@ -10,10 +11,10 @@ const Contact = () => {
       >
         <Card.Body>
           <Card.Title style={{ color: "black", fontSize: "2rem" }}>
-            Contact
+            {/* Contact */}
           </Card.Title>
           <Card.Text style={{ color: "black", fontSize: "1.2rem" }}>
-            Contact information will be here.
+            <MauticForm/>
           </Card.Text>
         </Card.Body>
       </Card>
