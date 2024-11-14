@@ -1,0 +1,36 @@
+.full-screen-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000000; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1050; 
+}
+
+.full-screen-menu .nav-link {
+  font-size: 1.8rem;
+  margin: 1rem 0;
+  /* color: #ffcc00; */
+  font-weight: bold; 
+  text-align: center;
+  transition: text-shadow 0.3s ease, color 0.3s ease;
+}
+/* Shine effect for menu items */
+/* .full-screen-menu .nav-link:hover {
+  color: #ffcc00; 
+  text-shadow: 0 0 8px #ffcc00, 0 0 10px #ffcc00, 0 0 12px #ffcc00; 
+} */
+
+/* When menu is open (collapsed), give glowing effect without hover */
+.full-screen-menu.navbar-collapse.show .nav-link {
+  text-shadow: 0 0 8px #ffffff, 0 0 10px #ffffff, 0 0 12px #ffffff;
+}
+
+.navbar-collapse.collapse.show {
+  display: flex;
+}
+
