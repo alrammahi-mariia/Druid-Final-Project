@@ -19,11 +19,18 @@
   text-align: center;
   transition: text-shadow 0.3s ease, color 0.3s ease;
 }
+/* .full-screen-menu .nav-link:hover {
+   color: #E11000;
+} */
 /* Shine effect for menu items */
 /* .full-screen-menu .nav-link:hover {
-  color: #ffcc00; 
-  text-shadow: 0 0 8px #ffcc00, 0 0 10px #ffcc00, 0 0 12px #ffcc00; 
+  color: #E11000; 
+  text-shadow: 0 0 8px #E11000, 0 0 10px #E11000, 0 0 12px #E11000; 
 } */
+.full-screen-menu.navbar-collapse.show .nav-link:hover {
+ color: #E11000; ;
+ text-shadow: 0 0 8px #E11000, 0 0 10px #E11000, 0 0 12px #E11000; 
+}
 
 /* When menu is open (collapsed), give glowing effect without hover */
 .full-screen-menu.navbar-collapse.show .nav-link {
@@ -32,5 +39,23 @@
 
 .navbar-collapse.collapse.show {
   display: flex;
+}
+
+.close-menu-button {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #ffffff;
+  z-index: 1051;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.close-menu-button:hover {
+  color: #E11000;
 }
 
