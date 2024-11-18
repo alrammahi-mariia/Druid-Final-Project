@@ -4,5 +4,5 @@ description: "Fetches Mautic contact ID and segments, creates taxonomy terms if 
 core_version_requirement: ^9 || ^10 || ^11
 package: Custom
 dependencies:
-  - taxonomy
-  - paragraphs
+  - drupal:taxonomy
+  - drupal:paragraphs
