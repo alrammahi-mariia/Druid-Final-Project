@@ -50,7 +50,9 @@ const App = () => {
     if (mtcId) {
       // Call Drupal endpoint instead of Mautic directly
       axios
-        .get(`/api/mautic/process-segments/${mtcId}`)
+        .get(
+          `https://druid-final-project.lndo.site/api/mautic/process-segments/${mtcId}`
+        )
         .then((response) => {
           console.log("Segments processed:", response.data);
         })
