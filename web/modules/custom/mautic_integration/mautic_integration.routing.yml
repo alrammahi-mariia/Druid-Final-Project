@@ -1,0 +1,17 @@
+mautic_integration.process_segments:
+  path: "/api/mautic/process-segments/{contact_id}"
+  defaults:
+    _controller: '\Drupal\mautic_integration\Controller\MauticController::processSegments'
+  requirements:
+    _access: "TRUE"
+  options:
+    _allow_anonymous: TRUE
+    no_cache: TRUE
+
+mautic_integration.settings:
+  path: "/admin/config/services/mautic"
+  defaults:
+    _form: '\Drupal\mautic_integration\Form\SettingsForm'
+    _title: "Mautic Integration Settings"
+  requirements:
+    _permission: "administer site configuration"

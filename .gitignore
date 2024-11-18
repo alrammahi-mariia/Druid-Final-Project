@@ -4,6 +4,7 @@ web/themes/contrib
 web/sites/default/files
 web/libraries/*
 vendor
+.env
 
 # Ignore OSX generated files
 ._*

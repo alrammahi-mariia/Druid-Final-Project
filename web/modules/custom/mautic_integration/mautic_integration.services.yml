@@ -1,0 +1,4 @@
+services:
+  mautic_integration.http_client:
+    class: 'Drupal\\Component\\Serialization\\Json'
+    arguments: ["@http_client"]

@@ -1,0 +1,130 @@
+<?php
+
+/**
+ * @file
+ * Contains mautic_integration.module.
+ */
+
+use Drupal\taxonomy\Entity\Term;
+use Drupal\Core\Logger\LoggerChannelFactoryInterface;
+
+/**
+ * Implements hook_help().
+ */
+function mautic_integration_help($route_name) {
+  switch ($route_name) {
+    case 'help.page.mautic_integration':
+      return '<p>' . t('Integrates Mautic with Drupal.') . '</p>';
+    
+    default:
+      return '';
+  }
+}
+
+/**
+ * Fetches segments for the contact using the Mautic API.
+ *
+ * @param string $contact_id
+ *   The Mautic contact ID.
+ *
+ * @return array
+ *   An array of segment names or empty array on failure.
+ */
+function mautic_integration_get_segments($contact_id) {
+  $config = \Drupal::config('mautic_integration.settings');
+  
+  $api_url = $config->get('mautic_url') . '/api/contacts/' . $contact_id . '/segments';
+  $username = $config->get('mautic_username');
+  $password = $config->get('mautic_password');
+
+  if (!$username || !$password) {
+    \Drupal::logger('mautic_integration')->error('Mautic credentials not configured');
+    return [];
+  }
+
+  try {
+    $response = \Drupal::httpClient()->get($api_url, [
+      'headers' => [
+        'Authorization' => 'Basic ' . base64_encode("$username:$password"),
+        'Accept' => 'application/json',
+      ],
+      'verify' => FALSE,
+      'timeout' => 30,
+    ]);
+
+    $data = json_decode($response->getBody()->getContents(), TRUE);
+    
+    // Extract segment names from the nested structure
+    $segments = [];
+    if (!empty($data['lists'])) {
+      foreach ($data['lists'] as $list) {
+        $segments[] = $list['name'];
+      }
+    }
+    
+    \Drupal::logger('mautic_integration')->notice(
+      'Fetched segments for contact @id: @segments',
+      ['@id' => $contact_id, '@segments' => implode(', ', $segments)]
+    );
+    
+    return $segments;
+  }
+  catch (\Exception $e) {
+    \Drupal::logger('mautic_integration')->error(
+      'API Error for contact @id: @message',
+      ['@id' => $contact_id, '@message' => $e->getMessage()]
+    );
+    return [];
+  }
+}
+
+/**
+ * Creates taxonomy terms for Mautic segments.
+ *
+ * @param array $segments
+ *   Array of segment names.
+ * 
+ * @return array
+ *   Array of created/existing term IDs.
+ */
+function mautic_integration_ensure_terms(array $segments) {
+  $vocabulary = 'mautic_segments';
+  $term_ids = [];
+
+  foreach ($segments as $segment_name) {
+    try {
+      $terms = \Drupal::entityTypeManager()
+        ->getStorage('taxonomy_term')
+        ->loadByProperties([
+          'name' => $segment_name,
+          'vid' => $vocabulary,
+        ]);
+
+      if (empty($terms)) {
+        $term = Term::create([
+          'vid' => $vocabulary,
+          'name' => $segment_name,
+        ]);
+        $term->save();
+        $term_ids[] = $term->id();
+        
+        \Drupal::logger('mautic_integration')->notice(
+          'Created new term: @term',
+          ['@term' => $segment_name]
+        );
+      } else {
+        $term = reset($terms);
+        $term_ids[] = $term->id();
+      }
+    }
+    catch (\Exception $e) {
+      \Drupal::logger('mautic_integration')->error(
+        'Failed to create term @term: @message',
+        ['@term' => $segment_name, '@message' => $e->getMessage()]
+      );
+    }
+  }
+
+  return $term_ids;
+}
+
