@@ -38,6 +38,14 @@ const HamburgerMenu = () => {
         }`}
         in={menuOpen}
       >
+        <button
+          className="close-menu-button"
+          aria-label="Close menu"
+          onClick={handleClose}
+        >
+          &times;
+        </button>
+
         <Nav>
           <Nav.Link
             as={Link}
