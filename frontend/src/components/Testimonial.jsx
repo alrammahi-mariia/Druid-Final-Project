@@ -5,9 +5,9 @@ const Testimonial = ({ text, author }) => {
   return (
     <Container fluid className="p-0 m-0">
       <Row>
-        <section className="testimonials-section text-center my-5 p-5 bg-dark">
+        <section className="testimonials-section text-center my-5 p-5 bg-dark text-white">
           <blockquote className="blockquote">
-            <p>{text}</p>
+            <h2>{text}</h2>
             <footer className="blockquote-footer">{author}</footer>
           </blockquote>
         </section>

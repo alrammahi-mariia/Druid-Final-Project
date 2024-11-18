@@ -27,20 +27,34 @@ const Home = () => {
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error}</p>;
-  console.log("Data from Redux", homeData);
 
-  // Destructure the data from homeData
   const { heroData, cardData, textData, cardImageData } = homeData;
 
   return (
-    <div>
+    <div className="home-page">
       {/* Hero section */}
-      {homeData.heroData && <HeroSection {...heroData} />}
-      {/* Text section */}
-      {homeData.textData && <TextSection {...textData[0]} />}
-      {/* Cards section */}
-      <section className="my-5">
-        <Container>
+      {homeData.heroData && (
+        <section className="hero-section">
+          <HeroSection {...heroData} />
+        </section>
+      )}
+
+      {/* First Text Section */}
+      {homeData.textData && (
+        <section className="text-section text-section-1 bg-light py-1">
+          <Container fluid>
+            <Row className="justify-content-center">
+              <Col md={1} lg={12} className="text-center ">
+                <TextSection {...textData[0]} />
+              </Col>
+            </Row>
+          </Container>
+        </section>
+      )}
+
+      {/* Cards Section */}
+      <section className="card-section my-5">
+        <Container fluid>
           <Row className="services-container justify-content-center">
             {homeData.cardData &&
               homeData.cardData.map((card) => (
@@ -51,9 +65,17 @@ const Home = () => {
           </Row>
         </Container>
       </section>
-      {homeData.textData && <TextSection {...textData[1]} />}
-      <section className="my-5">
-        <Container>
+
+      {/* Second Text Section */}
+      {homeData.textData && (
+        <section className="text-section text-section-2">
+          <TextSection {...textData[1]} />
+        </section>
+      )}
+
+      {/* Cards with Images Section */}
+      <section className="card-image-section my-5">
+        <Container fluid>
           <Row className="services-container justify-content-center">
             {homeData.cardImageData &&
               homeData.cardImageData.map((card) => (
@@ -64,6 +86,17 @@ const Home = () => {
           </Row>
         </Container>
       </section>
+
+      
+      {homeData.textData && (
+        <section>
+          <TextSection
+            {...textData[3]}
+            bgColor="bg-dark" 
+            textColor="text-white" 
+          />
+        </section>
+      )}
     </div>
   );
 };

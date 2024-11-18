@@ -53,7 +53,7 @@ const Services = () => {
       {/* Testimonial section */}
       {serviceData.testimonialData && <Testimonial {...testimonialData} />}
       {/* Features section */}
-      {serviceData.textData && <TextSection {...textData[0]} />}
+      {serviceData.textData && <TextSection {...textData[0]}  />}
       <section className="my-5">
         <Container>
           <Row className="services-container justify-content-center">
