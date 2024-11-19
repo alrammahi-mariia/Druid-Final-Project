@@ -91,6 +91,7 @@ function mautic_integration_ensure_terms(array $segments) {
   $vocabulary = 'mautic_segments';
   $term_ids = [];
 
+  // Get segment term IDs
   foreach ($segments as $segment_name) {
     try {
       $terms = \Drupal::entityTypeManager()
@@ -116,6 +117,54 @@ function mautic_integration_ensure_terms(array $segments) {
     catch (\Exception $e) {
       \Drupal::logger('mautic_integration')->error('Failed to create term @term: @message', ['@term' => $segment_name, '@message' => $e->getMessage()]);
     }
+  }
+
+  // Update paragraph visibility based on segments
+  try {
+    $paragraph_storage = \Drupal::entityTypeManager()->getStorage('paragraph');
+    $paragraphs = $paragraph_storage->loadMultiple();
+
+    foreach ($paragraphs as $paragraph) {
+      if ($paragraph->hasField('field_segment')) {
+        // Get paragraph's segment terms
+        $paragraph_segments = [];
+        foreach ($paragraph->get('field_segment') as $item) {
+          $paragraph_segments[] = $item->target_id;
+        }
+
+        // Set visibility based on segment match
+        if (!empty($paragraph_segments)) {
+          // Check if any of the paragraph segments match the user's segments
+          $has_matching_segment = !empty(array_intersect($term_ids, $paragraph_segments));
+          $paragraph->set('field_visibility', $has_matching_segment ? 1 : 0);
+          $paragraph->save();
+          
+          \Drupal::logger('mautic_integration')->notice(
+            'Updated paragraph @id visibility to @visibility based on segment match',
+            [
+              '@id' => $paragraph->id(),
+              '@visibility' => $has_matching_segment ? 'visible' : 'invisible'
+            ]
+          );
+        }
+        // If paragraph has no segments, ensure visibility is set to default (visible)
+        else {
+          $paragraph->set('field_visibility', 1);
+          $paragraph->save();
+          
+          \Drupal::logger('mautic_integration')->notice(
+            'Reset paragraph @id visibility to default (visible) - no segments',
+            ['@id' => $paragraph->id()]
+          );
+        }
+      }
+    }
+  }
+  catch (\Exception $e) {
+    \Drupal::logger('mautic_integration')->error(
+      'Failed to update paragraph visibility: @message',
+      ['@message' => $e->getMessage()]
+    );
   }
 
   return $term_ids;
