@@ -1,5 +1,8 @@
 <?php
 
+use Drupal\field\Entity\FieldStorageConfig;
+use Drupal\field\Entity\FieldConfig;
+
 /**
  * Add field_segment to paragraph entities.
  */
@@ -56,4 +59,61 @@ function mautic_integration_update_9001() {
   }
 
   return t('Added field_segment to all paragraph bundles.');
-} 
+}
+
+/**
+ * Add field_visibility to all paragraph entities.
+ */
+function mautic_integration_update_9104() {
+  // First remove old field if it exists
+  $field_storage = FieldStorageConfig::loadByName('paragraph', 'field_visibility');
+  if ($field_storage) {
+    $field_storage->delete();
+  }
+
+  // Create new field storage
+  $field_storage = FieldStorageConfig::create([
+    'field_name' => 'field_visibility',
+    'entity_type' => 'paragraph',
+    'type' => 'list_integer',
+    'settings' => [
+      'allowed_values' => [
+        1 => 'Visible',
+        0 => 'Invisible',
+      ],
+    ],
+  ]);
+  $field_storage->save();
+
+  // Add field to all paragraph bundles
+  $bundles = \Drupal::service('entity_type.bundle.info')
+    ->getBundleInfo('paragraph');
+
+  foreach ($bundles as $bundle => $bundle_info) {
+    // Create field instance
+    $field = FieldConfig::create([
+      'field_storage' => $field_storage,
+      'bundle' => $bundle,
+      'label' => 'Visibility',
+      'required' => TRUE,
+      'default_value' => [
+        [
+          'value' => 1,
+        ],
+      ],
+    ]);
+    $field->save();
+
+    // Set form display
+    $form_display = \Drupal::service('entity_display.repository')
+      ->getFormDisplay('paragraph', $bundle);
+    $form_display->setComponent('field_visibility', [
+      'type' => 'options_select',
+      'weight' => 0,
+    ]);
+    $form_display->save();
+  }
+
+  drupal_flush_all_caches();
+  return t('Added visibility select field to all paragraph bundles.');
+}

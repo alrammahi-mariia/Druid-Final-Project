@@ -121,4 +121,30 @@ function mautic_integration_ensure_terms(array $segments) {
   return $term_ids;
 }
 
+/**
+ * Implements hook_field_widget_single_element_form_alter().
+ */
+function mautic_integration_field_widget_single_element_form_alter(&$element, \Drupal\Core\Form\FormStateInterface $form_state, $context) {
+  if ($context['items']->getName() === 'field_visibility') {
+    // Set default value if empty
+    if (empty($element['#default_value'])) {
+      $element['#default_value'] = 1;
+    }
+    
+    // Remove empty option
+    if (isset($element['#options']['_none'])) {
+      unset($element['#options']['_none']);
+    }
+  }
+}
 
+/**
+ * Implements hook_entity_presave().
+ */
+function mautic_integration_entity_presave(Drupal\Core\Entity\EntityInterface $entity) {
+  if ($entity->getEntityTypeId() === 'paragraph') {
+    if ($entity->hasField('field_visibility') && $entity->get('field_visibility')->isEmpty()) {
+      $entity->set('field_visibility', 1);
+    }
+  }
+}
