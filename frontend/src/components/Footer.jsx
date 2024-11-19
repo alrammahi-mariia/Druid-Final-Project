@@ -11,7 +11,7 @@ import {
 } from "react-icons/fa"; 
 import { AiOutlineClose } from "react-icons/ai";
 
-function Footer() {
+const Footer=()=> {
   return (
     <footer className="bg-light text-dark py-5" style={{ width: "100%" }}>
       <Container fluid>
