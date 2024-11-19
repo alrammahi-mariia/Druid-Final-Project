@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import axios from "axios";
 import { Routes, Route, useLocation } from "react-router-dom";
 import mautic from "./services/mautic_services";
 import Home from "./pages/Home";
@@ -10,11 +11,9 @@ import ServiceSingle from "./pages/ServiceSingle";
 import ServicePage from "./pages/ServiceSingle";
 import Blog from "./pages/Blog";
 import Career from "./pages/Career";
-import useMauticContact from "./hooks/useMauticContact";
 
 const App = () => {
   const location = useLocation();
-  const { segments } = useMauticContact();
 
   useEffect(() => {
     // Update page title dynamically based on the path
