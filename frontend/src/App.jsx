@@ -23,7 +23,7 @@ const App = () => {
       "/about": "About Us",
       "/contact": "Contact",
       "/blog": "Blog",
-      "/career": "Career"
+      "/career": "Career",
     };
     const title = pageTitles[location.pathname] || "Default Title";
     document.title = title;
