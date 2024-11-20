@@ -11,7 +11,7 @@ use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
 use Drupal\jsonapi\JsonApiResource\ResourceObjectData;
 
 /**
- * Implements hook_help().
+ * Implement hook_help().
  */
 function mautic_integration_help($route_name) {
   switch ($route_name) {
@@ -23,7 +23,7 @@ function mautic_integration_help($route_name) {
 }
 
 /**
- * Fetches segments for the contact using the Mautic API.
+ * Fetch segments for the contact using the Mautic API.
  *
  * @param string $contact_id
  *   The Mautic contact ID.
@@ -32,8 +32,11 @@ function mautic_integration_help($route_name) {
  *   An array of segment names or empty array on failure.
  */
 function mautic_integration_get_segments($contact_id) {
+    // Fetch segments (marketing lists) for a specific contact from Mautic
+
   $config = \Drupal::config('mautic_integration.settings');
   
+  // Use configured Mautic API credentials
   $api_url = rtrim($config->get('mautic_url'), '/') . '/api/contacts/' . $contact_id . '/segments';
   $username = $config->get('mautic_username');
   $password = $config->get('mautic_password');
@@ -42,7 +45,7 @@ function mautic_integration_get_segments($contact_id) {
     \Drupal::logger('mautic_integration')->error('Mautic credentials not configured');
     return [];
   }
-
+ // Make HTTP request to Mautic API
   try {
     $response = \Drupal::httpClient()->get($api_url, [
       'headers' => [
@@ -55,6 +58,7 @@ function mautic_integration_get_segments($contact_id) {
 
     $data = json_decode($response->getBody()->getContents(), TRUE);
 
+    // Return array of segment names
     $segments = [];
     if (!empty($data['lists'])) {
       foreach ($data['lists'] as $list) {
@@ -79,7 +83,7 @@ function mautic_integration_get_segments($contact_id) {
 }
 
 /**
- * Creates taxonomy terms for Mautic segments.
+ * Create taxonomy terms for Mautic segments.
  *
  * @param array $segments
  *   Array of segment names.
@@ -111,6 +115,7 @@ function mautic_integration_ensure_terms(array $segments) {
         \Drupal::logger('mautic_integration')->notice('Created new term: @term', ['@term' => $segment_name]);
       } else {
         $term = reset($terms);
+        // Return array of term IDs
         $term_ids[] = $term->id();
       }
     }
@@ -171,7 +176,7 @@ function mautic_integration_ensure_terms(array $segments) {
 }
 
 /**
- * Implements hook_field_widget_single_element_form_alter().
+ * Implements hook_field_widget_single_element_form_alter() to modify visibility field widget.
  */
 function mautic_integration_field_widget_single_element_form_alter(&$element, \Drupal\Core\Form\FormStateInterface $form_state, $context) {
   if ($context['items']->getName() === 'field_visibility') {
@@ -189,7 +194,10 @@ function mautic_integration_field_widget_single_element_form_alter(&$element, \D
 
 /**
  * Implements hook_entity_presave().
+ * Ensures paragraphs always have a visibility value
+ * Sets default visibility to 1 if not set
  */
+
 function mautic_integration_entity_presave(Drupal\Core\Entity\EntityInterface $entity) {
   if ($entity->getEntityTypeId() === 'paragraph') {
     if ($entity->hasField('field_visibility') && $entity->get('field_visibility')->isEmpty()) {

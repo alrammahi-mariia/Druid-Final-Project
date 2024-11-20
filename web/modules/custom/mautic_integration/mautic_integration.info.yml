@@ -1,6 +1,6 @@
 name: "Mautic Integration"
 type: module
-description: "Fetches Mautic contact ID and segments, creates taxonomy terms if not existing and sets Paragraph reference to the taxonomy term and its view mode."
+description: "Fetches Mautic contact ID and segments, creates taxonomy terms if not existing and sets Paragraph reference to the taxonomy term and its visibility."
 core_version_requirement: ^9 || ^10 || ^11
 package: Custom
 dependencies:
