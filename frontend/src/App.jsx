@@ -47,7 +47,7 @@ const App = () => {
     console.log("Mautic ID found:", mtcId);
 
     if (mtcId) {
-      // Call Drupal endpoint instead of Mautic directly
+      // Pass Mautic ID to Drupal endpoint to process segments
       axios
         .get(
           `https://druid-final-project.lndo.site/api/mautic/process-segments/${mtcId}`
@@ -59,6 +59,7 @@ const App = () => {
           console.error("Error processing segments:", error);
         });
     }
+    // When location changes, run the effect again
   }, [location]);
 
   return (
