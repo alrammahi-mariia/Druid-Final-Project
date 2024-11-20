@@ -4,6 +4,7 @@ import { fetchPageContent } from "../store/contentSlice";
 import HeroSection from "../components/HeroSection";
 import TextImageRight from "../components/TextImageRight";
 import { Row, Container } from "react-bootstrap";
+import '../style/About.css'; // if you want to keep some additional styling
 
 const About = () => {
   const dispatch = useDispatch();
@@ -32,14 +33,22 @@ const About = () => {
   const { heroData, textImageData } = aboutData;
 
   return (
-    <div>
-      {/* Hero section */}
-      {aboutData.heroData && <HeroSection {...heroData} />}
-      {/* Text section */}
+    <div className="about-page">
+      {/* Hero section without the button */}
+      {aboutData.heroData && <HeroSection {...heroData} showButton={false} />}
+      
+      {/* Text sections with conditional styling */}
       <Container fluid>
+        {/* First Section with Black Background */}
         {aboutData.textImageData &&
-          aboutData.textImageData.map((item) => (
-            <Row key={item.id}>
+          aboutData.textImageData.map((item, index) => (
+            <Row
+              key={item.id}
+              style={{
+                backgroundColor: index === 1 ? "black" : "white", // First section will have black bg
+                color: index === 1 ? "white" : "black", // Change text color for black bg section
+              }}
+            >
               <TextImageRight {...item} />
             </Row>
           ))}

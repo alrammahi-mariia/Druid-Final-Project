@@ -1,8 +1,7 @@
 import React from "react";
 import { Container, Card } from "react-bootstrap";
-import MauticForm from "../components/MauticForm";
 
-const Contact = () => {
+const Career = () => {
   return (
     <Container className="d-flex justify-content-center align-items-center min-vh-100">
       <Card
@@ -11,10 +10,10 @@ const Contact = () => {
       >
         <Card.Body>
           <Card.Title style={{ color: "black", fontSize: "2rem" }}>
-            {/* Contact */}
+            Career
           </Card.Title>
           <Card.Text style={{ color: "black", fontSize: "1.2rem" }}>
-            <MauticForm/>
+            Career information will be here.
           </Card.Text>
         </Card.Body>
       </Card>
@@ -22,4 +21,4 @@ const Contact = () => {
   );
 };
 
-export default Contact;
+export default Career;
