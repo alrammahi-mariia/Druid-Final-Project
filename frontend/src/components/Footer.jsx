@@ -8,21 +8,51 @@ import {
   FaLinkedin,
   FaInstagram,
   FaWikipediaW,
-} from "react-icons/fa"; 
+} from "react-icons/fa";
 import { AiOutlineClose } from "react-icons/ai";
 
-const Footer=()=> {
+const Footer = () => {
   return (
-    <footer className="bg-light text-dark py-5" style={{ width: "100%" }}>
+    <footer
+      className="text-white py-5 position-relative"
+      style={{
+        backgroundColor: "#2c3e50", // Dark background color
+        width: "100%",
+      }}
+    >
       <Container fluid>
-        <Container className="px-2 px-md-1">
-          <Row
-            className="d-flex justify-content-between align-items-start"
-            style={{ gap: "30px" }}
-          >
+        <Container className="px-3 px-md-5 position-relative">
+          {/* Vertical Line Left */}
+          <div
+            style={{
+              position: "absolute",
+              top: "10%",
+              bottom: "10%",
+              left: "33%",
+              width: "3px",
+              backgroundColor: "#E11000", // Red color
+              animation: "pulse 3s infinite", // Animation for glowing effect
+            }}
+          ></div>
+          {/* Vertical Line Right */}
+          <div
+            style={{
+              position: "absolute",
+              top: "10%",
+              bottom: "10%",
+              left: "66%",
+              width: "3px",
+              backgroundColor: "#E11000", // Red color
+              animation: "pulse 3s infinite", // Animation for glowing effect
+            }}
+          ></div>
+
+          <Row className="d-flex justify-content-between align-items-start position-relative">
             {/* Left Column */}
             <Col md={3} sm={12} className="text-start">
-              <h4>Call or send us a message</h4>
+              <h4 className="mb-4" style={{ color: "#E11000" }}> {/* Red Heading */}
+                Contact Us
+              </h4>
               <p>
                 <FaMapMarkerAlt className="me-2" /> Pasilankatu 2, 00240
                 Helsinki, Finland
@@ -37,13 +67,16 @@ const Footer=()=> {
 
             {/* Middle Column - Social Links */}
             <Col md={3} sm={12} className="text-center">
-              <h4>Social</h4>
+              <h4 className="mb-4" style={{ color: "#E11000" }}>
+                Follow Us
+              </h4>
               <p>
                 <a
                   href="https://www.facebook.com/druidfi/"
-                  className="text-dark"
+                  className="text-white text-decoration-none"
                   target="_blank"
                   rel="noopener noreferrer"
+                  style={{ display: "flex", alignItems: "center", justifyContent: "center" }}
                 >
                   <FaFacebookSquare size={24} className="me-2" /> Facebook
                 </a>
@@ -51,9 +84,10 @@ const Footer=()=> {
               <p>
                 <a
                   href="https://www.linkedin.com/company/druid-oy/"
-                  className="text-dark"
+                  className="text-white text-decoration-none"
                   target="_blank"
                   rel="noopener noreferrer"
+                  style={{ display: "flex", alignItems: "center", justifyContent: "center" }}
                 >
                   <FaLinkedin size={24} className="me-2" /> LinkedIn
                 </a>
@@ -61,29 +95,21 @@ const Footer=()=> {
               <p>
                 <a
                   href="https://www.instagram.com/druidfi/"
-                  className="text-dark"
+                  className="text-white text-decoration-none"
                   target="_blank"
                   rel="noopener noreferrer"
+                  style={{ display: "flex", alignItems: "center", justifyContent: "center" }}
                 >
                   <FaInstagram size={24} className="me-2" /> Instagram
                 </a>
               </p>
               <p>
                 <a
-                  href="https://x.com/druidfi"
-                  className="text-dark"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <AiOutlineClose size={24} className="me-2" /> X
-                </a>
-              </p>
-              <p>
-                <a
                   href="https://www.itewiki.fi/druid"
-                  className="text-dark"
+                  className="text-white text-decoration-none"
                   target="_blank"
                   rel="noopener noreferrer"
+                  style={{ display: "flex", alignItems: "center", justifyContent: "center" }}
                 >
                   <FaWikipediaW size={24} className="me-2" /> IteWiki
                 </a>
@@ -92,24 +118,26 @@ const Footer=()=> {
 
             {/* Right Column - Navigation Links */}
             <Col md={2} sm={12} className="text-end">
-              <h4>Links</h4>
+              <h4 className="mb-4" style={{ color: "#E11000" }}>
+                Quick Links
+              </h4>
               <p>
-                <Link to="/about" className="text-dark">
+                <Link to="/about" className="text-white text-decoration-none">
                   About Us
                 </Link>
               </p>
               <p>
-                <Link to="/services" className="text-dark">
+                <Link to="/services" className="text-white text-decoration-none">
                   Our Services
                 </Link>
               </p>
               <p>
-                <Link to="/career" className="text-dark">
-                  Working with us
+                <Link to="/career" className="text-white text-decoration-none">
+                  Careers
                 </Link>
               </p>
               <p>
-                <Link to="/blog" className="text-dark">
+                <Link to="/blog" className="text-white text-decoration-none">
                   Blog
                 </Link>
               </p>
@@ -119,6 +147,6 @@ const Footer=()=> {
       </Container>
     </footer>
   );
-}
+};
 
 export default Footer;
