@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchPageContent, fetchFullPageContent } from "../store/contentSlice";
 import { Container, Row, Col } from "react-bootstrap";
-import CardImage from "../components/CardImage";
+import CardImage from "../components/CardImageBg";
 import HeroSection from "../components/HeroSection";
 
 const BlogPage = () => {
