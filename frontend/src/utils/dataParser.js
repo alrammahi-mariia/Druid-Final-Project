@@ -116,6 +116,14 @@ export const processIncludedData = (included) => {
               ? featureImageUrls[0]
               : featureImageUrls,
         });
+
+      case "file--file":
+        if (!data.imageUrls) {
+          data.imageUrls = [];
+        }
+        if (item.attributes.uri?.url) {
+          data.imageUrls.push(item.attributes.uri.url);
+        }
         break;
 
       default:

@@ -8,8 +8,8 @@ import Contact from "./pages/Contact";
 import Services from "./pages/Services";
 import ServiceSingle from "./pages/ServiceSingle";
 import ServicePage from "./pages/ServiceSingle";
-import Blog from "./pages/Blog";
 import Career from "./pages/Career";
+import BlogPage from "./pages/BlogPage";
 
 const App = () => {
   const location = useLocation();
@@ -43,7 +43,7 @@ const App = () => {
           <Route path="/services" element={<Services />} />
           <Route path="/services/:single" element={<ServiceSingle />} />
           <Route path="/about" element={<About />} />
-          <Route path="/blog" element={<Blog />} />
+           <Route path="/blog" element={<BlogPage />} /> 
           <Route path="/career" element={<Career />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/service-single" element={<ServicePage />} />
