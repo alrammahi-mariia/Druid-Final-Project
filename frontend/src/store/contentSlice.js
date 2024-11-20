@@ -16,22 +16,45 @@ export const fetchPageContent = createAsyncThunk(
   }
 );
 
+export const fetchFullPageContent = createAsyncThunk(
+  "content/fetchFullPageContent",
+  async ({ contentType, includedFields }, thunkAPI) => {
+    try {
+      const data = await fetchPageData(contentType, includedFields);
+      console.log("API response data:", data);
+      return {
+        mainData: data.data,
+        includedData: processIncludedData(data.included),
+      };
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+const initialState = {
+  data: {}, // For fetchPageContent results
+  mainData: null, // For fetchFullPageContent results
+  includedData: null, // For fetchFullPageContent results
+  loading: false,
+  error: null,
+};
+
 const contentSlice = createSlice({
   name: "content",
-  initialState: {
-    data: {},
-    loading: false,
-    error: null,
-  },
+  initialState,
   reducers: {
     resetContentState: (state) => {
       state.data = {};
+      state.mainData = null;
+      state.includedData = null;
       state.loading = false;
       state.error = null;
     },
   },
   extraReducers: (builder) => {
     builder
+      // fetchPageContent cases
       .addCase(fetchPageContent.pending, (state) => {
         state.loading = true;
         state.error = null;
@@ -42,11 +65,30 @@ const contentSlice = createSlice({
           ...state.data,
           [action.meta.arg.contentType]: action.payload,
         };
+        state.error = null;
       })
       .addCase(fetchPageContent.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload;
         console.error("Error fetching page content:", action.payload);
+      })
+      // fetchFullPageContent cases
+      .addCase(fetchFullPageContent.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(fetchFullPageContent.fulfilled, (state, action) => {
+        state.loading = false;
+        state.mainData = action.payload.mainData;
+        state.includedData = action.payload.includedData;
+        state.error = null;
+      })
+      .addCase(fetchFullPageContent.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+        state.mainData = null;
+        state.includedData = null;
+        console.error("Error fetching full page content:", action.payload);
       });
   },
 });
