@@ -1,0 +1,27 @@
+uuid: a3c59a4d-f3fb-4afd-b015-ab44a497d994
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.field_visibility
+field_name: field_visibility
+entity_type: paragraph
+type: list_integer
+settings:
+  allowed_values:
+    -
+      value: 1
+      label: Visible
+    -
+      value: 0
+      label: Invisible
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

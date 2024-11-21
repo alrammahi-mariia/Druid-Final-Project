@@ -1,0 +1,23 @@
+uuid: 3f33819a-8784-40b7-b5ec-d9abed63cdc4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_visibility
+    - paragraphs.paragraphs_type.mautic
+  module:
+    - options
+id: paragraph.mautic.field_visibility
+field_name: field_visibility
+entity_type: paragraph
+bundle: mautic
+label: Visibility
+description: ''
+required: true
+translatable: true
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings: {  }
+field_type: list_integer

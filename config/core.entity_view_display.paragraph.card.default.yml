@@ -6,6 +6,8 @@ dependencies:
     - field.field.paragraph.card.field_card_description
     - field.field.paragraph.card.field_card_link
     - field.field.paragraph.card.field_card_title
+    - field.field.paragraph.card.field_segment
+    - field.field.paragraph.card.field_visibility
     - paragraphs.paragraphs_type.card
   module:
     - link
@@ -41,4 +43,13 @@ content:
     third_party_settings: {  }
     weight: 0
     region: content
-hidden: {  }
+  field_segment:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  field_visibility: true

@@ -4,7 +4,9 @@ status: true
 dependencies:
   config:
     - field.field.paragraph.text.field_section_text
+    - field.field.paragraph.text.field_segment
     - field.field.paragraph.text.field_text_title
+    - field.field.paragraph.text.field_visibility
     - paragraphs.paragraphs_type.text
   module:
     - text
@@ -23,6 +25,12 @@ content:
       placeholder: ''
       show_summary: false
     third_party_settings: {  }
+  field_segment:
+    type: options_select
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_text_title:
     type: string_textfield
     weight: 0
@@ -30,6 +38,18 @@ content:
     settings:
       size: 60
       placeholder: ''
+    third_party_settings: {  }
+  field_visibility:
+    type: options_select
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  unomi_segment_section:
+    type: options_select
+    weight: 99
+    region: content
+    settings: {  }
     third_party_settings: {  }
 hidden:
   created: true

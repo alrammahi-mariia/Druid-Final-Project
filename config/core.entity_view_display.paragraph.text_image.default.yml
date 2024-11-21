@@ -4,9 +4,11 @@ status: true
 dependencies:
   config:
     - field.field.paragraph.text_image.field_section_title
+    - field.field.paragraph.text_image.field_segment
     - field.field.paragraph.text_image.field_text
     - field.field.paragraph.text_image.field_text_image
     - field.field.paragraph.text_image.field_text_long
+    - field.field.paragraph.text_image.field_visibility
     - paragraphs.paragraphs_type.text_image
   module:
     - image
@@ -23,6 +25,14 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     weight: 2
+    region: content
+  field_segment:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 0
     region: content
   field_text:
     type: text_default
@@ -49,4 +59,5 @@ content:
     third_party_settings: {  }
     weight: 3
     region: content
-hidden: {  }
+hidden:
+  field_visibility: true

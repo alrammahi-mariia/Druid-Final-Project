@@ -5,7 +5,9 @@ dependencies:
   config:
     - field.field.paragraph.hero_paragraph.field_description
     - field.field.paragraph.hero_paragraph.field_image
+    - field.field.paragraph.hero_paragraph.field_segment
     - field.field.paragraph.hero_paragraph.field_title
+    - field.field.paragraph.hero_paragraph.field_visibility
     - paragraphs.paragraphs_type.hero_paragraph
   module:
     - image
@@ -33,6 +35,14 @@ content:
     third_party_settings: {  }
     weight: 2
     region: content
+  field_segment:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 0
+    region: content
   field_title:
     type: string
     label: above
@@ -41,4 +51,5 @@ content:
     third_party_settings: {  }
     weight: 0
     region: content
-hidden: {  }
+hidden:
+  field_visibility: true

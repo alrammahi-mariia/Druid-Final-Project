@@ -4,7 +4,9 @@ status: true
 dependencies:
   config:
     - field.field.paragraph.text.field_section_text
+    - field.field.paragraph.text.field_segment
     - field.field.paragraph.text.field_text_title
+    - field.field.paragraph.text.field_visibility
     - paragraphs.paragraphs_type.text
   module:
     - text
@@ -20,6 +22,14 @@ content:
     third_party_settings: {  }
     weight: 1
     region: content
+  field_segment:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 0
+    region: content
   field_text_title:
     type: string
     label: above
@@ -28,4 +38,5 @@ content:
     third_party_settings: {  }
     weight: 0
     region: content
-hidden: {  }
+hidden:
+  field_visibility: true

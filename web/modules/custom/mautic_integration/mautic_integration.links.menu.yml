@@ -1,0 +1,6 @@
+mautic_integration.settings:
+  title: "Mautic Integration"
+  description: "Configure Mautic integration settings"
+  parent: system.admin_config_services
+  route_name: mautic_integration.settings
+  weight: 100

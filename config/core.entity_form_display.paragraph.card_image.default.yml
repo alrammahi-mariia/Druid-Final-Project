@@ -6,6 +6,8 @@ dependencies:
     - field.field.paragraph.card_image.field_card_image
     - field.field.paragraph.card_image.field_cardimg_text
     - field.field.paragraph.card_image.field_cardimg_title
+    - field.field.paragraph.card_image.field_segment
+    - field.field.paragraph.card_image.field_visibility
     - image.style.thumbnail
     - paragraphs.paragraphs_type.card_image
   module:
@@ -39,6 +41,24 @@ content:
     settings:
       size: 60
       placeholder: ''
+    third_party_settings: {  }
+  field_segment:
+    type: options_select
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_visibility:
+    type: options_select
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  unomi_segment_section:
+    type: options_select
+    weight: 99
+    region: content
+    settings: {  }
     third_party_settings: {  }
 hidden:
   created: true

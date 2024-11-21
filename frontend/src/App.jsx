@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import axios from "axios";
 import { Routes, Route, useLocation } from "react-router-dom";
 import mautic from "./services/mautic_services";
 import Home from "./pages/Home";
@@ -33,7 +34,34 @@ const App = () => {
       path: location.pathname,
       title: document.title,
     });
+
+    // Get Contact ID from cookies
+    const allCookies = document.cookie;
+    console.log("All cookies:", allCookies);
+
+    const mtcId = document.cookie
+      .split("; ")
+      .find((row) => row.startsWith("mtc_id="))
+      ?.split("=")[1];
+
+    console.log("Mautic ID found:", mtcId);
+
+    if (mtcId) {
+      // Pass Mautic ID to Drupal endpoint to process segments
+      axios
+        .get(
+          `https://druid-final-project.lndo.site/api/mautic/process-segments/${mtcId}`
+        )
+        .then((response) => {
+          console.log("Segments processed:", response.data);
+        })
+        .catch((error) => {
+          console.error("Error processing segments:", error);
+        });
+    }
+    // When location changes, run the effect again
   }, [location]);
+
   return (
     <Routes>
       <Route path="/" element={<Layout />}>

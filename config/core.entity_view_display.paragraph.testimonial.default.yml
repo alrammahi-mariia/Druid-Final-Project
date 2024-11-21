@@ -4,7 +4,9 @@ status: true
 dependencies:
   config:
     - field.field.paragraph.testimonial.field_author
+    - field.field.paragraph.testimonial.field_segment
     - field.field.paragraph.testimonial.field_testimonial
+    - field.field.paragraph.testimonial.field_visibility
     - paragraphs.paragraphs_type.testimonial
 id: paragraph.testimonial.default
 targetEntityType: paragraph
@@ -19,6 +21,14 @@ content:
     third_party_settings: {  }
     weight: 1
     region: content
+  field_segment:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 0
+    region: content
   field_testimonial:
     type: basic_string
     label: above
@@ -26,4 +36,5 @@ content:
     third_party_settings: {  }
     weight: 0
     region: content
-hidden: {  }
+hidden:
+  field_visibility: true

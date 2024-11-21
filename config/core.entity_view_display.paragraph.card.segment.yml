@@ -1,0 +1,49 @@
+uuid: b0299db9-7e1d-4045-8fb7-f447edf5f09e
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.segment
+    - field.field.paragraph.card.field_card_description
+    - field.field.paragraph.card.field_card_link
+    - field.field.paragraph.card.field_card_title
+    - field.field.paragraph.card.field_segment
+    - field.field.paragraph.card.field_visibility
+    - paragraphs.paragraphs_type.card
+  module:
+    - link
+id: paragraph.card.segment
+targetEntityType: paragraph
+bundle: card
+mode: segment
+content:
+  field_card_description:
+    type: basic_string
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_card_link:
+    type: link
+    label: inline
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_card_title:
+    type: string
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  field_segment: true
+  field_visibility: true

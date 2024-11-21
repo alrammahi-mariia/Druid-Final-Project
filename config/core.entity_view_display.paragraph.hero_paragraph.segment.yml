@@ -1,0 +1,49 @@
+uuid: 92526976-9174-41a3-a012-c96c8ecacc64
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.segment
+    - field.field.paragraph.hero_paragraph.field_description
+    - field.field.paragraph.hero_paragraph.field_image
+    - field.field.paragraph.hero_paragraph.field_segment
+    - field.field.paragraph.hero_paragraph.field_title
+    - field.field.paragraph.hero_paragraph.field_visibility
+    - paragraphs.paragraphs_type.hero_paragraph
+  module:
+    - image
+    - text
+id: paragraph.hero_paragraph.segment
+targetEntityType: paragraph
+bundle: hero_paragraph
+mode: segment
+content:
+  field_description:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_image:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_title:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  field_segment: true
+  field_visibility: true
