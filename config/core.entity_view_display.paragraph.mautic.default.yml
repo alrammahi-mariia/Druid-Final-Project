@@ -1,0 +1,56 @@
+uuid: 6c924f09-f8a0-4c2c-b178-0342269b68af
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.mautic.field_mautic_formid
+    - field.field.paragraph.mautic.field_mautic_layout
+    - field.field.paragraph.mautic.field_mautic_text
+    - field.field.paragraph.mautic.field_mautic_title
+    - field.field.paragraph.mautic.field_segment
+    - field.field.paragraph.mautic.field_visibility
+    - paragraphs.paragraphs_type.mautic
+  module:
+    - mautic_paragraph
+    - text
+_core:
+  default_config_hash: waju0hietqagT7ltDpvxBgZgssJEim5_u_2zEXtsZcg
+id: paragraph.mautic.default
+targetEntityType: paragraph
+bundle: mautic
+mode: default
+content:
+  field_mautic_formid:
+    type: mautic_form_list
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_mautic_text:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_mautic_title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_segment:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  field_mautic_layout: true
+  field_visibility: true
+  search_api_excerpt: true

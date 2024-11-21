@@ -1,0 +1,25 @@
+uuid: 316de19c-d3d7-4434-a6f6-8c5e633fb70f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_segment
+    - paragraphs.paragraphs_type.hero_paragraph
+    - taxonomy.vocabulary.mautic_segments
+id: paragraph.hero_paragraph.field_segment
+field_name: field_segment
+entity_type: paragraph
+bundle: hero_paragraph
+label: Segment
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      mautic_segments: mautic_segments
+    auto_create: false
+field_type: entity_reference

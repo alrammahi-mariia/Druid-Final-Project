@@ -1,0 +1,11 @@
+uuid: 8d07d1ab-e6d1-40d0-83f7-1201ada79624
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.segment
+label: Segment
+description: ''
+targetEntityType: paragraph
+cache: true

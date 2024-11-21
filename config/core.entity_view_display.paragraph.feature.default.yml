@@ -6,6 +6,8 @@ dependencies:
     - field.field.paragraph.feature.field_feature_description
     - field.field.paragraph.feature.field_feature_image
     - field.field.paragraph.feature.field_feature_title
+    - field.field.paragraph.feature.field_segment
+    - field.field.paragraph.feature.field_visibility
     - paragraphs.paragraphs_type.feature
   module:
     - image
@@ -40,4 +42,13 @@ content:
     third_party_settings: {  }
     weight: 0
     region: content
-hidden: {  }
+  field_segment:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  field_visibility: true

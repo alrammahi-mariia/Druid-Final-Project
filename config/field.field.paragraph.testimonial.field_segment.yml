@@ -1,0 +1,25 @@
+uuid: a823d98d-c851-4dba-b432-9b98616c49b1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_segment
+    - paragraphs.paragraphs_type.testimonial
+    - taxonomy.vocabulary.mautic_segments
+id: paragraph.testimonial.field_segment
+field_name: field_segment
+entity_type: paragraph
+bundle: testimonial
+label: Segment
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      mautic_segments: mautic_segments
+    auto_create: false
+field_type: entity_reference

@@ -1,0 +1,9 @@
+uuid: 47b847c0-2a21-48b7-8c2f-ef5853c8d9ea
+langcode: en
+status: true
+dependencies: {  }
+name: mautic_segments
+vid: mautic_segments
+description: 'Segments for Mautic-Drupal integration'
+weight: 0
+new_revision: false

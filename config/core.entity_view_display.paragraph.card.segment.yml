@@ -1,9 +1,9 @@
-uuid: 0f2a06a8-c5df-4a23-938c-cc8f7c7bcf5c
+uuid: b0299db9-7e1d-4045-8fb7-f447edf5f09e
 langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.paragraph.preview
+    - core.entity_view_mode.paragraph.segment
     - field.field.paragraph.card.field_card_description
     - field.field.paragraph.card.field_card_link
     - field.field.paragraph.card.field_card_title
@@ -12,21 +12,21 @@ dependencies:
     - paragraphs.paragraphs_type.card
   module:
     - link
-id: paragraph.card.preview
+id: paragraph.card.segment
 targetEntityType: paragraph
 bundle: card
-mode: preview
+mode: segment
 content:
   field_card_description:
     type: basic_string
-    label: above
+    label: inline
     settings: {  }
     third_party_settings: {  }
     weight: 1
     region: content
   field_card_link:
     type: link
-    label: above
+    label: inline
     settings:
       trim_length: 80
       url_only: false
@@ -38,7 +38,7 @@ content:
     region: content
   field_card_title:
     type: string
-    label: above
+    label: inline
     settings:
       link_to_entity: false
     third_party_settings: {  }

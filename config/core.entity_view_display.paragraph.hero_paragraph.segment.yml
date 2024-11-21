@@ -1,8 +1,9 @@
-uuid: 051ed31c-067d-4f82-a7c0-f624b50a82aa
+uuid: 92526976-9174-41a3-a012-c96c8ecacc64
 langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.paragraph.segment
     - field.field.paragraph.hero_paragraph.field_description
     - field.field.paragraph.hero_paragraph.field_image
     - field.field.paragraph.hero_paragraph.field_segment
@@ -12,10 +13,10 @@ dependencies:
   module:
     - image
     - text
-id: paragraph.hero_paragraph.default
+id: paragraph.hero_paragraph.segment
 targetEntityType: paragraph
 bundle: hero_paragraph
-mode: default
+mode: segment
 content:
   field_description:
     type: text_default
@@ -35,14 +36,6 @@ content:
     third_party_settings: {  }
     weight: 2
     region: content
-  field_segment:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 0
-    region: content
   field_title:
     type: string
     label: above
@@ -52,4 +45,5 @@ content:
     weight: 0
     region: content
 hidden:
+  field_segment: true
   field_visibility: true

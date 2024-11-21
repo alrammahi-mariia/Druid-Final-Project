@@ -1,0 +1,23 @@
+uuid: 21a95d24-0055-4c0f-8531-ab69d3a5fcfd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_visibility
+    - paragraphs.paragraphs_type.text
+  module:
+    - options
+id: paragraph.text.field_visibility
+field_name: field_visibility
+entity_type: paragraph
+bundle: text
+label: Visibility
+description: ''
+required: true
+translatable: true
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings: {  }
+field_type: list_integer

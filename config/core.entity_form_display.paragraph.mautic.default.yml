@@ -1,42 +1,48 @@
-uuid: 02f2a76a-e8b4-41d8-8c14-3a0cd4614757
+uuid: e08a2997-9aeb-4e81-b997-0cc232c18dec
 langcode: en
 status: true
 dependencies:
   config:
-    - field.field.paragraph.card_image.field_card_image
-    - field.field.paragraph.card_image.field_cardimg_text
-    - field.field.paragraph.card_image.field_cardimg_title
-    - field.field.paragraph.card_image.field_segment
-    - field.field.paragraph.card_image.field_visibility
-    - image.style.thumbnail
-    - paragraphs.paragraphs_type.card_image
+    - field.field.paragraph.mautic.field_mautic_formid
+    - field.field.paragraph.mautic.field_mautic_layout
+    - field.field.paragraph.mautic.field_mautic_text
+    - field.field.paragraph.mautic.field_mautic_title
+    - field.field.paragraph.mautic.field_segment
+    - field.field.paragraph.mautic.field_visibility
+    - paragraphs.paragraphs_type.mautic
   module:
-    - image
+    - mautic_paragraph
     - text
-id: paragraph.card_image.default
+_core:
+  default_config_hash: 9yBquGOPab9SGAQhPu-LRTcAdkg38E1vGgWkQyZwxiY
+id: paragraph.mautic.default
 targetEntityType: paragraph
-bundle: card_image
+bundle: mautic
 mode: default
 content:
-  field_card_image:
-    type: image_image
-    weight: 0
-    region: content
-    settings:
-      progress_indicator: throbber
-      preview_image_style: thumbnail
-    third_party_settings: {  }
-  field_cardimg_text:
-    type: text_textarea
+  field_mautic_formid:
+    type: autocomplete_mautic
     weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_mautic_layout:
+    type: options_buttons
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_mautic_text:
+    type: text_textarea
+    weight: 1
     region: content
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
-  field_cardimg_title:
+  field_mautic_title:
     type: string_textfield
-    weight: 1
+    weight: 0
     region: content
     settings:
       size: 60

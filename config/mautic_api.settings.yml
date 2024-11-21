@@ -1,0 +1,6 @@
+base_url: 'https://mautic-lando.lndo.site'
+credential_provider: config
+credentials:
+  config:
+    username: bishnu
+    password: Bishnudruid@99
