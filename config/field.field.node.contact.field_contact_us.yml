@@ -1,0 +1,50 @@
+uuid: a1794028-742f-4c42-bd4d-9e13dccb2694
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_contact_us
+    - node.type.contact
+  module:
+    - entity_reference_revisions
+id: node.contact.field_contact_us
+field_name: field_contact_us
+entity_type: node
+bundle: contact
+label: 'Contact us'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles: null
+    negate: 0
+    target_bundles_drag_drop:
+      card:
+        weight: 9
+        enabled: false
+      card_image:
+        weight: 10
+        enabled: false
+      feature:
+        weight: 11
+        enabled: false
+      hero_paragraph:
+        weight: 12
+        enabled: false
+      mautic:
+        weight: 13
+        enabled: false
+      testimonial:
+        weight: 14
+        enabled: false
+      text:
+        weight: 15
+        enabled: false
+      text_image:
+        weight: 16
+        enabled: false
+field_type: entity_reference_revisions
