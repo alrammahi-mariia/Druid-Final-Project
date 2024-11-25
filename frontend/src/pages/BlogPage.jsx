@@ -27,11 +27,16 @@ const BlogPage = () => {
 
     dispatch(
       fetchPageContent({
-        contentType: "blog",
-        includedFields: ["field_blog_1", "field_blog_1.field_image"],
+        contentType: "blog_page",
+        includedFields: [
+          "field_blog_content",
+          "field_blog_content.field_image",
+        ],
       })
     );
   }, [dispatch]);
+
+  console.log("Data from Redux", blogData);
 
   // Loading and error handling
   if (loading) return <p>Loading...</p>;
@@ -42,28 +47,27 @@ const BlogPage = () => {
     <div>
       {/* Blog Hero Section */}
       {blogData.heroData && <HeroSection {...heroData} />}
-      
+
       {/* Blog List Section */}
       <section className="my-5">
         <Container>
           <Row className="services-container justify-content-center">
-            {mainData && mainData.map((article, index) => {
-              const imageUrl = includedData?.imageUrls?.[index] || "";
-              return (
-                <Col lg={6} md={4} sm={12} className="mb-4" key={index}>
-                  <CardImage
-                    text={article.attributes.body?.value}
-                    title={article.attributes.title}
-                    imageUrl={imageUrl}
-                  />
-                </Col>
-              );
-            })}
+            {mainData &&
+              mainData.map((article, index) => {
+                const imageUrl = includedData?.imageUrls?.[index] || "";
+                return (
+                  <Col lg={6} md={4} sm={12} className="mb-4" key={index}>
+                    <CardImage
+                      text={article.attributes.body?.value}
+                      title={article.attributes.title}
+                      imageUrl={imageUrl}
+                    />
+                  </Col>
+                );
+              })}
           </Row>
         </Container>
       </section>
-      
-      
     </div>
   );
 };
