@@ -1,8 +1,7 @@
 name: "Mautic Integration"
 type: module
-description: "Fetches Mautic contact ID and segments, creates taxonomy terms if not existing and sets Paragraph reference to the taxonomy term and its visibility."
+description: "Fetches Mautic user ID and correspondingsegments, creates a form to update paragraphs with user segments."
 core_version_requirement: ^9 || ^10 || ^11
 package: Custom
 dependencies:
-  - drupal:taxonomy
   - drupal:paragraphs
