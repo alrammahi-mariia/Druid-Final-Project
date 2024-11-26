@@ -9,8 +9,7 @@ import {
   FaInstagram,
   FaWikipediaW,
 } from "react-icons/fa";
-import { AiOutlineClose } from "react-icons/ai";
-
+ 
 const Footer = () => {
   return (
     <footer
@@ -30,7 +29,7 @@ const Footer = () => {
               bottom: "10%",
               left: "33%",
               width: "3px",
-              backgroundColor: "#E11000", // Red color
+              backgroundColor: "white", // Changed to white
               animation: "pulse 3s infinite", // Animation for glowing effect
             }}
           ></div>
@@ -42,15 +41,15 @@ const Footer = () => {
               bottom: "10%",
               left: "66%",
               width: "3px",
-              backgroundColor: "#E11000", // Red color
+              backgroundColor: "white", // Changed to white
               animation: "pulse 3s infinite", // Animation for glowing effect
             }}
           ></div>
-
+ 
           <Row className="d-flex justify-content-between align-items-start position-relative">
             {/* Left Column */}
             <Col md={3} sm={12} className="text-start">
-              <h4 className="mb-4" style={{ color: "#E11000" }}> {/* Red Heading */}
+              <h4 className="mb-4" style={{ color: "white" }}> {/* Changed to white */}
                 Contact Us
               </h4>
               <p>
@@ -64,10 +63,10 @@ const Footer = () => {
                 <FaPhone className="me-2" /> +358 20 187 6602
               </p>
             </Col>
-
+ 
             {/* Middle Column - Social Links */}
             <Col md={3} sm={12} className="text-center">
-              <h4 className="mb-4" style={{ color: "#E11000" }}>
+              <h4 className="mb-4" style={{ color: "white" }}>
                 Follow Us
               </h4>
               <p>
@@ -76,9 +75,14 @@ const Footer = () => {
                   className="text-white text-decoration-none"
                   target="_blank"
                   rel="noopener noreferrer"
-                  style={{ display: "flex", alignItems: "center", justifyContent: "center" }}
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "flex-start", // Align text and icon
+                    gap: "10px", // Add spacing between icon and text
+                  }}
                 >
-                  <FaFacebookSquare size={24} className="me-2" /> Facebook
+                  <FaFacebookSquare size={24} /> Facebook
                 </a>
               </p>
               <p>
@@ -87,9 +91,14 @@ const Footer = () => {
                   className="text-white text-decoration-none"
                   target="_blank"
                   rel="noopener noreferrer"
-                  style={{ display: "flex", alignItems: "center", justifyContent: "center" }}
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "flex-start", // Align text and icon
+                    gap: "10px", // Add spacing between icon and text
+                  }}
                 >
-                  <FaLinkedin size={24} className="me-2" /> LinkedIn
+                  <FaLinkedin size={24} /> LinkedIn
                 </a>
               </p>
               <p>
@@ -98,9 +107,14 @@ const Footer = () => {
                   className="text-white text-decoration-none"
                   target="_blank"
                   rel="noopener noreferrer"
-                  style={{ display: "flex", alignItems: "center", justifyContent: "center" }}
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "flex-start", // Align text and icon
+                    gap: "10px", // Add spacing between icon and text
+                  }}
                 >
-                  <FaInstagram size={24} className="me-2" /> Instagram
+                  <FaInstagram size={24} /> Instagram
                 </a>
               </p>
               <p>
@@ -109,16 +123,21 @@ const Footer = () => {
                   className="text-white text-decoration-none"
                   target="_blank"
                   rel="noopener noreferrer"
-                  style={{ display: "flex", alignItems: "center", justifyContent: "center" }}
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "flex-start", // Align text and icon
+                    gap: "10px", // Add spacing between icon and text
+                  }}
                 >
-                  <FaWikipediaW size={24} className="me-2" /> IteWiki
+                  <FaWikipediaW size={24} /> IteWiki
                 </a>
               </p>
             </Col>
-
+ 
             {/* Right Column - Navigation Links */}
             <Col md={2} sm={12} className="text-end">
-              <h4 className="mb-4" style={{ color: "#E11000" }}>
+              <h4 className="mb-4" style={{ color: "white" }}> {/* Changed to white */}
                 Quick Links
               </h4>
               <p>
@@ -148,5 +167,5 @@ const Footer = () => {
     </footer>
   );
 };
-
+ 
 export default Footer;
