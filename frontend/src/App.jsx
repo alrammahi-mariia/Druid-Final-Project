@@ -39,12 +39,8 @@ const App = () => {
 
   // Effect for one-time initialization
   useEffect(() => {
-    // Get Contact ID from cookies
-    const mtcId = document.cookie
-      .split("; ")
-      .find((row) => row.startsWith("mtc_id="))
-      ?.split("=")[1];
-
+    // Get Contact ID from localStorage
+    const mtcId = localStorage.getItem("mtc_id");
     console.log("Mautic ID found:", mtcId);
 
     if (mtcId) {
@@ -65,7 +61,7 @@ const App = () => {
           console.error("Error processing segments:", error);
         });
     }
-  }, []); // Empty dependency array for one-time execution
+  }, []);
 
   return (
     <Routes>
