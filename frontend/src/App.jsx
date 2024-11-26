@@ -15,6 +15,7 @@ import BlogPage from "./pages/BlogPage";
 const App = () => {
   const location = useLocation();
 
+  // Effect for location-dependent actions
   useEffect(() => {
     // Update page title dynamically based on the path
     const pageTitles = {
@@ -34,11 +35,11 @@ const App = () => {
       path: location.pathname,
       title: document.title,
     });
+  }, [location]);
 
+  // Effect for one-time initialization
+  useEffect(() => {
     // Get Contact ID from cookies
-    const allCookies = document.cookie;
-    console.log("All cookies:", allCookies);
-
     const mtcId = document.cookie
       .split("; ")
       .find((row) => row.startsWith("mtc_id="))
@@ -47,20 +48,24 @@ const App = () => {
     console.log("Mautic ID found:", mtcId);
 
     if (mtcId) {
-      // Pass Mautic ID to Drupal endpoint to process segments
       axios
         .get(
           `https://druid-final-project.lndo.site/api/mautic/process-segments/${mtcId}`
         )
         .then((response) => {
-          console.log("Segments processed:", response.data);
+          if (response.data?.segments?.length > 0) {
+            localStorage.setItem("userSegments", response.data.segments[0]);
+            console.log(
+              "Stored segment:",
+              localStorage.getItem("userSegments")
+            );
+          }
         })
         .catch((error) => {
           console.error("Error processing segments:", error);
         });
     }
-    // When location changes, run the effect again
-  }, [location]);
+  }, []); // Empty dependency array for one-time execution
 
   return (
     <Routes>
