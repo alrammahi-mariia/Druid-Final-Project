@@ -11,10 +11,11 @@ import ServiceSingle from "./pages/ServiceSingle";
 import ServicePage from "./pages/ServiceSingle";
 import Career from "./pages/Career";
 import BlogPage from "./pages/BlogPage";
-
+import './App.css';
+ 
 const App = () => {
   const location = useLocation();
-
+ 
   useEffect(() => {
     // Update page title dynamically based on the path
     const pageTitles = {
@@ -28,24 +29,24 @@ const App = () => {
     };
     const title = pageTitles[location.pathname] || "Default Title";
     document.title = title;
-
+ 
     // Track the page view in Mautic
     mautic.pageView({
       path: location.pathname,
       title: document.title,
     });
-
+ 
     // Get Contact ID from cookies
     const allCookies = document.cookie;
     console.log("All cookies:", allCookies);
-
+ 
     const mtcId = document.cookie
       .split("; ")
       .find((row) => row.startsWith("mtc_id="))
       ?.split("=")[1];
-
+ 
     console.log("Mautic ID found:", mtcId);
-
+ 
     if (mtcId) {
       // Pass Mautic ID to Drupal endpoint to process segments
       axios
@@ -61,7 +62,7 @@ const App = () => {
     }
     // When location changes, run the effect again
   }, [location]);
-
+ 
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
@@ -71,16 +72,16 @@ const App = () => {
           <Route path="/services" element={<Services />} />
           <Route path="/services/:single" element={<ServiceSingle />} />
           <Route path="/about" element={<About />} />
-           <Route path="/blog" element={<BlogPage />} /> 
+           <Route path="/blog" element={<BlogPage />} />
           <Route path="/career" element={<Career />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/service-single" element={<ServicePage />} />
         </Route>
-
+ 
         {/* <Route path="*" element={<ErrorPage />} /> */}
       </Route>
     </Routes>
   );
 };
-
+ 
 export default App;
