@@ -9,14 +9,7 @@ export const processIncludedData = (included) => {
     cardImageData: [],
   };
 
-  const visibleItems = included.filter((item) =>
-    item.type.startsWith("paragraph--")
-      ? item.attributes.field_visibility === true ||
-        item.attributes.field_visibility === 1
-      : true
-  );
-
-  visibleItems.forEach((item) => {
+  included.forEach((item) => {
     switch (item.type) {
       case "paragraph--hero_paragraph":
         const heroImage = included.find(
@@ -38,6 +31,7 @@ export const processIncludedData = (included) => {
           title: item.attributes.field_card_title,
           text: item.attributes.field_card_description,
         });
+
         break;
 
       case "paragraph--card_image":
@@ -60,6 +54,7 @@ export const processIncludedData = (included) => {
           imageUrl:
             cardImageUrls.length === 1 ? cardImageUrls[0] : cardImageUrls,
         });
+
         break;
 
       case "paragraph--testimonial":
@@ -77,6 +72,7 @@ export const processIncludedData = (included) => {
         break;
 
       case "paragraph--text_image":
+        // Find associated images if they exist (returns an array or null)
         const sectionImages = item.relationships.field_text_image?.data
           ? included.filter(
               (img) =>
@@ -85,6 +81,7 @@ export const processIncludedData = (included) => {
             )
           : [];
 
+        // Get the URL(s) for images: if only one image is needed, take the first; otherwise, map all URLs
         const imageUrls = sectionImages.length
           ? sectionImages.map((img) => img.attributes.uri.url)
           : null;
@@ -94,6 +91,7 @@ export const processIncludedData = (included) => {
           title: item.attributes.field_section_title,
           text_long: item.attributes.field_text_long?.processed,
           text_short: item.attributes.field_text,
+          // If only one image is needed, use `imageUrls[0]`; if all are needed, use `imageUrls`
           imageUrl: imageUrls.length === 1 ? imageUrls[0] : imageUrls,
         });
         break;

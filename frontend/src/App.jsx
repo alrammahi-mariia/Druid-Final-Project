@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import axios from "axios";
 import { Routes, Route, useLocation } from "react-router-dom";
 import mautic from "./services/mautic_services";
@@ -71,7 +71,7 @@ const App = () => {
           <Route path="/services" element={<Services />} />
           <Route path="/services/:single" element={<ServiceSingle />} />
           <Route path="/about" element={<About />} />
-           <Route path="/blog" element={<BlogPage />} /> 
+          <Route path="/blog" element={<BlogPage />} />
           <Route path="/career" element={<Career />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/service-single" element={<ServicePage />} />
