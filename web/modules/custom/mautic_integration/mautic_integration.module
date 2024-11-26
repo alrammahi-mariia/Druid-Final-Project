@@ -123,3 +123,4 @@ function mautic_integration_ensure_terms(array $segments) {
       \Drupal::logger('mautic_integration')->error('Failed to create term @term: @message', ['@term' => $segment_name, '@message' => $e->getMessage()]);
     }
   }
+}
