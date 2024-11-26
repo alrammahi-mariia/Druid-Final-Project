@@ -10,6 +10,7 @@ import ServiceSingle from "./pages/ServiceSingle";
 import ServicePage from "./pages/ServiceSingle";
 import Career from "./pages/Career";
 import BlogPage from "./pages/BlogPage";
+import "./App.css";
 import segmentService from "./services/segmentService";
 
 const App = () => {
