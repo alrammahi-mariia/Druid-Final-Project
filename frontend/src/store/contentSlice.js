@@ -8,7 +8,7 @@ export const fetchPageContent = createAsyncThunk(
   async ({ contentType, includedFields }, thunkAPI) => {
     try {
       const data = await fetchPageData(contentType, includedFields);
-      console.log("API response data:", data);
+      console.log("API response fetchPageContent:", data);
       return processIncludedData(data.included);
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -21,7 +21,7 @@ export const fetchFullPageContent = createAsyncThunk(
   async ({ contentType, includedFields }, thunkAPI) => {
     try {
       const data = await fetchPageData(contentType, includedFields);
-      console.log("API response data:", data);
+      console.log("API response FetchFullPageContent:", data);
       return {
         mainData: data.data,
         includedData: processIncludedData(data.included),

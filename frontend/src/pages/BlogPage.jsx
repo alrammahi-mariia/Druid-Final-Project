@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchPageContent, fetchFullPageContent } from "../store/contentSlice";
 import { Container, Row, Col } from "react-bootstrap";
-import CardImage from "../components/CardImageBg";
+import CardImageBg from "../components/CardImageBg";
 import HeroSection from "../components/HeroSection";
 
 const BlogPage = () => {
@@ -12,8 +12,7 @@ const BlogPage = () => {
   );
 
   // Blog-specific data
-  const blogData = data.blog || {};
-  const { heroData } = blogData;
+  const blogData = data.blog_page || {};
 
   // Fetch data when component mounts
   useEffect(() => {
@@ -36,12 +35,17 @@ const BlogPage = () => {
     );
   }, [dispatch]);
 
-  console.log("Data from Redux", blogData);
+  console.log("Data from Redux:");
+  console.log("data:", data);
+  console.log("mainData:", mainData);
+  console.log("includedData:", includedData);
 
   // Loading and error handling
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error}</p>;
   if (!mainData && !blogData) return <p>No data available</p>;
+
+  const { heroData } = blogData;
 
   return (
     <div>
@@ -57,7 +61,7 @@ const BlogPage = () => {
                 const imageUrl = includedData?.imageUrls?.[index] || "";
                 return (
                   <Col lg={6} md={4} sm={12} className="mb-4" key={index}>
-                    <CardImage
+                    <CardImageBg
                       text={article.attributes.body?.value}
                       title={article.attributes.title}
                       imageUrl={imageUrl}
