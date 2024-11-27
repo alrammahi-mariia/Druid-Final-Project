@@ -14,8 +14,7 @@ const TextImageRight = ({ title, text_long, text_short, imageUrl }) => {
               <h1
                 className="mb-4" // Adds margin-bottom to separate from the next element
                 style={{
-                  fontSize: "2.5rem",
-                  fontWeight: "bold",
+                  
                 }}
               >
                 {title}
