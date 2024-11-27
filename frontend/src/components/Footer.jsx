@@ -9,69 +9,82 @@ import {
   FaInstagram,
   FaWikipediaW,
 } from "react-icons/fa";
- 
+
 const Footer = () => {
   return (
     <footer
       className="text-white py-5 position-relative"
       style={{
-        backgroundColor: "#2c3e50", // Dark background color
+        backgroundColor: "#000000", // Dark background color
         width: "100%",
+        minHeight: "380px",
       }}
     >
       <Container fluid>
-        <Container className="px-3 px-md-5 position-relative">
+        <Container className="px-3 px-md-5">
           {/* Vertical Line Left */}
           <div
+            className="d-none d-md-block" // Hide on small screens
             style={{
               position: "absolute",
               top: "10%",
               bottom: "10%",
               left: "33%",
-              width: "3px",
-              backgroundColor: "white", // Changed to white
-              animation: "pulse 3s infinite", // Animation for glowing effect
+              width: "1px",
+              backgroundColor: "white",
+              animation: "pulse 3s infinite", // Optional animation
             }}
           ></div>
           {/* Vertical Line Right */}
           <div
+            className="d-none d-md-block" // Hide on small screens
             style={{
               position: "absolute",
               top: "10%",
               bottom: "10%",
               left: "66%",
-              width: "3px",
-              backgroundColor: "white", // Changed to white
-              animation: "pulse 3s infinite", // Animation for glowing effect
+              width: "1px",
+              backgroundColor: "white",
+              animation: "pulse 3s infinite", // Optional animation
             }}
           ></div>
- 
-          <Row className="d-flex justify-content-between align-items-start position-relative">
+
+          <Row className="d-flex justify-content-between align-items-start">
             {/* Left Column */}
-            <Col md={3} sm={12} className="text-start">
-              <h4 className="mb-4" style={{ color: "white" }}> {/* Changed to white */}
+            <Col md={3} sm={12}>
+              <h4 className="mb-4" style={{ color: "white", fontSize: "2rem" }}>
                 Contact Us
               </h4>
               <p>
-                <FaMapMarkerAlt className="me-2" /> Pasilankatu 2, 00240
-                Helsinki, Finland
+                 Pasilankatu 2, 00240 Helsinki, Finland
               </p>
               <p>
-                <FaEnvelope className="me-2" /> info@druid.fi
+                 info@druid.fi
               </p>
               <p>
-                <FaPhone className="me-2" /> +358 20 187 6602
+                 +358 20 187 6602
               </p>
             </Col>
- 
-            {/* Middle Column - Social Links */}
-            <Col md={3} sm={12} className="text-center">
-              <h4 className="mb-4" style={{ color: "white" }}>
+
+            {/* Middle Column */}
+            <Col
+              md={3}
+              sm={12}
+              className="text-center text-md-start" // Align left on larger screens, center on small
+            >
+              <h4
+                className="mb-4"
+                style={{
+                  color: "white",
+                  fontSize: "2rem",
+                  marginLeft:"-80px",
+                }}
+              >
                 Follow Us
               </h4>
               <p>
-                <a
-                  href="https://www.facebook.com/druidfi/"
+              <a
+                  href="https://www.itewiki.fi/druid"
                   className="text-white text-decoration-none"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -86,8 +99,8 @@ const Footer = () => {
                 </a>
               </p>
               <p>
-                <a
-                  href="https://www.linkedin.com/company/druid-oy/"
+              <a
+                  href="https://www.itewiki.fi/druid"
                   className="text-white text-decoration-none"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -102,8 +115,8 @@ const Footer = () => {
                 </a>
               </p>
               <p>
-                <a
-                  href="https://www.instagram.com/druidfi/"
+              <a
+                  href="https://www.itewiki.fi/druid"
                   className="text-white text-decoration-none"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -118,7 +131,7 @@ const Footer = () => {
                 </a>
               </p>
               <p>
-                <a
+              <a
                   href="https://www.itewiki.fi/druid"
                   className="text-white text-decoration-none"
                   target="_blank"
@@ -134,10 +147,17 @@ const Footer = () => {
                 </a>
               </p>
             </Col>
- 
-            {/* Right Column - Navigation Links */}
-            <Col md={2} sm={12} className="text-end">
-              <h4 className="mb-4" style={{ color: "white" }}> {/* Changed to white */}
+
+            {/* Right Column */}
+            <Col md={2} sm={12}>
+              <h4
+                className="mb-4"
+                style={{
+                  color: "white",
+                  fontSize: "2rem",
+                  whiteSpace: "nowrap",
+                }}
+              >
                 Quick Links
               </h4>
               <p>
@@ -167,5 +187,5 @@ const Footer = () => {
     </footer>
   );
 };
- 
+
 export default Footer;
