@@ -35,6 +35,7 @@ const Footer = () => {
               animation: "pulse 3s infinite", // Optional animation
             }}
           ></div>
+
           {/* Vertical Line Right */}
           <div
             className="d-none d-md-block" // Hide on small screens
@@ -51,18 +52,23 @@ const Footer = () => {
 
           <Row className="d-flex justify-content-between align-items-start">
             {/* Left Column */}
-            <Col md={3} sm={12}>
+            <Col
+              md={3}
+              sm={12}
+              className="mb-4"
+              style={{ paddingRight: "50px" }} // Add some padding to avoid overlap with vertical lines
+            >
               <h4 className="mb-4" style={{ color: "white", fontSize: "2rem" }}>
                 Contact Us
               </h4>
-              <p>
-                 Pasilankatu 2, 00240 Helsinki, Finland
+              <p style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                <FaMapMarkerAlt /> Pasilankatu 2, 00240 Helsinki, Finland
               </p>
-              <p>
-                 info@druid.fi
+              <p style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                <FaEnvelope /> info@druid.fi
               </p>
-              <p>
-                 +358 20 187 6602
+              <p style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                <FaPhone /> +358 20 187 6602
               </p>
             </Col>
 
@@ -70,86 +76,96 @@ const Footer = () => {
             <Col
               md={3}
               sm={12}
-              className="text-center text-md-start" // Align left on larger screens, center on small
+              className="text-center text-md-start mb-4"
+              style={{ paddingLeft: "50px", paddingRight: "50px" }} // Add padding on both sides to avoid overlap with vertical lines
             >
-              <h4
-                className="mb-4"
-                style={{
-                  color: "white",
-                  fontSize: "2rem",
-                  marginLeft:"-80px",
-                }}
-              >
-                Follow Us
-              </h4>
-              <p>
-              <a
-                  href="https://www.itewiki.fi/druid"
-                  className="text-white text-decoration-none"
-                  target="_blank"
-                  rel="noopener noreferrer"
+              <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start" }}>
+                <h4
+                  className="mb-4"
                   style={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "flex-start", // Align text and icon
-                    gap: "10px", // Add spacing between icon and text
+                    color: "white",
+                    fontSize: "2rem",
+                    marginBottom: "20px", // Adjust margin to align properly with links
                   }}
                 >
-                  <FaFacebookSquare size={24} /> Facebook
-                </a>
-              </p>
-              <p>
-              <a
-                  href="https://www.itewiki.fi/druid"
-                  className="text-white text-decoration-none"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "flex-start", // Align text and icon
-                    gap: "10px", // Add spacing between icon and text
-                  }}
-                >
-                  <FaLinkedin size={24} /> LinkedIn
-                </a>
-              </p>
-              <p>
-              <a
-                  href="https://www.itewiki.fi/druid"
-                  className="text-white text-decoration-none"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "flex-start", // Align text and icon
-                    gap: "10px", // Add spacing between icon and text
-                  }}
-                >
-                  <FaInstagram size={24} /> Instagram
-                </a>
-              </p>
-              <p>
-              <a
-                  href="https://www.itewiki.fi/druid"
-                  className="text-white text-decoration-none"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "flex-start", // Align text and icon
-                    gap: "10px", // Add spacing between icon and text
-                  }}
-                >
-                  <FaWikipediaW size={24} /> IteWiki
-                </a>
-              </p>
+                  Follow Us
+                </h4>
+
+                {/* Social media links */}
+                <p>
+                  <a
+                    href="https://www.itewiki.fi/druid"
+                    className="text-white text-decoration-none"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "flex-start", // Align text and icon
+                      gap: "10px", // Add spacing between icon and text
+                    }}
+                  >
+                    <FaFacebookSquare size={24} /> Facebook
+                  </a>
+                </p>
+                <p>
+                  <a
+                    href="https://www.itewiki.fi/druid"
+                    className="text-white text-decoration-none"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "flex-start", // Align text and icon
+                      gap: "10px", // Add spacing between icon and text
+                    }}
+                  >
+                    <FaLinkedin size={24} /> LinkedIn
+                  </a>
+                </p>
+                <p>
+                  <a
+                    href="https://www.itewiki.fi/druid"
+                    className="text-white text-decoration-none"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "flex-start", // Align text and icon
+                      gap: "10px", // Add spacing between icon and text
+                    }}
+                  >
+                    <FaInstagram size={24} /> Instagram
+                  </a>
+                </p>
+                <p>
+                  <a
+                    href="https://www.itewiki.fi/druid"
+                    className="text-white text-decoration-none"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "flex-start", // Align text and icon
+                      gap: "10px", // Add spacing between icon and text
+                    }}
+                  >
+                    <FaWikipediaW size={24} /> IteWiki
+                  </a>
+                </p>
+              </div>
             </Col>
 
             {/* Right Column */}
-            <Col md={2} sm={12}>
+            <Col
+              md={2}
+              sm={12}
+              className="mb-4"
+              style={{ paddingLeft: "50px" }} // Add padding to avoid overlap with vertical lines
+            >
               <h4
                 className="mb-4"
                 style={{
@@ -166,7 +182,10 @@ const Footer = () => {
                 </Link>
               </p>
               <p>
-                <Link to="/services" className="text-white text-decoration-none">
+                <Link
+                  to="/services"
+                  className="text-white text-decoration-none"
+                >
                   Our Services
                 </Link>
               </p>
