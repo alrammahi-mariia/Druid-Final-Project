@@ -31,10 +31,10 @@ const Home = () => {
   const { heroData, cardData, textData, cardImageData } = homeData;
 
   return (
-    <div className="home-page">
+    <div>
       {/* Hero section */}
       {homeData.heroData && (
-        <section className="hero-section">
+        <section>
           <HeroSection {...heroData} />
         </section>
       )}
@@ -87,13 +87,12 @@ const Home = () => {
         </Container>
       </section>
 
-      
       {homeData.textData && (
         <section>
           <TextSection
             {...textData[3]}
-            bgColor="bg-dark" 
-            textColor="text-white" 
+            bgColor="bg-dark"
+            textColor="text-white"
           />
         </section>
       )}
