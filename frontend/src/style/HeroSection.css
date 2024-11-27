@@ -1,0 +1,28 @@
+.hero-section {
+  padding: 80px 0;
+  text-align: center;
+}
+
+.hero-section p {
+  max-width: 740px;
+  margin: 0 auto;
+  font-size: 48px;
+  line-height: 1.5;
+}
+
+/* Background color variants */
+.hero-section.bg-white {
+  background-color: #ffffff;
+}
+
+.hero-section.bg-dark {
+  background-color: #1e1e1e;
+}
+
+.hero-section.bg-dark p {
+  color: #ffffff;
+}
+
+.hero-section.bg-light {
+  background-color: #f8f8f8;
+}
