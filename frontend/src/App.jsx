@@ -11,6 +11,7 @@ import ServiceSingle from "./pages/ServiceSingle";
 import ServicePage from "./pages/ServiceSingle";
 import Career from "./pages/Career";
 import BlogPage from "./pages/BlogPage";
+import segmentService from "./services/segmentService";
 
 const App = () => {
   const location = useLocation();
@@ -35,6 +36,14 @@ const App = () => {
       path: location.pathname,
       title: document.title,
     });
+
+    // Update segments on:
+    // - Homepage visits
+    // - After user interactions that might change segments
+    // - When conditions in shouldUpdateSegments() are met
+    if (location.pathname === "/" || segmentService.shouldUpdateSegments()) {
+      segmentService.updateSegments();
+    }
   }, [location]);
 
   // Effect for one-time initialization

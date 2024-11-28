@@ -9,15 +9,20 @@ export const processIncludedData = (included) => {
     cardImageData: [],
   };
 
-  const userSegment = sessionStorage.getItem("currentSegment");
+  const userSegment = sessionStorage.getItem("currentSegment") || "";
+  if (!userSegment) {
+    sessionStorage.removeItem("currentSegment");
+  }
 
   const showParagraph = (item) => {
-    // If no segment field or segment value is null, show to everyone
-    if (
-      !item.attributes.field_segment ||
-      item.attributes.field_segment === null
-    )
-      return true;
+    // If userSegment is empty string, only show paragraphs with no segment or null segment
+    if (userSegment === "") {
+      return (
+        !item.attributes.field_segment || item.attributes.field_segment === null
+      );
+    }
+    // If no segment field, show to everyone
+    if (!item.attributes.field_segment) return true;
     // If segment matches user segment, show it
     return item.attributes.field_segment === userSegment;
   };
