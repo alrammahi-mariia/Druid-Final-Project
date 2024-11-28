@@ -17,9 +17,9 @@ const segmentService = {
   },
 
   shouldUpdateSegments: () => {
-    // 1. Check if last update was more than X minutes ago
+    // 1. Check if last update was more than 60 minutes ago
     const lastUpdate = localStorage.getItem("lastSegmentUpdate");
-    const updateInterval = 30 * 60 * 1000; // 30 minutes
+    const updateInterval = 60 * 60 * 1000;
     const isStale =
       !lastUpdate || Date.now() - parseInt(lastUpdate) > updateInterval;
 
