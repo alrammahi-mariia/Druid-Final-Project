@@ -9,7 +9,25 @@ export const processIncludedData = (included) => {
     cardImageData: [],
   };
 
+  const userSegment = sessionStorage.getItem("currentSegment");
+
+  const showParagraph = (item) => {
+    // If no segment field or segment value is null, show to everyone
+    if (
+      !item.attributes.field_segment ||
+      item.attributes.field_segment === null
+    )
+      return true;
+    // If segment matches user segment, show it
+    return item.attributes.field_segment === userSegment;
+  };
+
   included.forEach((item) => {
+    // Skip this paragraph if it shouldn't be shown based on segment
+    if (item.type.startsWith("paragraph--") && !showParagraph(item)) {
+      return;
+    }
+
     switch (item.type) {
       case "paragraph--hero_paragraph":
         const heroImage = included.find(

@@ -43,6 +43,7 @@ const App = () => {
     const mtcId = localStorage.getItem("mtc_id");
     console.log("Mautic ID found:", mtcId);
 
+    // Get segments from Drupal
     if (mtcId) {
       axios
         .get(
@@ -50,11 +51,11 @@ const App = () => {
         )
         .then((response) => {
           if (response.data?.segments?.length > 0) {
-            localStorage.setItem("userSegments", response.data.segments[0]);
-            console.log(
-              "Stored segment:",
-              localStorage.getItem("userSegments")
-            );
+            const userSegment = response.data.segments[0];
+            localStorage.setItem("userSegments", userSegment);
+            // Set it in sessionStorage for easier access across components
+            sessionStorage.setItem("currentSegment", userSegment);
+            console.log("Stored segment:", userSegment);
           }
         })
         .catch((error) => {
