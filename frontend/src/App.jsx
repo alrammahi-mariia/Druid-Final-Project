@@ -31,47 +31,15 @@ const App = () => {
     const title = pageTitles[location.pathname] || "Default Title";
     document.title = title;
 
+    // Check/update segments based on service conditions
+    segmentService.updateSegments();
+
     // Track the page view in Mautic
     mautic.pageView({
       path: location.pathname,
       title: document.title,
     });
-
-    // Update segments on:
-    // - Homepage visits
-    // - After user interactions that might change segments
-    // - When conditions in shouldUpdateSegments() are met
-    if (location.pathname === "/" || segmentService.shouldUpdateSegments()) {
-      segmentService.updateSegments();
-    }
   }, [location]);
-
-  // Effect for one-time initialization
-  useEffect(() => {
-    // Get Contact ID from localStorage
-    const mtcId = localStorage.getItem("mtc_id");
-    console.log("Mautic ID found:", mtcId);
-
-    // Get segments from Drupal
-    if (mtcId) {
-      axios
-        .get(
-          `https://druid-final-project.lndo.site/api/mautic/process-segments/${mtcId}`
-        )
-        .then((response) => {
-          if (response.data?.segments?.length > 0) {
-            const userSegment = response.data.segments[0];
-            localStorage.setItem("userSegments", userSegment);
-            // Set it in sessionStorage for easier access across components
-            sessionStorage.setItem("currentSegment", userSegment);
-            console.log("Stored segment:", userSegment);
-          }
-        })
-        .catch((error) => {
-          console.error("Error processing segments:", error);
-        });
-    }
-  }, []);
 
   return (
     <Routes>
