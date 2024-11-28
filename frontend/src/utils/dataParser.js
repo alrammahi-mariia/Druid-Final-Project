@@ -15,8 +15,11 @@ export const processIncludedData = (included) => {
   }
 
   const showParagraph = (item) => {
+    // Get the current segment value directly from sessionStorage each time
+    const currentSegment = sessionStorage.getItem("currentSegment") || "";
+
     // If userSegment is empty string, only show paragraphs with no segment or null segment
-    if (userSegment === "") {
+    if (currentSegment === "") {
       return (
         !item.attributes.field_segment || item.attributes.field_segment === null
       );
@@ -24,7 +27,7 @@ export const processIncludedData = (included) => {
     // If no segment field, show to everyone
     if (!item.attributes.field_segment) return true;
     // If segment matches user segment, show it
-    return item.attributes.field_segment === userSegment;
+    return item.attributes.field_segment === currentSegment;
   };
 
   included.forEach((item) => {
