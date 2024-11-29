@@ -17,7 +17,13 @@ import segmentService from "./services/segmentService";
 const App = () => {
   const location = useLocation();
 
-  // Effect for location-dependent actions
+// Effect for location-dependent actions
+import './App.css';
+ 
+const App = () => {
+  const location = useLocation();
+ 
+  
   useEffect(() => {
     // Update page title dynamically based on the path
     const pageTitles = {
@@ -34,14 +40,14 @@ const App = () => {
 
     // Check/update segments based on service conditions
     segmentService.updateSegments();
-
+    
     // Track the page view in Mautic
     mautic.pageView({
       path: location.pathname,
       title: document.title,
     });
   }, [location]);
-
+ 
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
@@ -51,16 +57,16 @@ const App = () => {
           <Route path="/services" element={<Services />} />
           <Route path="/services/:single" element={<ServiceSingle />} />
           <Route path="/about" element={<About />} />
-          <Route path="/blog" element={<BlogPage />} />
+           <Route path="/blog" element={<BlogPage />} />
           <Route path="/career" element={<Career />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/service-single" element={<ServicePage />} />
         </Route>
-
+ 
         {/* <Route path="*" element={<ErrorPage />} /> */}
       </Route>
     </Routes>
   );
 };
-
+ 
 export default App;
