@@ -50,7 +50,9 @@ const BlogPage = () => {
   return (
     <div>
       {/* Blog Hero Section */}
-      {blogData.heroData && <HeroSection {...heroData} />}
+      {blogData.heroData && (
+        <HeroSection {...heroData} variant="dark" textSize="small" />
+      )}
 
       {/* Blog List Section */}
       <section className="my-5">

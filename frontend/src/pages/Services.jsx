@@ -36,7 +36,9 @@ const Services = () => {
   return (
     <div>
       {/* Hero section */}
-      {serviceData.heroData && <HeroSection {...heroData} />}
+      {serviceData.heroData && (
+        <HeroSection {...heroData} textSize="small" variant="light" />
+      )}
       {/* Card section */}
       <section className="my-5">
         <Container>

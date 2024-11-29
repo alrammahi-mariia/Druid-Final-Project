@@ -1,5 +1,5 @@
 .heroSection {
-  width: 70%;
+  width: 100%;
   margin: 0 auto;
   text-align: start;
   padding: 100px 0;
@@ -12,6 +12,8 @@
 .heroSection h1 {
   font-size: 62px;
   margin-bottom: 20px;
+  text-align: start;
+  width: 100%;
 }
 
 .heroSection p {
@@ -51,7 +53,7 @@
 }
 
 .heroSection.light {
-  background-color: #ffffff;
+  background-color: #f8f8f8;
   color: #1e1e1e;
 }
 
@@ -62,7 +64,7 @@
 }
 
 .heroSection.smallText p {
-  font-size: 32px;
+  font-size: 24px;
   line-height: 1.5;
 }
 
