@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchPageContent } from "../store/contentSlice";
-import HeroSection from "../components/HeroSection";
+import HeroSection from "../components/HeroSection/HeroSection";
 import CardComponent from "../components/CardComponent";
 import Testimonial from "../components/Testimonial";
 import { Row, Container, Col } from "react-bootstrap";
@@ -53,7 +53,7 @@ const Services = () => {
       {/* Testimonial section */}
       {serviceData.testimonialData && <Testimonial {...testimonialData} />}
       {/* Features section */}
-      {serviceData.textData && <TextSection {...textData[0]}  />}
+      {serviceData.textData && <TextSection {...textData[0]} />}
       <section className="my-5">
         <Container>
           <Row className="services-container justify-content-center">

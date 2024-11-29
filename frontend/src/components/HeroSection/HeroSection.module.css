@@ -1,0 +1,77 @@
+.heroSection {
+  width: 70%;
+  margin: 0 auto;
+  text-align: start;
+  padding: 100px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 70vh;
+}
+
+.heroSection h1 {
+  font-size: 62px;
+  margin-bottom: 20px;
+}
+
+.heroSection p {
+  font-size: 24px;
+  line-height: 1.5;
+}
+
+@media (max-width: 991px) {
+  .heroSection {
+    width: 90%;
+    padding: 50px 20px;
+  }
+
+  .heroSection h1 {
+    font-size: 36px;
+  }
+
+  .heroSection p {
+    font-size: 20px;
+  }
+}
+
+.heroContent {
+  width: 90%;
+  margin: 120px auto 0;
+  max-width: 1400px;
+}
+
+.heroSection.white {
+  background-color: #ffffff;
+  color: #1e1e1e;
+}
+
+.heroSection.dark {
+  background-color: #1e1e1e;
+  color: #ffffff;
+}
+
+.heroSection.light {
+  background-color: #ffffff;
+  color: #1e1e1e;
+}
+
+/* Text size variants */
+.heroSection.largeText p {
+  font-size: 42px;
+  line-height: 1.5;
+}
+
+.heroSection.smallText p {
+  font-size: 32px;
+  line-height: 1.5;
+}
+
+@media (max-width: 991px) {
+  .heroSection.largeText p {
+    font-size: 36px;
+  }
+
+  .heroSection.smallText p {
+    font-size: 24px;
+  }
+}

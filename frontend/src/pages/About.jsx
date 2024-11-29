@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchPageContent } from "../store/contentSlice";
-import HeroSection from "../components/HeroSection";
+import HeroSection from "../components/HeroSection/HeroSection";
 import TextImageRight from "../components/TextImageRight";
 import { Row, Container } from "react-bootstrap";
-import '../style/About.css'; // if you want to keep some additional styling
+import "../style/About.css"; // if you want to keep some additional styling
 
 const About = () => {
   const dispatch = useDispatch();
@@ -27,16 +27,15 @@ const About = () => {
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error}</p>;
 
-  console.log("Data from Redux", aboutData);
-
-  // Destructure the data from homeData
   const { heroData, textImageData } = aboutData;
 
   return (
     <div className="about-page">
       {/* Hero section without the button */}
-      {aboutData.heroData && <HeroSection {...heroData} showButton={false} />}
-      
+      {aboutData.heroData && (
+        <HeroSection {...heroData} variant="dark" textSize="small" />
+      )}
+
       {/* Text sections with conditional styling */}
       <Container fluid>
         {/* First Section with Black Background */}

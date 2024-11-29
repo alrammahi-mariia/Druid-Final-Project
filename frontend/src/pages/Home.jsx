@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchPageContent } from "../store/contentSlice";
-import HeroSection from "../components/HeroSection";
+import HeroSection from "../components/HeroSection/HeroSection";
 import CardComponent from "../components/CardComponent";
 import { Row, Container, Col } from "react-bootstrap";
 import TextSection from "../components/TextSection";
@@ -35,7 +35,7 @@ const Home = () => {
       {/* Hero section */}
       {homeData.heroData && (
         <section>
-          <HeroSection {...heroData} />
+          <HeroSection {...heroData} variant="white" textSize="large" />
         </section>
       )}
 

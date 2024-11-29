@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchPageContent } from "../store/contentSlice";
-import HeroSection from "../components/HeroSection";
+import HeroSection from "../components/HeroSection/HeroSection";
 import TextImageLeft from "../components/TextImageLeft";
 import TextImageRight from "../components/TextImageRight";
 import TextSection from "../components/TextSection";
