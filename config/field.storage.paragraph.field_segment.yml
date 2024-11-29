@@ -1,17 +1,27 @@
-uuid: 77ed01c0-46f4-4efa-b441-1679212aa282
+uuid: 8a715cf6-0839-4507-8012-6b10565ffb2c
 langcode: en
 status: true
 dependencies:
   module:
+    - options
     - paragraphs
-    - taxonomy
 id: paragraph.field_segment
 field_name: field_segment
 entity_type: paragraph
-type: entity_reference
+type: list_string
 settings:
-  target_type: taxonomy_term
-module: core
+  allowed_values:
+    -
+      value: contact
+      label: contact
+    -
+      value: visitor
+      label: visitor
+    -
+      value: undefined
+      label: undefined
+  allowed_values_function: ''
+module: options
 locked: false
 cardinality: 1
 translatable: true

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import axios from "axios";
 import { Routes, Route, useLocation } from "react-router-dom";
 import mautic from "./services/mautic_services";
@@ -11,11 +11,19 @@ import ServiceSingle from "./pages/ServiceSingle";
 import ServicePage from "./pages/ServiceSingle";
 import Career from "./pages/Career";
 import BlogPage from "./pages/BlogPage";
+import "./App.css";
+import segmentService from "./services/segmentService";
+
+const App = () => {
+  const location = useLocation();
+
+// Effect for location-dependent actions
 import './App.css';
  
 const App = () => {
   const location = useLocation();
  
+  
   useEffect(() => {
     // Update page title dynamically based on the path
     const pageTitles = {
@@ -29,38 +37,15 @@ const App = () => {
     };
     const title = pageTitles[location.pathname] || "Default Title";
     document.title = title;
- 
+
+    // Check/update segments based on service conditions
+    segmentService.updateSegments();
+    
     // Track the page view in Mautic
     mautic.pageView({
       path: location.pathname,
       title: document.title,
     });
- 
-    // Get Contact ID from cookies
-    const allCookies = document.cookie;
-    console.log("All cookies:", allCookies);
- 
-    const mtcId = document.cookie
-      .split("; ")
-      .find((row) => row.startsWith("mtc_id="))
-      ?.split("=")[1];
- 
-    console.log("Mautic ID found:", mtcId);
- 
-    if (mtcId) {
-      // Pass Mautic ID to Drupal endpoint to process segments
-      axios
-        .get(
-          `https://druid-final-project.lndo.site/api/mautic/process-segments/${mtcId}`
-        )
-        .then((response) => {
-          console.log("Segments processed:", response.data);
-        })
-        .catch((error) => {
-          console.error("Error processing segments:", error);
-        });
-    }
-    // When location changes, run the effect again
   }, [location]);
  
   return (

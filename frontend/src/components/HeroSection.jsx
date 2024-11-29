@@ -24,7 +24,11 @@ const HeroDescription = ({ description }) => {
 };
 
 const HeroButton = () => {
-  return <Button variant="danger" className="hero-button">Explore more</Button>;
+  return (
+    <Button variant="danger" className="hero-button">
+      Explore more
+    </Button>
+  );
 };
 
 const HeroSection = ({ title, description, imageUrl, showButton = true }) => {

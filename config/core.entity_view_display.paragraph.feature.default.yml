@@ -7,10 +7,10 @@ dependencies:
     - field.field.paragraph.feature.field_feature_image
     - field.field.paragraph.feature.field_feature_title
     - field.field.paragraph.feature.field_segment
-    - field.field.paragraph.feature.field_visibility
     - paragraphs.paragraphs_type.feature
   module:
     - image
+    - options
 id: paragraph.feature.default
 targetEntityType: paragraph
 bundle: feature
@@ -43,12 +43,10 @@ content:
     weight: 0
     region: content
   field_segment:
-    type: entity_reference_label
+    type: list_default
     label: above
-    settings:
-      link: true
+    settings: {  }
     third_party_settings: {  }
-    weight: 0
+    weight: 4
     region: content
-hidden:
-  field_visibility: true
+hidden: {  }

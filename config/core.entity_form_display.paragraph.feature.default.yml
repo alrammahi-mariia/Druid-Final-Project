@@ -7,7 +7,6 @@ dependencies:
     - field.field.paragraph.feature.field_feature_image
     - field.field.paragraph.feature.field_feature_title
     - field.field.paragraph.feature.field_segment
-    - field.field.paragraph.feature.field_visibility
     - image.style.thumbnail
     - paragraphs.paragraphs_type.feature
   module:
@@ -43,13 +42,7 @@ content:
     third_party_settings: {  }
   field_segment:
     type: options_select
-    weight: 0
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  field_visibility:
-    type: options_select
-    weight: 0
+    weight: 100
     region: content
     settings: {  }
     third_party_settings: {  }

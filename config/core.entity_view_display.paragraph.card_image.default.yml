@@ -7,10 +7,10 @@ dependencies:
     - field.field.paragraph.card_image.field_cardimg_text
     - field.field.paragraph.card_image.field_cardimg_title
     - field.field.paragraph.card_image.field_segment
-    - field.field.paragraph.card_image.field_visibility
     - paragraphs.paragraphs_type.card_image
   module:
     - image
+    - options
     - text
 id: paragraph.card_image.default
 targetEntityType: paragraph
@@ -44,12 +44,10 @@ content:
     weight: 0
     region: content
   field_segment:
-    type: entity_reference_label
+    type: list_default
     label: above
-    settings:
-      link: true
+    settings: {  }
     third_party_settings: {  }
-    weight: 0
+    weight: 4
     region: content
-hidden:
-  field_visibility: true
+hidden: {  }

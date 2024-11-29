@@ -33,7 +33,7 @@ class MauticController extends ControllerBase {
     try {
       // Get segments
       $segments = mautic_integration_get_segments($contact_id);
-      
+
       // Debug log
       \Drupal::logger('mautic_integration')->notice(
         'Found segments: @segments',
@@ -41,13 +41,9 @@ class MauticController extends ControllerBase {
       );
 
       if (!empty($segments)) {
-        // Create taxonomy terms
-        $term_ids = mautic_integration_ensure_terms($segments);
-        
         return new JsonResponse([
           'success' => TRUE,
           'segments' => $segments,
-          'term_ids' => $term_ids,
         ]);
       }
       
