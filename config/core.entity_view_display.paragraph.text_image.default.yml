@@ -8,10 +8,10 @@ dependencies:
     - field.field.paragraph.text_image.field_text
     - field.field.paragraph.text_image.field_text_image
     - field.field.paragraph.text_image.field_text_long
-    - field.field.paragraph.text_image.field_visibility
     - paragraphs.paragraphs_type.text_image
   module:
     - image
+    - options
     - text
 id: paragraph.text_image.default
 targetEntityType: paragraph
@@ -27,12 +27,11 @@ content:
     weight: 2
     region: content
   field_segment:
-    type: entity_reference_label
+    type: list_default
     label: above
-    settings:
-      link: true
+    settings: {  }
     third_party_settings: {  }
-    weight: 0
+    weight: 4
     region: content
   field_text:
     type: text_default
@@ -59,5 +58,4 @@ content:
     third_party_settings: {  }
     weight: 3
     region: content
-hidden:
-  field_visibility: true
+hidden: {  }

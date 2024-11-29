@@ -18,10 +18,12 @@ export const processIncludedData = (included) => {
     // Get the current segment value directly from sessionStorage each time
     const currentSegment = sessionStorage.getItem("currentSegment") || "";
 
-    // If userSegment is empty string, only show paragraphs with no segment or null segment
+    // If userSegment is empty string, only show paragraphs with no segment, null segment, or undefined segment
     if (currentSegment === "") {
       return (
-        !item.attributes.field_segment || item.attributes.field_segment === null
+        !item.attributes.field_segment ||
+        item.attributes.field_segment === null ||
+        item.attributes.field_segment === "undefined"
       );
     }
     // If no segment field, show to everyone

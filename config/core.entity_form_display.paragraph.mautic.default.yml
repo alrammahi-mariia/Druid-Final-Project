@@ -7,8 +7,6 @@ dependencies:
     - field.field.paragraph.mautic.field_mautic_layout
     - field.field.paragraph.mautic.field_mautic_text
     - field.field.paragraph.mautic.field_mautic_title
-    - field.field.paragraph.mautic.field_segment
-    - field.field.paragraph.mautic.field_visibility
     - paragraphs.paragraphs_type.mautic
   module:
     - mautic_paragraph
@@ -47,18 +45,6 @@ content:
     settings:
       size: 60
       placeholder: ''
-    third_party_settings: {  }
-  field_segment:
-    type: options_select
-    weight: 0
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  field_visibility:
-    type: options_select
-    weight: 0
-    region: content
-    settings: {  }
     third_party_settings: {  }
   unomi_segment_section:
     type: options_select

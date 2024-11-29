@@ -1,11 +1,12 @@
-uuid: 8935c677-d312-4011-9799-d8f954120164
+uuid: 02ddae99-d6ce-4e10-a795-ad9df98d6e77
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.paragraph.field_segment
     - paragraphs.paragraphs_type.card
-    - taxonomy.vocabulary.mautic_segments
+  module:
+    - options
 id: paragraph.card.field_segment
 field_name: field_segment
 entity_type: paragraph
@@ -13,13 +14,8 @@ bundle: card
 label: Segment
 description: ''
 required: false
-translatable: true
+translatable: false
 default_value: {  }
 default_value_callback: ''
-settings:
-  handler: 'default:taxonomy_term'
-  handler_settings:
-    target_bundles:
-      mautic_segments: mautic_segments
-    auto_create: false
-field_type: entity_reference
+settings: {  }
+field_type: list_string

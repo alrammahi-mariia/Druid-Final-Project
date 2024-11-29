@@ -17,21 +17,33 @@ const segmentService = {
   },
 
   shouldUpdateSegments: () => {
+    // TEMPORARY: Force update if test mode is enabled
+    const isTestMode = sessionStorage.getItem("segmentTestMode");
+    if (isTestMode) {
+      const lastTestUpdate = sessionStorage.getItem("lastTestUpdate");
+      const testInterval = 5 * 1000; // 5 seconds for testing
+      const isTestStale =
+        !lastTestUpdate || Date.now() - parseInt(lastTestUpdate) > testInterval;
+
+      if (isTestStale) {
+        sessionStorage.setItem("lastTestUpdate", Date.now().toString());
+        return true;
+      }
+    }
+
+    // Regular conditions
     // 1. Check if last update was more than 60 minutes ago
     const lastUpdate = localStorage.getItem("lastSegmentUpdate");
     const updateInterval = 60 * 60 * 1000;
     const isStale =
       !lastUpdate || Date.now() - parseInt(lastUpdate) > updateInterval;
 
-    // 2. Check if we have no current segment
-    const noCurrentSegment = !sessionStorage.getItem("currentSegment");
-
-    // 3. Check if mtc_id changed
+    // 2. Check if mtc_id changed
     const storedMtcId = localStorage.getItem("stored_mtc_id");
     const currentMtcId = localStorage.getItem("mtc_id");
     const mtcIdChanged = storedMtcId !== currentMtcId;
 
-    return isStale || noCurrentSegment || mtcIdChanged;
+    return isStale || mtcIdChanged;
   },
 
   // Update segments from API

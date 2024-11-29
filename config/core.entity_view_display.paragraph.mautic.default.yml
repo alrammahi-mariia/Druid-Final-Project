@@ -7,8 +7,6 @@ dependencies:
     - field.field.paragraph.mautic.field_mautic_layout
     - field.field.paragraph.mautic.field_mautic_text
     - field.field.paragraph.mautic.field_mautic_title
-    - field.field.paragraph.mautic.field_segment
-    - field.field.paragraph.mautic.field_visibility
     - paragraphs.paragraphs_type.mautic
   module:
     - mautic_paragraph
@@ -42,15 +40,6 @@ content:
     third_party_settings: {  }
     weight: 0
     region: content
-  field_segment:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 0
-    region: content
 hidden:
   field_mautic_layout: true
-  field_visibility: true
   search_api_excerpt: true

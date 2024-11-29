@@ -7,10 +7,10 @@ dependencies:
     - field.field.paragraph.hero_paragraph.field_image
     - field.field.paragraph.hero_paragraph.field_segment
     - field.field.paragraph.hero_paragraph.field_title
-    - field.field.paragraph.hero_paragraph.field_visibility
     - paragraphs.paragraphs_type.hero_paragraph
   module:
     - image
+    - options
     - text
 id: paragraph.hero_paragraph.default
 targetEntityType: paragraph
@@ -36,12 +36,11 @@ content:
     weight: 2
     region: content
   field_segment:
-    type: entity_reference_label
+    type: list_default
     label: above
-    settings:
-      link: true
+    settings: {  }
     third_party_settings: {  }
-    weight: 0
+    weight: 4
     region: content
   field_title:
     type: string
@@ -51,5 +50,4 @@ content:
     third_party_settings: {  }
     weight: 0
     region: content
-hidden:
-  field_visibility: true
+hidden: {  }
