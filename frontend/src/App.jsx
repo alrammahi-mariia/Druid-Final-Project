@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import axios from "axios";
 import { Routes, Route, useLocation } from "react-router-dom";
 import mautic from "./services/mautic_services";
 import Home from "./pages/Home";
