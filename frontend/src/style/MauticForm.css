@@ -9,8 +9,8 @@
   padding: 20px;
 }
 
-.mauticform-post-success {
-}
+/* .mauticform-post-success {
+} */
 
 .mauticform-name {
   font-weight: bold;
@@ -124,15 +124,15 @@
 .mauticform-checkboxgrp-checkbox:hover {
   background-color: #f0f0f0; }
 
-.mauticform-radiogrp-row {
-}
+/* .mauticform-radiogrp-row {
+} */
 
 .mauticform-radiogrp-label {
   font-weight: normal;
 }
 
-.mauticform-radiogrp-radio {
-}
+/* .mauticform-radiogrp-radio {
+} */
 
 .mauticform-button-wrapper .mauticform-button.btn-default,
 .mauticform-pagebreak-wrapper .mauticform-pagebreak.btn-default {
@@ -203,3 +203,4 @@
   flex-wrap: wrap;
   justify-content: space-around;
 }
+
