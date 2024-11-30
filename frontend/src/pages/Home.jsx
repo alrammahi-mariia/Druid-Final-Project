@@ -6,6 +6,7 @@ import CardComponent from "../components/CardComponent";
 import { Row, Container, Col } from "react-bootstrap";
 import TextSection from "../components/TextSection";
 import CardImageBg from "../components/CardImageBg";
+import TextImageHome from "../components/TextImageHome";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -20,25 +21,27 @@ const Home = () => {
           "field_home_content",
           "field_home_content.field_image",
           "field_home_content.field_card_image",
+          "field_home_content.field_text_image",
         ],
       })
     );
   }, [dispatch]);
+  console.log("This is textImageData", homeData.textImageData);
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error}</p>;
 
-  const { heroData, cardData, textData, cardImageData } = homeData;
+  const { heroData, cardData, textData, cardImageData, textImageData } =
+    homeData;
 
   return (
-    <div>
+    <div className="home-page">
       {/* Hero section */}
       {homeData.heroData && (
-        <section>
+        <section className="hero-section">
           <HeroSection {...heroData} />
         </section>
       )}
-
       {/* First Text Section */}
       {homeData.textData && (
         <section className="text-section text-section-1 bg-light py-1">
@@ -51,7 +54,6 @@ const Home = () => {
           </Container>
         </section>
       )}
-
       {/* Cards Section */}
       <section className="card-section my-5">
         <Container fluid>
@@ -65,14 +67,12 @@ const Home = () => {
           </Row>
         </Container>
       </section>
-
       {/* Second Text Section */}
       {homeData.textData && (
         <section className="text-section text-section-2">
           <TextSection {...textData[1]} />
         </section>
       )}
-
       {/* Cards with Images Section */}
       <section className="card-image-section my-5">
         <Container fluid>
@@ -86,8 +86,7 @@ const Home = () => {
           </Row>
         </Container>
       </section>
-
-      {homeData.textData && (
+      {/* {homeData.textData && (
         <section>
           <TextSection
             {...textData[3]}
@@ -95,7 +94,22 @@ const Home = () => {
             textColor="text-white"
           />
         </section>
+      )} */}
+      {/* TextImageLeft Section: Pass only title and all imageUrls */}
+      {homeData.textImageData?.length ? (
+        <section className="partner-section">
+          <TextImageHome
+            title={homeData.textImageData[0]?.title} 
+            imageUrls={homeData.textImageData.map((item) => item.imageUrl)}
+          />
+        </section>
+      ) : (
+        <section className="partner-section">
+          <p>No partner data available</p>
+        </section>
       )}
+      {/* Horizontal Line just to define main content and footer */}
+      <hr style={{ border: "1px solid white", margin: "5px 0" }} />
     </div>
   );
 };
