@@ -3,44 +3,75 @@
   color: white;
   width: 100%;
   padding: 60px 0;
+  position: relative;
 }
 
 .title {
-  font-size: 32px;
+  font-size: 38px;
   margin-bottom: 30px;
   font-weight: 300;
 }
 
-.contactInfo p,
+.contactInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contactInfo p {
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.contactInfo svg {
+  width: 20px;
+  height: 20px;
+  margin-top: 4px;
+  flex-shrink: 0;
+}
+
+.contactInfo p:first-child {
+  max-width: 200px;
+}
+
 .socialLinks a,
 .quickLinks a {
   color: #ffffff;
   text-decoration: none;
   margin-bottom: 15px;
-  display: block;
+  display: flex;
+  align-items: center;
+  gap: 10px;
   font-weight: 300;
+  font-size: 20px;
 }
 
-.contactInfo p svg,
-.socialLinks a svg {
-  display: none; /* Remove icons */
+.contactInfo svg,
+.socialLinks svg {
+  width: 20px;
+  height: 20px;
 }
 
-/* Remove the animated vertical lines */
 .verticalLine {
   position: absolute;
-  top: 15%;
-  bottom: 15%;
+  top: 50px;
+  bottom: 50px;
   width: 1px;
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
 .leftLine {
-  left: 33%;
+  left: 33.33%;
+  transform: translateX(-50%);
 }
 
 .rightLine {
-  left: 66%;
+  left: 66.66%;
+  transform: translateX(-50%);
 }
 
 .column {
