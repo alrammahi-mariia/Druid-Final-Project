@@ -1,15 +1,39 @@
 .full-screen-menu {
   position: fixed;
   top: 0;
-  left: 0;
-  width: 100vw;
+  /* left: 0; */
+  right: 0;
+  width: 20vw;
   height: 100vh;
   background-color: #000000; 
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 1050; 
+  transition: right 0.1s ease; 
 }
+.navbar-toggler {
+  border: none;
+  background: transparent;
+  position: relative;
+  z-index: 1051;
+  cursor: pointer;
+  transition: transform 0.2s ease; /* Smooth scaling */
+}
+
+.navbar-toggler:hover {
+  transform: scale(1.1); /* Slightly enlarge on hover */
+}
+.navbar-toggler.open {
+  transform: rotate(90deg); /* Rotate the icon to indicate the close state */
+  transition: transform 0.2s ease;
+}
+
+
+/* When checkbox is checked, slide the menu in */
+/* .menu-toggle:checked + .hamburger-menu .full-screen-menu {
+  right: 0; 
+} */
 
 .full-screen-menu .nav-link {
   font-size: 1.8rem;
@@ -17,7 +41,7 @@
   /* color: #ffcc00; */
   font-weight: bold; 
   text-align: center;
-  transition: text-shadow 0.3s ease, color 0.3s ease;
+  transition: color 0.15s ease;
 }
 /* .full-screen-menu .nav-link:hover {
    color: #E11000;
@@ -28,14 +52,14 @@
   text-shadow: 0 0 8px #E11000, 0 0 10px #E11000, 0 0 12px #E11000; 
 } */
 .full-screen-menu.navbar-collapse.show .nav-link:hover {
- color: #E11000; ;
- text-shadow: 0 0 8px #E11000, 0 0 10px #E11000, 0 0 12px #E11000; 
+ color: #E11000;
+ /* text-shadow: 0 0 8px #E11000, 0 0 10px #E11000, 0 0 12px #E11000;  */
 }
 
 /* When menu is open (collapsed), give glowing effect without hover */
-.full-screen-menu.navbar-collapse.show .nav-link {
+/* .full-screen-menu.navbar-collapse.show .nav-link {
   text-shadow: 0 0 8px #ffffff, 0 0 10px #ffffff, 0 0 12px #ffffff;
-}
+} */
 
 .navbar-collapse.collapse.show {
   display: flex;
@@ -52,10 +76,11 @@
   color: #ffffff;
   z-index: 1051;
   cursor: pointer;
-  transition: color 0.3s ease;
+  /* transition: color 0.15s ease; */
 }
 
 .close-menu-button:hover {
   color: #E11000;
 }
+
 

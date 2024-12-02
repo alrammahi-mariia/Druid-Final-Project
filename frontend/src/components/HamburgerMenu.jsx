@@ -17,19 +17,44 @@ const HamburgerMenu = () => {
       fixed="top"
       className="px-2 px-md-4"
     >
-      <Navbar.Brand as={Link} to="/" className="logo me-auto">
+      <Navbar.Brand
+        as={Link}
+        to="/"
+        className="logo me-auto d-flex align-items-center"
+        style={{ display: "flex", alignItems: "center" }}
+      >
         <img
           src="/logo.svg"
           alt="Druid Logo"
-          style={{ width: "50px", height: "auto" }}
+          style={{
+            width: "50px",
+            height: "50px",
+            display: "block",
+            marginBottom: "10px",
+          }}
         />
+        <span
+          style={{
+            marginLeft: "0px",
+            fontSize: "1.5rem",
+            fontWeight: "bold",
+            lineHeight: "1.5",
+            // color: "#E11000",
+          }}
+        >
+          Druid
+        </span>
       </Navbar.Brand>
 
-      <Navbar.Toggle
-        aria-controls="basic-navbar-nav"
-        onClick={handleToggle}
-        aria-expanded={menuOpen}
-      />
+      {/* Render the Hamburger Toggle Button only when menu is closed */}
+      {!menuOpen && (
+        <Navbar.Toggle
+          aria-controls="basic-navbar-nav"
+          onClick={handleToggle}
+          aria-expanded={menuOpen}
+          className="navbar-toggler"
+        />
+      )}
 
       <Navbar.Collapse
         id="basic-navbar-nav"
@@ -50,7 +75,7 @@ const HamburgerMenu = () => {
           <Nav.Link
             as={Link}
             to="/"
-            className="text-dark"
+            className="text-light"
             onClick={handleClose}
           >
             Home
@@ -58,7 +83,7 @@ const HamburgerMenu = () => {
           <Nav.Link
             as={Link}
             to="/about"
-            className="text-dark"
+            className="text-light"
             onClick={handleClose}
           >
             About Us
@@ -66,7 +91,7 @@ const HamburgerMenu = () => {
           <Nav.Link
             as={Link}
             to="/services"
-            className="text-dark"
+            className="text-light"
             onClick={handleClose}
           >
             Services
@@ -74,7 +99,7 @@ const HamburgerMenu = () => {
           <Nav.Link
             as={Link}
             to="/career"
-            className="text-dark"
+            className="text-light"
             onClick={handleClose}
           >
             Career
@@ -82,7 +107,7 @@ const HamburgerMenu = () => {
           <Nav.Link
             as={Link}
             to="/blog"
-            className="text-dark"
+            className="text-light"
             onClick={handleClose}
           >
             Blog
@@ -90,7 +115,7 @@ const HamburgerMenu = () => {
           <Nav.Link
             as={Link}
             to="/contact"
-            className="text-dark"
+            className="text-light"
             onClick={handleClose}
           >
             Contact
