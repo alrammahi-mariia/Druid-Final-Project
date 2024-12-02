@@ -18,12 +18,12 @@ export const processIncludedData = (included) => {
     // Get the current segment value directly from sessionStorage each time
     const currentSegment = sessionStorage.getItem("currentSegment") || "";
 
-    // If userSegment is empty string, only show paragraphs with no segment, null segment, or undefined segment
+    // If userSegment is empty string, only show paragraphs with no segment, null segment, or default segment
     if (currentSegment === "") {
       return (
         !item.attributes.field_segment ||
         item.attributes.field_segment === null ||
-        item.attributes.field_segment === "undefined"
+        item.attributes.field_segment === "default"
       );
     }
     // If no segment field, show to everyone
@@ -96,6 +96,8 @@ export const processIncludedData = (included) => {
         data.textData.push({
           text: item.attributes.field_section_text?.processed,
           title: item.attributes.field_text_title,
+          link: item.attributes.field_text_link.title,
+          linkUrl: item.attributes.field_text_link.uri,
         });
         break;
 
