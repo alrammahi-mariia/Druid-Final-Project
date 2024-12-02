@@ -96,8 +96,8 @@ export const processIncludedData = (included) => {
         data.textData.push({
           text: item.attributes.field_section_text?.processed,
           title: item.attributes.field_text_title,
-          link: item.attributes.field_text_link.title,
-          linkUrl: item.attributes.field_text_link.uri,
+          link: item.attributes.field_text_link?.title,
+          linkUrl: item.attributes.field_text_link?.uri,
         });
         break;
 
