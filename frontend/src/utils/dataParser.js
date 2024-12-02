@@ -81,7 +81,7 @@ export const processIncludedData = (included) => {
         data.cardImageData.push({
           id: item.id,
           title: item.attributes.field_cardimg_title,
-          text: item.attributes.field_cardimg_text.processed,
+          text: item.attributes.field_cardimg_text?.processed,
           imageUrl:
             cardImageUrls.length === 1 ? cardImageUrls[0] : cardImageUrls,
         });

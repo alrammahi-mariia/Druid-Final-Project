@@ -2,16 +2,16 @@ import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import PropTypes from "prop-types";
 import styles from "./ServicesSection.module.css";
-import CardImageBg from "../CardImageBg";
+import CardImage from "../CardImage/CardImage";
 
 const ServicesSection = ({ title, subtitle, cardImageData, link, linkUrl }) => {
   return (
     <section className={styles.servicesSection}>
-      <div className={styles.header}>
-        <h1>{title}</h1>
-        <h3>{subtitle}</h3>
-      </div>
-      <div className={styles.buttonWrapper}>
+      <div className={styles.headerWrapper}>
+        <div className={styles.titleGroup}>
+          <h1>{title}</h1>
+          <h3>{subtitle}</h3>
+        </div>
         <a href={linkUrl}>
           <button className={styles.button}>{link}</button>
         </a>
@@ -21,7 +21,7 @@ const ServicesSection = ({ title, subtitle, cardImageData, link, linkUrl }) => {
           {cardImageData &&
             cardImageData.map((card) => (
               <Col lg={6} md={4} sm={12} className="mb-4" key={card.id}>
-                <CardImageBg {...card} />
+                <CardImage {...card} />
               </Col>
             ))}
         </Row>

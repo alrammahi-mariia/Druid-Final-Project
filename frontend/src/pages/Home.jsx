@@ -41,7 +41,7 @@ const Home = () => {
       )}
 
       {/* Career Text Section for Professionals segment*/}
-      {homeData.textData && <TextSection variant="white" {...textData[0]} />}
+      {homeData.textData && <TextSection variant="dark" {...textData[0]} />}
 
       {/* Services Section */}
       <ServicesSection
