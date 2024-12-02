@@ -35,7 +35,7 @@ const Home = () => {
   return (
     <div>
       {/* Hero section */}
-      {homeData.heroData && (
+      {heroData && (
         <HeroSection
           {...heroData}
           variant="white"
@@ -45,7 +45,9 @@ const Home = () => {
       )}
 
       {/* Career Text Section for Professionals segment*/}
-      {homeData.textData && <TextSection variant="dark" {...textData[0]} />}
+      {textData && textData.length >= 2 && (
+        <TextSection variant="dark" {...textData[0]} />
+      )}
 
       {/* Services Section */}
       <ServicesSection
@@ -57,7 +59,7 @@ const Home = () => {
       />
 
       {/* Customers Sections (Pass only title and all imageUrls) */}
-      {homeData.textImageData?.length ? (
+      {textImageData?.length ? (
         <section>
           <CustomerSection
             title={homeData.textImageData[0]?.title}
@@ -71,18 +73,22 @@ const Home = () => {
       )}
 
       {/* Services Features Section */}
-      <CardsSection
-        title="Our Expertise"
-        subtitle="The sec­rets be­hind our agi­le web ser­vi­ces and web­si­tes"
-        cardData={cardData}
-        link="See more"
-        linkUrl="/services"
-      />
+      {cardData?.length > 0 && (
+        <CardsSection
+          title="Our Expertise"
+          subtitle="The sec­rets be­hind our agi­le web ser­vi­ces and web­si­tes"
+          cardData={cardData}
+          link="See more"
+          linkUrl="/services"
+        />
+      )}
 
       {/* Text Section*/}
-      {homeData.textData && (
+      {textData && (
         <section className="text-section text-section-2">
-          <TextSection {...textData[1]} />
+          <TextSection
+            {...(textData.length >= 2 ? textData[1] : textData[0])}
+          />
         </section>
       )}
     </div>

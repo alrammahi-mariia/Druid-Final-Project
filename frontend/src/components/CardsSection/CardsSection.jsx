@@ -4,6 +4,10 @@ import styles from "./CardsSection.module.css";
 import CardComponent from "../CardComponent";
 
 const CardsSection = ({ title, subtitle, cardData, link, linkUrl }) => {
+  if (!cardData || cardData.length === 0) {
+    return null;
+  }
+
   return (
     <section className={styles.cardsSection}>
       <div className={styles.headerWrapper}>
@@ -17,12 +21,11 @@ const CardsSection = ({ title, subtitle, cardData, link, linkUrl }) => {
       </div>
       <Container fluid className="mt-5">
         <Row className="justify-content-center">
-          {cardData &&
-            cardData.map((card) => (
-              <Col lg={6} md={4} sm={12} className="mb-4" key={card.id}>
-                <CardComponent {...card} />
-              </Col>
-            ))}
+          {cardData.map((card) => (
+            <Col lg={6} md={4} sm={12} className="mb-4" key={card.id}>
+              <CardComponent {...card} />
+            </Col>
+          ))}
         </Row>
       </Container>
     </section>
