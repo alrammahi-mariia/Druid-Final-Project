@@ -2,10 +2,10 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchPageContent } from "../store/contentSlice";
 import HeroSection from "../components/HeroSection/HeroSection";
-import CardComponent from "../components/CardComponent";
-import { Row, Container, Col } from "react-bootstrap";
 import TextSection from "../components/TextSection/TextSection";
-import CardImageBg from "../components/CardImageBg";
+import ServicesSection from "../components/ServicesSection/ServicesSection";
+import { Container, Row, Col } from "react-bootstrap";
+import CardComponent from "../components/CardComponent";
 import TextImageHome from "../components/TextImageHome";
 
 const Home = () => {
@@ -26,7 +26,6 @@ const Home = () => {
       })
     );
   }, [dispatch]);
-  console.log("This is textImageData", homeData.textImageData);
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error}</p>;
@@ -42,50 +41,18 @@ const Home = () => {
       )}
 
       {/* Career Text Section for Professionals segment*/}
-      {homeData.textData && <TextSection {...textData[0]} />}
+      {homeData.textData && <TextSection variant="white" {...textData[0]} />}
 
-      {/* Cards Section */}
-      <section className="card-section my-5">
-        <Container fluid>
-          <Row className="services-container justify-content-center">
-            {homeData.cardData &&
-              homeData.cardData.map((card) => (
-                <Col lg={6} md={4} sm={12} className="mb-4" key={card.id}>
-                  <CardComponent {...card} />
-                </Col>
-              ))}
-          </Row>
-        </Container>
-      </section>
-      {/* Second Text Section */}
-      {homeData.textData && (
-        <section className="text-section text-section-2">
-          <TextSection {...textData[1]} />
-        </section>
-      )}
-      {/* Cards with Images Section */}
-      <section className="card-image-section my-5">
-        <Container fluid>
-          <Row className="services-container justify-content-center">
-            {homeData.cardImageData &&
-              homeData.cardImageData.map((card) => (
-                <Col lg={6} md={4} sm={12} className="mb-4" key={card.id}>
-                  <CardImageBg {...card} />
-                </Col>
-              ))}
-          </Row>
-        </Container>
-      </section>
-      {/* {homeData.textData && (
-        <section>
-          <TextSection
-            {...textData[3]}
-            bgColor="bg-dark"
-            textColor="text-white"
-          />
-        </section>
-      )} */}
-      {/* TextImageLeft Section: Pass only title and all imageUrls */}
+      {/* Services Section */}
+      <ServicesSection
+        title="Services"
+        subtitle="We offer a wide variety of services"
+        cardImageData={cardImageData}
+        link="See all"
+        linkUrl="/services"
+      />
+
+      {/* Customers Sections (Pass only title and all imageUrls) */}
       {homeData.textImageData?.length ? (
         <section className="partner-section">
           <TextImageHome
@@ -98,8 +65,27 @@ const Home = () => {
           <p>No partner data available</p>
         </section>
       )}
-      {/* Horizontal Line just to define main content and footer */}
-      <hr style={{ border: "1px solid white", margin: "5px 0" }} />
+
+      {/* Services FeaturesSection */}
+      <section className="card-section my-5">
+        <Container fluid>
+          <Row className="services-container justify-content-center">
+            {homeData.cardData &&
+              homeData.cardData.map((card) => (
+                <Col lg={6} md={4} sm={12} className="mb-4" key={card.id}>
+                  <CardComponent {...card} />
+                </Col>
+              ))}
+          </Row>
+        </Container>
+      </section>
+
+      {/* Text Section*/}
+      {homeData.textData && (
+        <section className="text-section text-section-2">
+          <TextSection {...textData[1]} />
+        </section>
+      )}
     </div>
   );
 };
