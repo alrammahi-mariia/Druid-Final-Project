@@ -1,78 +1,94 @@
-import { Container, Row, Col } from "react-bootstrap";
+import styles from "./Footer.module.css";
 import { Link } from "react-router-dom";
 import {
+  FaFacebookF,
+  FaLinkedinIn,
+  FaInstagram,
+  FaGlobe,
   FaMapMarkerAlt,
   FaEnvelope,
   FaPhone,
-  FaFacebookSquare,
-  FaLinkedin,
-  FaInstagram,
-  FaWikipediaW,
 } from "react-icons/fa";
-import styles from "./Footer.module.css";
 
 const Footer = () => {
   return (
     <footer className={styles.footer}>
-      <Container>
-        <Row className="justify-content-between">
-          <Col md={3} sm={12} className={styles.column}>
-            <h4 className={styles.title}>Contact Us</h4>
-            <div className={styles.contactInfo}>
-              <p>
-                <FaMapMarkerAlt />
-                <span>
-                  Pasilankatu 2,
-                  <br />
-                  00240 Helsinki,
-                  <br />
-                  Finland
-                </span>
-              </p>
-              <p>
-                <FaEnvelope />
-                <span>info@druid.fi</span>
-              </p>
-              <p>
-                <FaPhone />
-                <span>+358 20 187 6602</span>
-              </p>
-            </div>
-          </Col>
+      <div className={styles.container}>
+        <div className={styles.columns}>
+          <div className={styles.column}>
+            <h2>Contact Us</h2>
+            <p>
+              <span className={styles.iconWrapper}>
+                <FaMapMarkerAlt /> Pasilankatu 2,
+              </span>
+            </p>
+            <p style={{ marginLeft: "1.5em" }}>00240 Helsinki,</p>
+            <p style={{ marginLeft: "1.5em" }}>Finland</p>
+            <a href="mailto:info@druid.fi">
+              <span className={styles.iconWrapper}>
+                <FaEnvelope /> info@druid.fi
+              </span>
+            </a>
+            <a href="tel:+358201876602">
+              <span className={styles.iconWrapper}>
+                <FaPhone /> +358 20 187 6602
+              </span>
+            </a>
+          </div>
 
-          <div className={`${styles.verticalLine} ${styles.leftLine}`}></div>
+          <div className={styles.leftLine} />
 
-          <Col md={3} sm={12} className={styles.column}>
-            <h4 className={styles.title}>Follow Us</h4>
-            <div className={styles.socialLinks}>
-              <a href="#" target="_blank" rel="noopener noreferrer">
-                <FaFacebookSquare /> Facebook
-              </a>
-              <a href="#" target="_blank" rel="noopener noreferrer">
-                <FaLinkedin /> LinkedIn
-              </a>
-              <a href="#" target="_blank" rel="noopener noreferrer">
+          <div className={styles.column}>
+            <h2>Follow Us</h2>
+            <a
+              href="https://www.facebook.com/druidagency"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span className={styles.iconWrapper}>
+                <FaFacebookF /> Facebook
+              </span>
+            </a>
+            <a
+              href="https://www.linkedin.com/company/druid-oy"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span className={styles.iconWrapper}>
+                <FaLinkedinIn /> LinkedIn
+              </span>
+            </a>
+            <a
+              href="https://www.instagram.com/druidagency/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span className={styles.iconWrapper}>
                 <FaInstagram /> Instagram
-              </a>
-              <a href="#" target="_blank" rel="noopener noreferrer">
-                <FaWikipediaW /> IteWiki
-              </a>
-            </div>
-          </Col>
+              </span>
+            </a>
+            <a
+              href="https://www.itewiki.fi/druid"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span className={styles.iconWrapper}>
+                <FaGlobe /> IteWiki
+              </span>
+            </a>
+          </div>
 
-          <div className={`${styles.verticalLine} ${styles.rightLine}`}></div>
+          <div className={styles.rightLine} />
 
-          <Col md={3} sm={12} className={styles.column}>
-            <h4 className={styles.title}>Quick Links</h4>
-            <div className={styles.quickLinks}>
-              <Link to="/about">About us</Link>
-              <Link to="/services">Services</Link>
-              <Link to="/career">Careers</Link>
-              <Link to="/blog">Blog</Link>
-            </div>
-          </Col>
-        </Row>
-      </Container>
+          <div className={styles.column}>
+            <h2>Quick Links</h2>
+            <Link href="/about">About Us</Link>
+            <Link href="/services">Our Services</Link>
+            <Link href="/careers">Careers</Link>
+            <Link href="/blog">Blog</Link>
+          </div>
+        </div>
+      </div>
     </footer>
   );
 };

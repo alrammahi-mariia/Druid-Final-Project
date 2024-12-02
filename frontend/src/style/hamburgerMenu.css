@@ -5,12 +5,12 @@
   right: 0;
   width: 20vw;
   height: 100vh;
-  background-color: #000000; 
+  background-color: #1e1e1e;
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 1050; 
-  transition: right 0.1s ease; 
+  z-index: 1050;
+  transition: right 0.1s ease;
 }
 .navbar-toggler {
   border: none;
@@ -29,7 +29,6 @@
   transition: transform 0.2s ease;
 }
 
-
 /* When checkbox is checked, slide the menu in */
 /* .menu-toggle:checked + .hamburger-menu .full-screen-menu {
   right: 0; 
@@ -39,7 +38,7 @@
   font-size: 1.8rem;
   margin: 1rem 0;
   /* color: #ffcc00; */
-  font-weight: bold; 
+  font-weight: bold;
   text-align: center;
   transition: color 0.15s ease;
 }
@@ -52,8 +51,8 @@
   text-shadow: 0 0 8px #E11000, 0 0 10px #E11000, 0 0 12px #E11000; 
 } */
 .full-screen-menu.navbar-collapse.show .nav-link:hover {
- color: #E11000;
- /* text-shadow: 0 0 8px #E11000, 0 0 10px #E11000, 0 0 12px #E11000;  */
+  color: #e11000;
+  /* text-shadow: 0 0 8px #E11000, 0 0 10px #E11000, 0 0 12px #E11000;  */
 }
 
 /* When menu is open (collapsed), give glowing effect without hover */
@@ -80,7 +79,5 @@
 }
 
 .close-menu-button:hover {
-  color: #E11000;
+  color: #e11000;
 }
-
-
