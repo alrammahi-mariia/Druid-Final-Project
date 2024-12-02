@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchPageContent, fetchFullPageContent } from "../store/contentSlice";
 import { Container, Row, Col } from "react-bootstrap";
 import CardImageBg from "../components/CardImageBg";
-import HeroSection from "../components/HeroSection";
+import HeroSection from "../components/HeroSection/HeroSection";
 
 const BlogPage = () => {
   const dispatch = useDispatch();
@@ -50,7 +50,9 @@ const BlogPage = () => {
   return (
     <div>
       {/* Blog Hero Section */}
-      {blogData.heroData && <HeroSection {...heroData} />}
+      {blogData.heroData && (
+        <HeroSection {...heroData} variant="dark" textSize="small" />
+      )}
 
       {/* Blog List Section */}
       <section className="my-5">

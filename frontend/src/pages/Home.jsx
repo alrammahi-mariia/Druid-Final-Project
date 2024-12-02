@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchPageContent } from "../store/contentSlice";
-import HeroSection from "../components/HeroSection";
+import HeroSection from "../components/HeroSection/HeroSection";
 import CardComponent from "../components/CardComponent";
 import { Row, Container, Col } from "react-bootstrap";
 import TextSection from "../components/TextSection";
@@ -38,8 +38,8 @@ const Home = () => {
     <div className="home-page">
       {/* Hero section */}
       {homeData.heroData && (
-        <section className="hero-section">
-          <HeroSection {...heroData} />
+        <section>
+          <HeroSection {...heroData} variant="white" textSize="large" />
         </section>
       )}
       {/* First Text Section */}
