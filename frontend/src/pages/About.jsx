@@ -39,14 +39,8 @@ const About = () => {
       <Container fluid>
         {/* First Section with Black Background */}
         {aboutData.textImageData &&
-          aboutData.textImageData.map((item, index) => (
-            <Row
-              key={item.id}
-              style={{
-                backgroundColor: index === 1 ? "black" : "white", // First section will have black bg
-                color: index === 1 ? "white" : "black", // Change text color for black bg section
-              }}
-            >
+          aboutData.textImageData.map((item) => (
+            <Row key={item.id}>
               <TextImageRight {...item} />
             </Row>
           ))}
