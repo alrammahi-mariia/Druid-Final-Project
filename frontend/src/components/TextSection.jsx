@@ -1,18 +1,9 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 
-const TextSection = ({
-  title,
-  text,
-  link,
-  linkUrl,
-  bgColor = "bg-light",
-  textColor = "text-dark",
-}) => {
+const TextSection = ({ title, text, link, linkUrl }) => {
   return (
-    <section
-      className={`text-section text-center ${bgColor} ${textColor} py-5`}
-    >
+    <section className={`text-section text-center py-5`}>
       <Container fluid>
         <Row className="justify-content-center">
           <Col md={8} lg={10}>

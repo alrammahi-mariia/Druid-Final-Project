@@ -18,18 +18,21 @@ export const processIncludedData = (included) => {
     // Get the current segment value directly from sessionStorage each time
     const currentSegment = sessionStorage.getItem("currentSegment") || "";
 
-    // If userSegment is empty string, only show paragraphs with no segment, null segment, or default segment
+    // If no segment field exists, show to everyone
+    if (!item.attributes.field_mautic_segment) return true;
+
+    // If userSegment is empty string, only show paragraphs with null segment or default segment
     if (currentSegment === "") {
       return (
-        !item.attributes.field_segment ||
-        item.attributes.field_segment === null ||
-        item.attributes.field_segment === "default"
+        item.attributes.field_mautic_segment === null ||
+        item.attributes.field_mautic_segment === "default"
       );
     }
-    // If no segment field, show to everyone
-    if (!item.attributes.field_segment) return true;
-    // If segment matches user segment, show it
-    return item.attributes.field_segment === currentSegment;
+
+    return (
+      item.attributes.field_mautic_segment?.toLowerCase() ===
+      currentSegment.toLowerCase()
+    );
   };
 
   included.forEach((item) => {
@@ -146,6 +149,7 @@ export const processIncludedData = (included) => {
               ? featureImageUrls[0]
               : featureImageUrls,
         });
+        break;
 
       case "file--file":
         if (!data.imageUrls) {

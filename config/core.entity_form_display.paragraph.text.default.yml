@@ -5,9 +5,11 @@ dependencies:
   config:
     - field.field.paragraph.text.field_section_text
     - field.field.paragraph.text.field_segment
+    - field.field.paragraph.text.field_text_link
     - field.field.paragraph.text.field_text_title
     - paragraphs.paragraphs_type.text
   module:
+    - link
     - text
 id: paragraph.text.default
 targetEntityType: paragraph
@@ -29,6 +31,14 @@ content:
     weight: 100
     region: content
     settings: {  }
+    third_party_settings: {  }
+  field_text_link:
+    type: link_default
+    weight: 101
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
     third_party_settings: {  }
   field_text_title:
     type: string_textfield

@@ -44,7 +44,7 @@ const Home = () => {
       )}
       {/* First Text Section */}
       {homeData.textData && (
-        <section className="text-section text-section-1 bg-light py-1">
+        <section className="text-section py-1">
           <Container fluid>
             <Row className="justify-content-center">
               <Col md={1} lg={12} className="text-center ">
@@ -99,7 +99,7 @@ const Home = () => {
       {homeData.textImageData?.length ? (
         <section className="partner-section">
           <TextImageHome
-            title={homeData.textImageData[0]?.title} 
+            title={homeData.textImageData[0]?.title}
             imageUrls={homeData.textImageData.map((item) => item.imageUrl)}
           />
         </section>

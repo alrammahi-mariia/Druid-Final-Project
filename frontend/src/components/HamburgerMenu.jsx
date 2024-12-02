@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Navbar, Nav } from "react-bootstrap";
-import "../css/hamburgerMenu.css";
+import "../style/HamburgerMenu.css";
 
 const HamburgerMenu = () => {
   const [menuOpen, setMenuOpen] = useState(false);
