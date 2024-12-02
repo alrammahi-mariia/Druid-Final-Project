@@ -6,7 +6,7 @@ dependencies:
     - core.entity_view_mode.paragraph.segment
     - field.field.paragraph.hero_paragraph.field_description
     - field.field.paragraph.hero_paragraph.field_image
-    - field.field.paragraph.hero_paragraph.field_segment
+    - field.field.paragraph.hero_paragraph.field_mautic_segment
     - field.field.paragraph.hero_paragraph.field_title
     - paragraphs.paragraphs_type.hero_paragraph
   module:
@@ -44,4 +44,4 @@ content:
     weight: 0
     region: content
 hidden:
-  field_segment: true
+  field_mautic_segment: true

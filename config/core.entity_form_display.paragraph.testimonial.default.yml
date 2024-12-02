@@ -4,7 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.paragraph.testimonial.field_author
-    - field.field.paragraph.testimonial.field_segment
+    - field.field.paragraph.testimonial.field_mautic_segment
     - field.field.paragraph.testimonial.field_testimonial
     - paragraphs.paragraphs_type.testimonial
 id: paragraph.testimonial.default
@@ -20,7 +20,7 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-  field_segment:
+  field_mautic_segment:
     type: options_select
     weight: 100
     region: content

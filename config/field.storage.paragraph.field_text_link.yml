@@ -1,18 +1,16 @@
-uuid: 9fac739d-f65b-415c-8257-e0823a8ed7ef
+uuid: bbc5d407-5da8-46a5-8061-f0f89e67eb3d
 langcode: en
 status: true
 dependencies:
   module:
+    - link
     - paragraphs
-    - text
-_core:
-  default_config_hash: 3SSj2etJosBw5rNHmPkKKefZFoyVGn31xJxOShTbpgA
-id: paragraph.field_mautic_text
-field_name: field_mautic_text
+id: paragraph.field_text_link
+field_name: field_text_link
 entity_type: paragraph
-type: text_long
+type: link
 settings: {  }
-module: text
+module: link
 locked: false
 cardinality: 1
 translatable: true

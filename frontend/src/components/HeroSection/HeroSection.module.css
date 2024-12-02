@@ -77,3 +77,27 @@
     font-size: 24px;
   }
 }
+
+.heroSection.start {
+  text-align: start;
+}
+
+.heroSection.start h1 {
+  text-align: start;
+}
+
+.heroSection.start p {
+  text-align: start;
+}
+
+.heroSection.center {
+  text-align: center;
+}
+
+.heroSection.center h1 {
+  text-align: center;
+}
+
+.heroSection.center p {
+  text-align: center;
+}

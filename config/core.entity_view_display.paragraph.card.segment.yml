@@ -7,7 +7,7 @@ dependencies:
     - field.field.paragraph.card.field_card_description
     - field.field.paragraph.card.field_card_link
     - field.field.paragraph.card.field_card_title
-    - field.field.paragraph.card.field_segment
+    - field.field.paragraph.card.field_mautic_segment
     - paragraphs.paragraphs_type.card
   module:
     - link
@@ -44,4 +44,4 @@ content:
     weight: 0
     region: content
 hidden:
-  field_segment: true
+  field_mautic_segment: true

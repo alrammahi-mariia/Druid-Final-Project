@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Container, Row } from "react-bootstrap";
 import { Outlet } from "react-router-dom";
 import HamburgerMenu from "../components/HamburgerMenu";
-import Footer from "../components/Footer";
+import Footer from "../components/Footer/Footer";
 
 const Layout = () => {
   const [showFooter, setShowFooter] = useState(false);

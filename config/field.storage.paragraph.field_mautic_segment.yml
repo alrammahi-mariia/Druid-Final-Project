@@ -1,25 +1,22 @@
-uuid: 8a715cf6-0839-4507-8012-6b10565ffb2c
+uuid: ac43e2f0-5277-407a-8fd7-3cef21f1c181
 langcode: en
 status: true
 dependencies:
   module:
     - options
     - paragraphs
-id: paragraph.field_segment
-field_name: field_segment
+id: paragraph.field_mautic_segment
+field_name: field_mautic_segment
 entity_type: paragraph
 type: list_string
 settings:
   allowed_values:
     -
-      value: contact
-      label: contact
+      value: professional
+      label: professional
     -
-      value: visitor
-      label: visitor
-    -
-      value: undefined
-      label: undefined
+      value: b2b
+      label: B2B
   allowed_values_function: ''
 module: options
 locked: false

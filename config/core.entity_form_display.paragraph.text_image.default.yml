@@ -3,8 +3,8 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.paragraph.text_image.field_mautic_segment
     - field.field.paragraph.text_image.field_section_title
-    - field.field.paragraph.text_image.field_segment
     - field.field.paragraph.text_image.field_text
     - field.field.paragraph.text_image.field_text_image
     - field.field.paragraph.text_image.field_text_long
@@ -18,6 +18,12 @@ targetEntityType: paragraph
 bundle: text_image
 mode: default
 content:
+  field_mautic_segment:
+    type: options_select
+    weight: 100
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_section_title:
     type: string_textfield
     weight: 0
@@ -25,12 +31,6 @@ content:
     settings:
       size: 60
       placeholder: ''
-    third_party_settings: {  }
-  field_segment:
-    type: options_select
-    weight: 100
-    region: content
-    settings: {  }
     third_party_settings: {  }
   field_text:
     type: text_textfield

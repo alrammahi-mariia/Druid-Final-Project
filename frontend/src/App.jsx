@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import { useEffect, useState } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import mautic from "./services/mautic_services";
 import Home from "./pages/Home";
@@ -12,6 +11,7 @@ import ServicePage from "./pages/ServiceSingle";
 import Career from "./pages/Career";
 import BlogPage from "./pages/BlogPage";
 import "./App.css";
+import segmentService from "./services/segmentService";
 
 const App = () => {
   const location = useLocation();
@@ -45,30 +45,8 @@ const App = () => {
       title: document.title,
     });
 
-    // Get Contact ID from cookies
-    const allCookies = document.cookie;
-    console.log("All cookies:", allCookies);
-
-    const mtcId = document.cookie
-      .split("; ")
-      .find((row) => row.startsWith("mtc_id="))
-      ?.split("=")[1];
-
-    console.log("Mautic ID found:", mtcId);
-
-    if (mtcId) {
-      // Pass Mautic ID to Drupal endpoint to process segments
-      axios
-        .get(
-          `https://druid-final-project.lndo.site/api/mautic/process-segments/${mtcId}`
-        )
-        .then((response) => {
-          console.log("Segments processed:", response.data);
-        })
-        .catch((error) => {
-          console.error("Error processing segments:", error);
-        });
-    }
+    // Check/update segments based on service conditions
+    segmentService.updateSegments();
 
     // Clean up the timer when component unmounts
     return () => clearTimeout(timer);

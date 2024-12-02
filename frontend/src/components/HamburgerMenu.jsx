@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Navbar, Nav } from "react-bootstrap";
-import "../css/hamburgerMenu.css";
+import "../style/HamburgerMenu.css";
 
 const HamburgerMenu = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -46,23 +46,13 @@ const HamburgerMenu = () => {
         </span>
       </Navbar.Brand>
 
-      {/* Render the Hamburger Toggle Button only when menu is closed */}
       {!menuOpen && (
-        <Navbar.Toggle
-          aria-controls="basic-navbar-nav"
-          onClick={handleToggle}
-          aria-expanded={menuOpen}
-          className="navbar-toggler"
-        />
+        <button className="navbar-toggler" onClick={handleToggle}>
+          <span className="navbar-toggler-icon"></span>
+        </button>
       )}
 
-      <Navbar.Collapse
-        id="basic-navbar-nav"
-        className={`justify-content-center full-screen-menu ${
-          menuOpen ? "show" : ""
-        }`}
-        in={menuOpen}
-      >
+      <div className={`full-screen-menu ${menuOpen ? "show" : ""}`}>
         <button
           className="close-menu-button"
           aria-label="Close menu"
@@ -121,7 +111,7 @@ const HamburgerMenu = () => {
             Contact
           </Nav.Link>
         </Nav>
-      </Navbar.Collapse>
+      </div>
     </Navbar>
   );
 };

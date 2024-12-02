@@ -1,16 +1,16 @@
-uuid: d157bdeb-5f64-4ac5-9628-3ea32bf3626d
+uuid: f9b2c2aa-cf65-4167-b1da-d816663f4a6a
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.paragraph.field_segment
-    - paragraphs.paragraphs_type.text_image
+    - field.storage.paragraph.field_mautic_segment
+    - paragraphs.paragraphs_type.card
   module:
     - options
-id: paragraph.text_image.field_segment
-field_name: field_segment
+id: paragraph.card.field_mautic_segment
+field_name: field_mautic_segment
 entity_type: paragraph
-bundle: text_image
+bundle: card
 label: Segment
 description: ''
 required: false

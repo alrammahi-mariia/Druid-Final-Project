@@ -1,0 +1,96 @@
+.textSection {
+  width: 100%;
+  min-height: 70vh;
+  padding: 80px 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.textContent {
+  width: 100%;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.textSection h1 {
+  font-size: 48px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.textSection div {
+  font-size: 28px;
+  line-height: 1.6;
+  margin-bottom: 40px;
+}
+
+.buttonWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.button {
+  padding: 12px 32px;
+  font-size: 18px;
+  border-radius: 25px;
+  border: 2px solid #1e1e1e;
+  background-color: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.button:hover {
+  background-color: #1e1e1e;
+  color: #ffffff;
+}
+
+/* Background variants */
+.textSection.white {
+  background-color: #ffffff;
+  color: #1e1e1e;
+}
+
+.textSection.dark {
+  background-color: #1e1e1e;
+  color: #ffffff;
+}
+
+.textSection.dark .button {
+  border-color: #ffffff;
+  color: #ffffff;
+}
+
+.textSection.dark .button:hover {
+  background-color: #ffffff;
+  color: #1e1e1e;
+}
+
+.textSection.light {
+  background-color: #f8f8f8;
+  color: #1e1e1e;
+}
+
+/* Responsive design */
+@media (max-width: 991px) {
+  .textSection {
+    padding: 60px 20px;
+  }
+
+  .textSection h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+
+  .textSection div {
+    font-size: 18px;
+    margin-bottom: 30px;
+  }
+
+  .button {
+    padding: 10px 24px;
+    font-size: 16px;
+  }
+}

@@ -6,7 +6,7 @@ dependencies:
     - field.field.paragraph.card_image.field_card_image
     - field.field.paragraph.card_image.field_cardimg_text
     - field.field.paragraph.card_image.field_cardimg_title
-    - field.field.paragraph.card_image.field_segment
+    - field.field.paragraph.card_image.field_mautic_segment
     - paragraphs.paragraphs_type.card_image
   module:
     - image
@@ -43,11 +43,11 @@ content:
     third_party_settings: {  }
     weight: 0
     region: content
-  field_segment:
+  field_mautic_segment:
     type: list_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 4
+    weight: 3
     region: content
 hidden: {  }

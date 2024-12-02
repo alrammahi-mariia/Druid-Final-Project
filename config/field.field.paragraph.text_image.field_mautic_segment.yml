@@ -1,16 +1,16 @@
-uuid: f142caab-78de-4ebd-9f49-528919afae42
+uuid: d301cf6a-8fae-4033-bebf-b0239e649358
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.paragraph.field_segment
-    - paragraphs.paragraphs_type.testimonial
+    - field.storage.paragraph.field_mautic_segment
+    - paragraphs.paragraphs_type.text_image
   module:
     - options
-id: paragraph.testimonial.field_segment
-field_name: field_segment
+id: paragraph.text_image.field_mautic_segment
+field_name: field_mautic_segment
 entity_type: paragraph
-bundle: testimonial
+bundle: text_image
 label: Segment
 description: ''
 required: false

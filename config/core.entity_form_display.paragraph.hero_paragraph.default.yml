@@ -5,7 +5,7 @@ dependencies:
   config:
     - field.field.paragraph.hero_paragraph.field_description
     - field.field.paragraph.hero_paragraph.field_image
-    - field.field.paragraph.hero_paragraph.field_segment
+    - field.field.paragraph.hero_paragraph.field_mautic_segment
     - field.field.paragraph.hero_paragraph.field_title
     - image.style.thumbnail
     - paragraphs.paragraphs_type.hero_paragraph
@@ -33,7 +33,7 @@ content:
       progress_indicator: throbber
       preview_image_style: thumbnail
     third_party_settings: {  }
-  field_segment:
+  field_mautic_segment:
     type: options_select
     weight: 100
     region: content

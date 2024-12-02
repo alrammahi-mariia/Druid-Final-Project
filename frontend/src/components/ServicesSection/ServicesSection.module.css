@@ -1,0 +1,51 @@
+.servicesSection {
+  width: 100%;
+  padding: 80px 160px 120px 160px;
+  background-color: #f8f8f8;
+}
+
+.headerWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 60px;
+  padding: 0 20px;
+}
+
+.titleGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.titleGroup h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.titleGroup h3 {
+  font-size: 24px;
+  margin: 0;
+}
+
+.button {
+  padding: 12px 32px;
+  font-size: 18px;
+  border-radius: 25px;
+  border: 2px solid #1e1e1e;
+  background-color: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.button:hover {
+  background-color: #1e1e1e;
+  color: #ffffff;
+}
+
+/* Responsive styles */
+@media (max-width: 991px) {
+  .headerWrapper {
+    flex-direction: column;
+    gap: 20px;
+  }
+}

@@ -18,18 +18,21 @@ export const processIncludedData = (included) => {
     // Get the current segment value directly from sessionStorage each time
     const currentSegment = sessionStorage.getItem("currentSegment") || "";
 
-    // If userSegment is empty string, only show paragraphs with no segment, null segment, or undefined segment
+    // If no segment field exists, show to everyone
+    if (!item.attributes.field_mautic_segment) return true;
+
+    // If userSegment is empty string, only show paragraphs with null segment or default segment
     if (currentSegment === "") {
       return (
-        !item.attributes.field_segment ||
-        item.attributes.field_segment === null ||
-        item.attributes.field_segment === "undefined"
+        item.attributes.field_mautic_segment === null ||
+        item.attributes.field_mautic_segment === "default"
       );
     }
-    // If no segment field, show to everyone
-    if (!item.attributes.field_segment) return true;
-    // If segment matches user segment, show it
-    return item.attributes.field_segment === currentSegment;
+
+    return (
+      item.attributes.field_mautic_segment?.toLowerCase() ===
+      currentSegment.toLowerCase()
+    );
   };
 
   included.forEach((item) => {
@@ -78,7 +81,7 @@ export const processIncludedData = (included) => {
         data.cardImageData.push({
           id: item.id,
           title: item.attributes.field_cardimg_title,
-          text: item.attributes.field_cardimg_text.processed,
+          text: item.attributes.field_cardimg_text?.processed,
           imageUrl:
             cardImageUrls.length === 1 ? cardImageUrls[0] : cardImageUrls,
         });
@@ -96,6 +99,8 @@ export const processIncludedData = (included) => {
         data.textData.push({
           text: item.attributes.field_section_text?.processed,
           title: item.attributes.field_text_title,
+          link: item.attributes.field_text_link?.title,
+          linkUrl: item.attributes.field_text_link?.uri,
         });
         break;
 
@@ -144,6 +149,7 @@ export const processIncludedData = (included) => {
               ? featureImageUrls[0]
               : featureImageUrls,
         });
+        break;
 
       case "file--file":
         if (!data.imageUrls) {
