@@ -4,7 +4,6 @@ import { fetchPageContent } from "../store/contentSlice";
 import HeroSection from "../components/HeroSection/HeroSection";
 import TextImageRight from "../components/TextImageRight";
 import { Row, Container } from "react-bootstrap";
-import "../style/About.css"; // if you want to keep some additional styling
 
 const About = () => {
   const dispatch = useDispatch();

@@ -4,7 +4,7 @@ import { fetchPageContent } from "../store/contentSlice";
 import HeroSection from "../components/HeroSection/HeroSection";
 import CardComponent from "../components/CardComponent";
 import { Row, Container, Col } from "react-bootstrap";
-import TextSection from "../components/TextSection";
+import TextSection from "../components/TextSection/TextSection";
 import CardImageBg from "../components/CardImageBg";
 import TextImageHome from "../components/TextImageHome";
 
@@ -38,22 +38,12 @@ const Home = () => {
     <div className="home-page">
       {/* Hero section */}
       {homeData.heroData && (
-        <section>
-          <HeroSection {...heroData} variant="white" textSize="large" />
-        </section>
+        <HeroSection {...heroData} variant="white" textSize="large" />
       )}
-      {/* First Text Section */}
-      {homeData.textData && (
-        <section className="text-section py-1">
-          <Container fluid>
-            <Row className="justify-content-center">
-              <Col md={1} lg={12} className="text-center ">
-                <TextSection {...textData[0]} />
-              </Col>
-            </Row>
-          </Container>
-        </section>
-      )}
+
+      {/* Career Text Section for Professionals segment*/}
+      {homeData.textData && <TextSection {...textData[0]} />}
+
       {/* Cards Section */}
       <section className="card-section my-5">
         <Container fluid>

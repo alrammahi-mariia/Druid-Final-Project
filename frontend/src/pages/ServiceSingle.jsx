@@ -4,7 +4,7 @@ import { fetchPageContent } from "../store/contentSlice";
 import HeroSection from "../components/HeroSection/HeroSection";
 import TextImageLeft from "../components/TextImageLeft";
 import TextImageRight from "../components/TextImageRight";
-import TextSection from "../components/TextSection";
+import TextSection from "../components/TextSection/TextSection";
 
 const ServiceSingle = () => {
   const dispatch = useDispatch();

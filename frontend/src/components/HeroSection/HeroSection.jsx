@@ -1,11 +1,12 @@
 import { Container, Row } from "react-bootstrap";
+import PropTypes from "prop-types";
 import styles from "./HeroSection.module.css";
 
 const HeroSection = ({
   title,
   description,
   variant = "light",
-  textSize = "large", // 'small' or 'large'
+  textSize = "large",
 }) => {
   return (
     <div
@@ -21,6 +22,13 @@ const HeroSection = ({
       </Container>
     </div>
   );
+};
+
+HeroSection.propTypes = {
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  variant: PropTypes.oneOf(["light", "dark"]),
+  textSize: PropTypes.oneOf(["small", "medium", "large"]),
 };
 
 export default HeroSection;

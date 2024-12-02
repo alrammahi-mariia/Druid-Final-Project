@@ -5,7 +5,7 @@ import HeroSection from "../components/HeroSection/HeroSection";
 import CardComponent from "../components/CardComponent";
 import Testimonial from "../components/Testimonial";
 import { Row, Container, Col } from "react-bootstrap";
-import TextSection from "../components/TextSection";
+import TextSection from "../components/TextSection/TextSection";
 import Feature from "../components/Feature";
 
 const Services = () => {
