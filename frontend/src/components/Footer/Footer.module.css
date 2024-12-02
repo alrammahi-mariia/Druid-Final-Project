@@ -1,0 +1,65 @@
+.footer {
+  background-color: #1e1e1e;
+  color: white;
+  width: 100%;
+  padding: 60px 0;
+}
+
+.title {
+  font-size: 32px;
+  margin-bottom: 30px;
+  font-weight: 300;
+}
+
+.contactInfo p,
+.socialLinks a,
+.quickLinks a {
+  color: #ffffff;
+  text-decoration: none;
+  margin-bottom: 15px;
+  display: block;
+  font-weight: 300;
+}
+
+.contactInfo p svg,
+.socialLinks a svg {
+  display: none; /* Remove icons */
+}
+
+/* Remove the animated vertical lines */
+.verticalLine {
+  position: absolute;
+  top: 15%;
+  bottom: 15%;
+  width: 1px;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.leftLine {
+  left: 33%;
+}
+
+.rightLine {
+  left: 66%;
+}
+
+.column {
+  position: relative;
+  padding: 0 40px;
+}
+
+@media (max-width: 768px) {
+  .verticalLine {
+    display: none;
+  }
+
+  .column {
+    margin-bottom: 40px;
+    padding: 0 20px;
+  }
+
+  .title {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+}

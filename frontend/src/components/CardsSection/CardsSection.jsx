@@ -1,11 +1,11 @@
 import { Container, Row, Col } from "react-bootstrap";
 import PropTypes from "prop-types";
-import styles from "./ServicesSection.module.css";
-import CardImage from "../CardImage/CardImage";
+import styles from "./CardsSection.module.css";
+import CardComponent from "../CardComponent";
 
-const ServicesSection = ({ title, subtitle, cardImageData, link, linkUrl }) => {
+const CardsSection = ({ title, subtitle, cardData, link, linkUrl }) => {
   return (
-    <section className={styles.servicesSection}>
+    <section className={styles.cardsSection}>
       <div className={styles.headerWrapper}>
         <div className={styles.titleGroup}>
           <h1>{title}</h1>
@@ -15,12 +15,12 @@ const ServicesSection = ({ title, subtitle, cardImageData, link, linkUrl }) => {
           <button className={styles.button}>{link}</button>
         </a>
       </div>
-      <Container fluid>
+      <Container fluid className="mt-5">
         <Row className="justify-content-center">
-          {cardImageData &&
-            cardImageData.map((card) => (
+          {cardData &&
+            cardData.map((card) => (
               <Col lg={6} md={4} sm={12} className="mb-4" key={card.id}>
-                <CardImage {...card} />
+                <CardComponent {...card} />
               </Col>
             ))}
         </Row>
@@ -29,12 +29,12 @@ const ServicesSection = ({ title, subtitle, cardImageData, link, linkUrl }) => {
   );
 };
 
-ServicesSection.propTypes = {
+CardsSection.propTypes = {
   title: PropTypes.string.isRequired,
   subtitle: PropTypes.string.isRequired,
-  cardImageData: PropTypes.array.isRequired,
+  cardData: PropTypes.array.isRequired,
   link: PropTypes.string.isRequired,
   linkUrl: PropTypes.string.isRequired,
 };
 
-export default ServicesSection;
+export default CardsSection;

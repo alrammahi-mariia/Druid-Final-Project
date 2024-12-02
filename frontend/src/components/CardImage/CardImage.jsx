@@ -1,4 +1,3 @@
-import React from "react";
 import { Card, Image } from "react-bootstrap";
 import PropTypes from "prop-types";
 import { URL } from "../../services/apiService";

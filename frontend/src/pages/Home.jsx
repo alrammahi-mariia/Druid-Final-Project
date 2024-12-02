@@ -1,12 +1,11 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchPageContent } from "../store/contentSlice";
 import HeroSection from "../components/HeroSection/HeroSection";
 import TextSection from "../components/TextSection/TextSection";
 import ServicesSection from "../components/ServicesSection/ServicesSection";
-import { Container, Row, Col } from "react-bootstrap";
-import CardComponent from "../components/CardComponent";
-import TextImageHome from "../components/TextImageHome";
+import CustomerSection from "../components/CustomerSection/CustomerSection";
+import CardsSection from "../components/CardsSection/CardsSection";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -34,7 +33,7 @@ const Home = () => {
     homeData;
 
   return (
-    <div className="home-page">
+    <div>
       {/* Hero section */}
       {homeData.heroData && (
         <HeroSection {...heroData} variant="white" textSize="large" />
@@ -54,31 +53,26 @@ const Home = () => {
 
       {/* Customers Sections (Pass only title and all imageUrls) */}
       {homeData.textImageData?.length ? (
-        <section className="partner-section">
-          <TextImageHome
+        <section>
+          <CustomerSection
             title={homeData.textImageData[0]?.title}
             imageUrls={homeData.textImageData.map((item) => item.imageUrl)}
           />
         </section>
       ) : (
-        <section className="partner-section">
+        <section>
           <p>No partner data available</p>
         </section>
       )}
 
-      {/* Services FeaturesSection */}
-      <section className="card-section my-5">
-        <Container fluid>
-          <Row className="services-container justify-content-center">
-            {homeData.cardData &&
-              homeData.cardData.map((card) => (
-                <Col lg={6} md={4} sm={12} className="mb-4" key={card.id}>
-                  <CardComponent {...card} />
-                </Col>
-              ))}
-          </Row>
-        </Container>
-      </section>
+      {/* Services Features Section */}
+      <CardsSection
+        title="Our Expertise"
+        subtitle="The sec­rets be­hind our agi­le web ser­vi­ces and web­si­tes"
+        cardData={cardData}
+        link="See more"
+        linkUrl="/services"
+      />
 
       {/* Text Section*/}
       {homeData.textData && (
