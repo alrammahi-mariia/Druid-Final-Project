@@ -1,16 +1,16 @@
-uuid: 3904f390-7b01-491c-9175-172cd7d19271
+uuid: 4e4174f6-5253-4672-b6e9-afef859076a9
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.paragraph.field_segment
-    - paragraphs.paragraphs_type.text
+    - field.storage.paragraph.field_mautic_segment
+    - paragraphs.paragraphs_type.feature
   module:
     - options
-id: paragraph.text.field_segment
-field_name: field_segment
+id: paragraph.feature.field_mautic_segment
+field_name: field_mautic_segment
 entity_type: paragraph
-bundle: text
+bundle: feature
 label: Segment
 description: ''
 required: false

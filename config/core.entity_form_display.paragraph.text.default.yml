@@ -3,8 +3,8 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.paragraph.text.field_mautic_segment
     - field.field.paragraph.text.field_section_text
-    - field.field.paragraph.text.field_segment
     - field.field.paragraph.text.field_text_link
     - field.field.paragraph.text.field_text_title
     - paragraphs.paragraphs_type.text
@@ -16,6 +16,12 @@ targetEntityType: paragraph
 bundle: text
 mode: default
 content:
+  field_mautic_segment:
+    type: options_select
+    weight: 100
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_section_text:
     type: text_textarea_with_summary
     weight: 1
@@ -25,12 +31,6 @@ content:
       summary_rows: 3
       placeholder: ''
       show_summary: false
-    third_party_settings: {  }
-  field_segment:
-    type: options_select
-    weight: 100
-    region: content
-    settings: {  }
     third_party_settings: {  }
   field_text_link:
     type: link_default

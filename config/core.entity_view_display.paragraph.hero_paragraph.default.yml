@@ -5,7 +5,7 @@ dependencies:
   config:
     - field.field.paragraph.hero_paragraph.field_description
     - field.field.paragraph.hero_paragraph.field_image
-    - field.field.paragraph.hero_paragraph.field_segment
+    - field.field.paragraph.hero_paragraph.field_mautic_segment
     - field.field.paragraph.hero_paragraph.field_title
     - paragraphs.paragraphs_type.hero_paragraph
   module:
@@ -35,12 +35,12 @@ content:
     third_party_settings: {  }
     weight: 2
     region: content
-  field_segment:
+  field_mautic_segment:
     type: list_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 4
+    weight: 3
     region: content
   field_title:
     type: string

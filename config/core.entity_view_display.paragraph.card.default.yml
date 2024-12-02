@@ -6,7 +6,7 @@ dependencies:
     - field.field.paragraph.card.field_card_description
     - field.field.paragraph.card.field_card_link
     - field.field.paragraph.card.field_card_title
-    - field.field.paragraph.card.field_segment
+    - field.field.paragraph.card.field_mautic_segment
     - paragraphs.paragraphs_type.card
   module:
     - link
@@ -43,11 +43,11 @@ content:
     third_party_settings: {  }
     weight: 0
     region: content
-  field_segment:
+  field_mautic_segment:
     type: list_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 4
+    weight: 3
     region: content
 hidden: {  }

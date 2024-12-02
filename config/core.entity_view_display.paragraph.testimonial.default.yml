@@ -4,7 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.paragraph.testimonial.field_author
-    - field.field.paragraph.testimonial.field_segment
+    - field.field.paragraph.testimonial.field_mautic_segment
     - field.field.paragraph.testimonial.field_testimonial
     - paragraphs.paragraphs_type.testimonial
   module:
@@ -22,12 +22,12 @@ content:
     third_party_settings: {  }
     weight: 1
     region: content
-  field_segment:
+  field_mautic_segment:
     type: list_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 4
+    weight: 3
     region: content
   field_testimonial:
     type: basic_string

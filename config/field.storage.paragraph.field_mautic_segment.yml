@@ -1,24 +1,22 @@
-uuid: f42a6a23-676e-4b6e-bcc3-3909d18d4fce
+uuid: ac43e2f0-5277-407a-8fd7-3cef21f1c181
 langcode: en
 status: true
 dependencies:
   module:
     - options
     - paragraphs
-_core:
-  default_config_hash: alkr2h9zWFanADGYOP4gA-porClutdkLd_f7mH2ljQM
-id: paragraph.field_mautic_layout
-field_name: field_mautic_layout
+id: paragraph.field_mautic_segment
+field_name: field_mautic_segment
 entity_type: paragraph
 type: list_string
 settings:
   allowed_values:
     -
-      value: form_left
-      label: 'Form left'
+      value: professional
+      label: professional
     -
-      value: form_right
-      label: 'Form right'
+      value: b2b
+      label: B2B
   allowed_values_function: ''
 module: options
 locked: false

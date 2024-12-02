@@ -6,7 +6,7 @@ dependencies:
     - field.field.paragraph.feature.field_feature_description
     - field.field.paragraph.feature.field_feature_image
     - field.field.paragraph.feature.field_feature_title
-    - field.field.paragraph.feature.field_segment
+    - field.field.paragraph.feature.field_mautic_segment
     - image.style.thumbnail
     - paragraphs.paragraphs_type.feature
   module:
@@ -40,7 +40,7 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-  field_segment:
+  field_mautic_segment:
     type: options_select
     weight: 100
     region: content
