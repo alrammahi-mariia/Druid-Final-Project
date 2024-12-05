@@ -1,9 +1,8 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchPageContent } from "../store/contentSlice";
 import HeroSection from "../components/HeroSection/HeroSection";
-import TextImageLeft from "../components/TextImageLeft";
-import TextImageRight from "../components/TextImageRight";
+import TextImage from "../components/TextImage/TextImage";
 import TextSection from "../components/TextSection/TextSection";
 
 const ServiceSingle = () => {
@@ -34,14 +33,14 @@ const ServiceSingle = () => {
       {serviceSingleData.textImageData &&
         serviceSingleData.textImageData.map(
           (textImage, index) =>
-            index === 0 && <TextImageLeft key={index} {...textImage} />
+            index === 0 && <TextImage key={index} {...textImage} />
         )}
       {serviceSingleData.textData &&
         textData.map((text) => <TextSection key={text.id} {...text} />)}
-      {serviceSingleData.textImageData &&
-        serviceSingleData.textImageData.map(
+      {textImageData &&
+        textImageData.map(
           (textImage, index) =>
-            index === 1 && <TextImageRight key={index} {...textImage} />
+            index === 1 && <TextImage key={index} {...textImage} />
         )}
     </div>
   );

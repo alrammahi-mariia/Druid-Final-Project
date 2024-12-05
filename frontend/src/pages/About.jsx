@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchPageContent } from "../store/contentSlice";
 import HeroSection from "../components/HeroSection/HeroSection";
-import TextImageRight from "../components/TextImageRight";
+import TextImage from "../components/TextImage/TextImage";
 import { Row, Container } from "react-bootstrap";
 
 const About = () => {
@@ -38,12 +38,18 @@ const About = () => {
       {/* Text sections with conditional styling */}
       <Container fluid>
         {/* First Section with Black Background */}
-        {aboutData.textImageData &&
-          aboutData.textImageData.map((item) => (
-            <Row key={item.id}>
-              <TextImageRight {...item} />
-            </Row>
-          ))}
+        {textImageData &&
+          textImageData.map((item, index) => {
+            return (
+              <Row key={item.id}>
+                <TextImage
+                  {...item}
+                  imageSize={index === 0 ? "medium" : "large"}
+                  imagePosition={index === 0 ? "right" : "left"}
+                />
+              </Row>
+            );
+          })}
       </Container>
     </div>
   );
