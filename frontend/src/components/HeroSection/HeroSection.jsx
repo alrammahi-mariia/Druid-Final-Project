@@ -1,10 +1,12 @@
 import { Container, Row } from "react-bootstrap";
 import PropTypes from "prop-types";
 import styles from "./HeroSection.module.css";
+import { URL } from "../../services/apiService";
 
 const HeroSection = ({
   title,
   description,
+  imageUrl,
   variant = "light",
   textSize = "large",
   textAlign = "start",
@@ -20,6 +22,11 @@ const HeroSection = ({
           <h1>{title}</h1>
           <p>{description}</p>
         </Row>
+        {imageUrl && (
+          <Row className={styles.imageContainer}>
+            <img src={`${URL}${imageUrl}`} alt={title} />
+          </Row>
+        )}
       </Container>
     </div>
   );
@@ -31,6 +38,7 @@ HeroSection.propTypes = {
   variant: PropTypes.oneOf(["light", "dark"]),
   textSize: PropTypes.oneOf(["small", "medium", "large"]),
   textAlign: PropTypes.oneOf(["start", "center"]),
+  imageUrl: PropTypes.string,
 };
 
 export default HeroSection;
