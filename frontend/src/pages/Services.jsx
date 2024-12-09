@@ -54,10 +54,15 @@ const Services = () => {
       {/* Testimonial section */}
       {serviceData.testimonialData && <Testimonial {...testimonialData} />}
       {/* Features section */}
-      {/* {serviceData.textData && <TextSection {...textData[0]} />} */}
       <section className="my-5">
-        <Container>
-          <Row className="services-container justify-content-center">
+        <Container className="d-flex flex-column justify-content-center align-items-center">
+          <Row>
+            <h2 className="text-center my-5">
+              Druid is al­so your trus­ted part­ner in the fol­lo­wing web
+              so­lu­tions
+            </h2>
+          </Row>
+          <Row>
             {serviceData.featureData &&
               serviceData.featureData.map((feature) => (
                 <Feature {...feature} key={feature.id} />
