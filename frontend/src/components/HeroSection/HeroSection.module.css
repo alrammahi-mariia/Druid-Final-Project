@@ -1,164 +1,36 @@
+/* Main Hero Section Container */
 .heroSection {
   width: 100%;
   margin: 0 auto;
-  padding: 0;
-  min-height: 80vh;
-  position: relative;
-  overflow: visible;
+  text-align: start;
+  padding: 100px 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 60vh;
+  min-height: 70vh;
 }
 
-@media (max-width: 1366px) {
-  .heroSection {
-    min-height: 140vh;
-    margin-bottom: 30vh;
-  }
-
-  .heroContent {
-    width: 65% !important;
-    top: 10% !important;
-    transform: translate(-50%, 0) !important;
-  }
-
-  .heroSection h1 {
-    font-size: 48px !important;
-  }
-
-  .heroSection p {
-    font-size: 20px !important;
-  }
-
-  .imageContainer {
-    width: 80% !important;
-    bottom: -25% !important;
-    max-width: 800px !important;
-    padding: 10px !important;
-  }
-}
-
-@media (max-width: 991px) {
-  .heroSection {
-    width: 90%;
-    padding: 50px 20px;
-  }
-
-  .heroSection h1 {
-    font-size: 36px;
-  }
-
-  .heroSection p {
-    font-size: 20px;
-  }
-}
-
-@media (max-width: 768px) {
-  .heroSection {
-    min-height: auto;
-    width: 100%;
-    margin: 0;
-    padding-top: 80px;
-    position: relative;
-    display: block;
-    background-color: inherit;
-    margin-bottom: 60px;
-    overflow: visible;
-  }
-
-  .heroContent {
-    position: relative;
-    width: 100%;
-    max-width: none;
-    transform: none;
-    margin: 0;
-    padding: 40px 20px;
-    top: auto;
-    left: auto;
-  }
-
-  .heroContent h1 {
-    font-size: 36px;
-    margin: 0 0 20px 0;
-    text-align: center;
-    width: 100%;
-  }
-
-  .heroContent p {
-    font-size: 18px;
-    line-height: 1.6;
-    text-align: center;
-    margin: 0 0 30px 0;
-  }
-
-  .imageContainer {
-    position: relative;
-    width: 100%;
-    max-width: 500px;
-    margin: 0 auto 60px;
-    padding: 0 20px;
-    transform: none;
-    bottom: auto;
-    left: auto;
-  }
-
-  .imageContainer::after {
-    display: none;
-  }
-}
-
-@media (max-width: 480px) {
-  .heroSection {
-    padding-top: 60px;
-    margin-bottom: 40px;
-  }
-
-  .heroContent {
-    padding: 30px 15px;
-  }
-
-  .heroContent h1 {
-    font-size: 32px;
-  }
-
-  .heroContent p {
-    font-size: 16px;
-  }
-
-  .imageContainer {
-    padding: 0 15px;
-    margin-bottom: 40px;
-  }
-}
-
+/* Hero Content Container */
 .heroContent {
-  width: 70%;
-  margin: 0;
-  max-width: 1000px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
+  width: 90%;
+  margin: 120px 0 0 40px;
+  max-width: 1400px;
 }
 
-.heroContent h1,
-.heroContent p {
-  margin: 0;
-}
-
-.heroContent h1 {
+/* Base Typography */
+.heroSection h1 {
   font-size: 62px;
   margin-bottom: 20px;
   text-align: start;
   width: 100%;
 }
 
+.heroSection p {
+  font-size: 24px;
+  line-height: 1.5;
+}
+
+/* Background Color Variants */
 .heroSection.white {
   background-color: #ffffff;
   color: #1e1e1e;
@@ -174,7 +46,7 @@
   color: #1e1e1e;
 }
 
-/* Text size variants */
+/* Text Size Variants */
 .heroSection.largeText p {
   font-size: 42px;
   line-height: 1.5;
@@ -185,25 +57,12 @@
   line-height: 1.5;
 }
 
-@media (max-width: 991px) {
-  .heroSection.largeText p {
-    font-size: 36px;
-  }
-
-  .heroSection.smallText p {
-    font-size: 24px;
-  }
-}
-
-/* Text alignment variants */
+/* Text Alignment Variants */
 .heroSection.start {
   text-align: start;
 }
 
-.heroSection.start h1 {
-  text-align: start;
-}
-
+.heroSection.start h1,
 .heroSection.start p {
   text-align: start;
 }
@@ -211,38 +70,49 @@
 .heroSection.center {
   text-align: center;
 }
-
-.heroSection.center h1 {
+.heroSection.center .heroContent {
+  margin: 120px auto 0;
   text-align: center;
 }
 
+.heroSection.center h1,
 .heroSection.center p {
   text-align: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.heroSection img {
-  width: 100%;
-  height: auto;
-}
+/* Responsive Styles */
+@media (max-width: 991px) {
+  .heroSection {
+    width: 100%;
+    padding: 50px 20px;
+  }
 
-.imageContainer {
-  position: absolute;
-  width: 60%;
-  max-width: 1000px;
-  left: 50%;
-  bottom: -60%;
-  transform: translateX(-50%);
-  z-index: 2;
-}
+  .heroContent {
+    margin: 60px 20px 0;
+  }
 
-.imageContainer img {
-  width: 100%;
-  height: auto;
-  display: block;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-}
+  .heroSection.center .heroContent {
+    width: 85%;
+    margin: 60px auto 0;
+  }
 
-.heroSection p {
-  font-size: 24px;
-  line-height: 1.5;
+  .heroSection h1 {
+    font-size: 36px;
+  }
+
+  .heroSection p {
+    font-size: 20px;
+  }
+
+  .heroSection.largeText p {
+    font-size: 24px;
+    line-height: 1.4;
+  }
+
+  .heroSection.smallText p {
+    font-size: 18px;
+    line-height: 1.4;
+  }
 }
