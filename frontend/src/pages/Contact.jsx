@@ -42,24 +42,27 @@ const Contact = () => {
         <HeroSection {...heroData} variant="white" textSize="small" />
       )}
       <Container fluid className="my-5">
-        <Row>
+        {/* <Row>
           <Col md={12}>
             {Array.isArray(textData) && textData.length > 0
-              ? renderContactText(textData[0])
+              ? renderContactText(textData[0]) // Render the first element outside the loop
               : renderContactText()}
           </Col>
-        </Row>
+        </Row> */}
+
         <Row className="mb-5 ">
           {/* Left Column: Text Section */}
           <Col md={6}>
             {Array.isArray(textData) && textData.length > 1 ? (
+              // Render all except the last element
               textData
-                .slice(1)
+                .slice(0, textData.length - 1)
                 .map((item, index) => (
                   <ContactText
                     key={index}
                     title={item.title}
                     text={item.text}
+                    textSize="small"
                   />
                 ))
             ) : (
@@ -76,28 +79,33 @@ const Contact = () => {
               style={{
                 maxWidth: "750px",
                 height: "700px",
-                // paddingLeft: "5px",
-                // border: "1px solid #ddd",
                 background: "#fafafa",
                 width: "100%",
                 padding: "5px",
                 borderRadius: "8px",
               }}
             >
-              {/* <div style={{ color: "black", fontSize: "1.2rem" }}> */}
-
               <div>
                 <h3 className="text-center mt-2">Send us a message</h3>
               </div>
               <MauticEmailForm />
             </div>
-            {/* </div> */}
           </Col>
         </Row>
 
         {/* Our Team / Cards Section with Black Background */}
+        <Row className="g-0" style={{ marginTop: "50px" }}>
+          {/* Render the last item of ContactText component before the card images */}
+          {Array.isArray(textData) && textData.length > 0 && (
+            <Col xs={12} className="mb-4">
+              <ContactText
+                title={textData[textData.length - 1].title}
+                text={textData[textData.length - 1].text}
+              />
+            </Col>
+          )}
 
-        <Row className="g-0 " style={{ marginTop: "50px" }}>
+          {/* Rendering the card images */}
           {contactData?.cardImageData &&
             contactData.cardImageData.length > 0 &&
             contactData.cardImageData.map((item, index) => (
