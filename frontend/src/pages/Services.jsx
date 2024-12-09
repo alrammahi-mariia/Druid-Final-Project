@@ -1,8 +1,8 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchPageContent } from "../store/contentSlice";
 import HeroSection from "../components/HeroSection/HeroSection";
-import CardComponent from "../components/CardComponent";
+import CardImage from "../components/CardImage/CardImage";
 import Testimonial from "../components/Testimonial";
 import { Row, Container, Col } from "react-bootstrap";
 import TextSection from "../components/TextSection/TextSection";
@@ -20,7 +20,7 @@ const Services = () => {
         includedFields: [
           "field_services_content",
           "field_services_content.field_feature_image",
-          "field_services_content.field_image",
+          "field_services_content.field_card_image",
         ],
       })
     );
@@ -30,7 +30,7 @@ const Services = () => {
   if (error) return <p>Error: {error}</p>;
   console.log("Data from Redux", serviceData);
 
-  const { heroData, cardData, testimonialData, textData, featureData } =
+  const { heroData, cardImageData, testimonialData, textData, featureData } =
     serviceData;
 
   return (
@@ -43,10 +43,10 @@ const Services = () => {
       <section className="my-5">
         <Container>
           <Row className="services-container justify-content-center">
-            {serviceData.cardData &&
-              serviceData.cardData.map((card) => (
+            {serviceData.cardImageData &&
+              serviceData.cardImageData.map((card) => (
                 <Col lg={6} md={4} sm={12} className="mb-4" key={card.id}>
-                  <CardComponent {...card} />
+                  <CardImage buttonText={"Read More"} {...card} />
                 </Col>
               ))}
           </Row>
