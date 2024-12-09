@@ -39,8 +39,8 @@ const Services = () => {
         <HeroSection {...heroData} textSize="small" variant="light" />
       )}
       {/* Card section */}
-      <section className="my-5" style={{ padding: "80px 160px 120px 160px" }}>
-        <Container fluid>
+      <section className="my-5">
+        <Container fluid style={{ padding: "80px 160px 120px 160px" }}>
           <Row className="justify-content-center">
             {serviceData.cardImageData &&
               serviceData.cardImageData.map((card) => (
