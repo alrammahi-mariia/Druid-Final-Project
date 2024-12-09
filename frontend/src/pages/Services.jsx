@@ -1,9 +1,9 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchPageContent } from "../store/contentSlice";
 import HeroSection from "../components/HeroSection/HeroSection";
-import CardComponent from "../components/CardComponent";
-import Testimonial from "../components/Testimonial";
+import CardImage from "../components/CardImage/CardImage";
+import Testimonial from "../components/Testimonial/Testimonial";
 import { Row, Container, Col } from "react-bootstrap";
 import TextSection from "../components/TextSection/TextSection";
 import Feature from "../components/Feature";
@@ -20,7 +20,7 @@ const Services = () => {
         includedFields: [
           "field_services_content",
           "field_services_content.field_feature_image",
-          "field_services_content.field_image",
+          "field_services_content.field_card_image",
         ],
       })
     );
@@ -28,9 +28,8 @@ const Services = () => {
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error}</p>;
-  console.log("Data from Redux", serviceData);
 
-  const { heroData, cardData, testimonialData, textData, featureData } =
+  const { heroData, cardImageData, testimonialData, textData, featureData } =
     serviceData;
 
   return (
@@ -41,12 +40,12 @@ const Services = () => {
       )}
       {/* Card section */}
       <section className="my-5">
-        <Container>
-          <Row className="services-container justify-content-center">
-            {serviceData.cardData &&
-              serviceData.cardData.map((card) => (
-                <Col lg={6} md={4} sm={12} className="mb-4" key={card.id}>
-                  <CardComponent {...card} />
+        <Container fluid style={{ padding: "80px 160px 120px 160px" }}>
+          <Row className="justify-content-center">
+            {serviceData.cardImageData &&
+              serviceData.cardImageData.map((card) => (
+                <Col lg={6} md={8} sm={12} className="mb-4" key={card.id}>
+                  <CardImage buttonText={"Read More"} {...card} />
                 </Col>
               ))}
           </Row>
@@ -55,10 +54,15 @@ const Services = () => {
       {/* Testimonial section */}
       {serviceData.testimonialData && <Testimonial {...testimonialData} />}
       {/* Features section */}
-      {serviceData.textData && <TextSection {...textData[0]} />}
       <section className="my-5">
-        <Container>
-          <Row className="services-container justify-content-center">
+        <Container className="d-flex flex-column justify-content-center align-items-center">
+          <Row>
+            <h2 className="text-center my-5">
+              Druid is al­so your trus­ted part­ner in the fol­lo­wing web
+              so­lu­tions
+            </h2>
+          </Row>
+          <Row>
             {serviceData.featureData &&
               serviceData.featureData.map((feature) => (
                 <Feature {...feature} key={feature.id} />

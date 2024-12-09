@@ -18,10 +18,10 @@ const segmentService = {
 
   shouldUpdateSegments: () => {
     // TEMPORARY: Force update if test mode is enabled
-    const isTestMode = sessionStorage.getItem("segmentTestMode");
+    const isTestMode = sessionStorage.getItem("segmentTestMode") === "true";
     if (isTestMode) {
       const lastTestUpdate = sessionStorage.getItem("lastTestUpdate");
-      const testInterval = 5 * 1000; // 5 seconds for testing
+      const testInterval = 2 * 1000;
       const isTestStale =
         !lastTestUpdate || Date.now() - parseInt(lastTestUpdate) > testInterval;
 

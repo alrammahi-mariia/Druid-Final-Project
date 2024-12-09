@@ -1,3 +1,4 @@
+/* Main Hero Section Container */
 .heroSection {
   width: 100%;
   margin: 0 auto;
@@ -9,6 +10,14 @@
   min-height: 70vh;
 }
 
+/* Hero Content Container */
+.heroContent {
+  width: 90%;
+  margin: 120px 0 0 40px;
+  max-width: 1400px;
+}
+
+/* Base Typography */
 .heroSection h1 {
   font-size: 62px;
   margin-bottom: 20px;
@@ -21,27 +30,7 @@
   line-height: 1.5;
 }
 
-@media (max-width: 991px) {
-  .heroSection {
-    width: 90%;
-    padding: 50px 20px;
-  }
-
-  .heroSection h1 {
-    font-size: 36px;
-  }
-
-  .heroSection p {
-    font-size: 20px;
-  }
-}
-
-.heroContent {
-  width: 90%;
-  margin: 120px auto 0;
-  max-width: 1400px;
-}
-
+/* Background Color Variants */
 .heroSection.white {
   background-color: #ffffff;
   color: #1e1e1e;
@@ -57,7 +46,7 @@
   color: #1e1e1e;
 }
 
-/* Text size variants */
+/* Text Size Variants */
 .heroSection.largeText p {
   font-size: 42px;
   line-height: 1.5;
@@ -68,24 +57,12 @@
   line-height: 1.5;
 }
 
-@media (max-width: 991px) {
-  .heroSection.largeText p {
-    font-size: 36px;
-  }
-
-  .heroSection.smallText p {
-    font-size: 24px;
-  }
-}
-
+/* Text Alignment Variants */
 .heroSection.start {
   text-align: start;
 }
 
-.heroSection.start h1 {
-  text-align: start;
-}
-
+.heroSection.start h1,
 .heroSection.start p {
   text-align: start;
 }
@@ -93,11 +70,49 @@
 .heroSection.center {
   text-align: center;
 }
-
-.heroSection.center h1 {
+.heroSection.center .heroContent {
+  margin: 120px auto 0;
   text-align: center;
 }
 
+.heroSection.center h1,
 .heroSection.center p {
   text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Responsive Styles */
+@media (max-width: 991px) {
+  .heroSection {
+    width: 100%;
+    padding: 50px 20px;
+  }
+
+  .heroContent {
+    margin: 60px 20px 0;
+  }
+
+  .heroSection.center .heroContent {
+    width: 85%;
+    margin: 60px auto 0;
+  }
+
+  .heroSection h1 {
+    font-size: 36px;
+  }
+
+  .heroSection p {
+    font-size: 20px;
+  }
+
+  .heroSection.largeText p {
+    font-size: 24px;
+    line-height: 1.4;
+  }
+
+  .heroSection.smallText p {
+    font-size: 18px;
+    line-height: 1.4;
+  }
 }

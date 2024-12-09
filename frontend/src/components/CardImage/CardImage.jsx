@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { URL } from "../../services/apiService";
 import styles from "./CardImage.module.css";
 
-const CardImage = ({ title, text, imageUrl }) => {
+const CardImage = ({ title, text, imageUrl, buttonText, onButtonClick }) => {
   return (
     <Card className={styles.card}>
       <div className={styles.imageWrapper}>
@@ -19,9 +19,18 @@ const CardImage = ({ title, text, imageUrl }) => {
       <Card.Body className={styles.cardBody}>
         <Card.Title className={styles.cardTitle}>{title}</Card.Title>
         {text && (
-          <Card.Text as="div" dangerouslySetInnerHTML={{ __html: text }} />
+          <Card.Text
+            as="div"
+            className={styles.cardText}
+            dangerouslySetInnerHTML={{ __html: text }}
+          />
         )}
       </Card.Body>
+      {buttonText && (
+        <button className={styles.button} onClick={onButtonClick}>
+          {buttonText}
+        </button>
+      )}
     </Card>
   );
 };
@@ -30,6 +39,8 @@ CardImage.propTypes = {
   title: PropTypes.string.isRequired,
   text: PropTypes.string,
   imageUrl: PropTypes.string.isRequired,
+  buttonText: PropTypes.string,
+  onButtonClick: PropTypes.func,
 };
 
 export default CardImage;
