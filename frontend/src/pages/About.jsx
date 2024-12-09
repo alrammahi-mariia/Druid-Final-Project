@@ -29,7 +29,7 @@ const About = () => {
   const { heroData, textImageData } = aboutData;
 
   return (
-    <div className="about-page">
+    <div>
       {/* Hero section without the button */}
       {aboutData.heroData && (
         <HeroSection {...heroData} variant="dark" textSize="small" />

@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchPageContent } from "../store/contentSlice";
 import HeroSection from "../components/HeroSection/HeroSection";
 import CardImage from "../components/CardImage/CardImage";
-import Testimonial from "../components/Testimonial";
+import Testimonial from "../components/Testimonial/Testimonial";
 import { Row, Container, Col } from "react-bootstrap";
 import TextSection from "../components/TextSection/TextSection";
 import Feature from "../components/Feature";
@@ -28,7 +28,6 @@ const Services = () => {
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error}</p>;
-  console.log("Data from Redux", serviceData);
 
   const { heroData, cardImageData, testimonialData, textData, featureData } =
     serviceData;
@@ -55,7 +54,7 @@ const Services = () => {
       {/* Testimonial section */}
       {serviceData.testimonialData && <Testimonial {...testimonialData} />}
       {/* Features section */}
-      {serviceData.textData && <TextSection {...textData[0]} />}
+      {/* {serviceData.textData && <TextSection {...textData[0]} />} */}
       <section className="my-5">
         <Container>
           <Row className="services-container justify-content-center">

@@ -1,0 +1,50 @@
+.container {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.testimonialSection {
+  text-align: center;
+  padding: 0;
+  background-color: #1e1e1e;
+  color: #ffffff;
+  height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.blockquote {
+  text-align: center;
+  padding: 0;
+  background-color: #1e1e1e;
+  color: #ffffff;
+  height: 50vh;
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.blockquote h2 {
+  font-size: 36px;
+  line-height: 1.6;
+  font-weight: 200;
+  margin-bottom: 1.5rem;
+}
+
+.author {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 20px;
+  font-style: italic;
+}
+
+.testimonialWrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
