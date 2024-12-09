@@ -39,12 +39,12 @@ const Services = () => {
         <HeroSection {...heroData} textSize="small" variant="light" />
       )}
       {/* Card section */}
-      <section className="my-5">
-        <Container>
-          <Row className="services-container justify-content-center">
+      <section className="my-5" style={{ padding: "80px 160px 120px 160px" }}>
+        <Container fluid>
+          <Row className="justify-content-center">
             {serviceData.cardImageData &&
               serviceData.cardImageData.map((card) => (
-                <Col lg={6} md={4} sm={12} className="mb-4" key={card.id}>
+                <Col lg={6} md={8} sm={12} className="mb-4" key={card.id}>
                   <CardImage buttonText={"Read More"} {...card} />
                 </Col>
               ))}
