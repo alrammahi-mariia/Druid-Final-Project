@@ -12,6 +12,7 @@ import Career from "./pages/Career";
 import BlogPage from "./pages/BlogPage";
 import "./App.css";
 import segmentService from "./services/segmentService";
+import BlogSingle from "./pages/BlogSingle";
 
 const App = () => {
   const location = useLocation();
@@ -67,6 +68,7 @@ const App = () => {
           <Route path="/services/:single" element={<ServiceSingle />} />
           <Route path="/about" element={<About />} />
           <Route path="/blog" element={<BlogPage />} />
+          <Route path="/blog/:single" element={<BlogSingle />} />
           <Route path="/career" element={<Career />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/service-single" element={<ServicePage />} />
