@@ -1,0 +1,30 @@
+uuid: bda32059-0940-44e4-ac9d-cf3194d550f3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.career.field_career
+    - node.type.career
+  module:
+    - entity_reference_revisions
+    - user
+id: node.career.default
+targetEntityType: node
+bundle: career
+mode: default
+content:
+  field_career:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden: {  }

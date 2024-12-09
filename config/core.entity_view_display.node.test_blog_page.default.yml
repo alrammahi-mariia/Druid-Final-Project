@@ -1,0 +1,30 @@
+uuid: 12580718-066a-464c-aea4-261102dcdbcd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.test_blog_page.field_test_blog_page
+    - node.type.test_blog_page
+  module:
+    - entity_reference_revisions
+    - user
+id: node.test_blog_page.default
+targetEntityType: node
+bundle: test_blog_page
+mode: default
+content:
+  field_test_blog_page:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden: {  }
