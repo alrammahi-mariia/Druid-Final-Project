@@ -1,0 +1,18 @@
+uuid: 53273c14-e286-44bf-a02e-b679e374766f
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: Career
+type: career
+description: 'This is the career page.'
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: true

@@ -1,0 +1,22 @@
+uuid: 212bcacc-ce28-4741-9ac5-116220f4ff92
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.test_blog_page.field_test_blog_page
+    - node.type.test_blog_page
+  module:
+    - user
+id: node.test_blog_page.teaser
+targetEntityType: node
+bundle: test_blog_page
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_test_blog_page: true
