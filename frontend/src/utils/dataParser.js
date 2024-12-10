@@ -44,17 +44,18 @@ export const processIncludedData = (included) => {
 
     switch (item.type) {
       case "paragraph--hero_paragraph":
-        const heroImage = included.find(
-          (img) =>
-            img.type === "file--file" &&
-            img.id === item.relationships.field_image.data?.id
-        );
+        // const heroImage = included.find(
+        //   (img) =>
+        //     img.type === "file--file" &&
+        //     img.id === item.relationships.field_image.data?.id
+        // );
 
-        data.heroData = {
+        data.heroData.push({
           title: item.attributes.field_title,
           description: item.attributes.field_description?.value,
-          imageUrl: heroImage ? heroImage.attributes.uri.url : null,
-        };
+          parentId: item.attributes.parent_id,
+          // imageUrl: heroImage ? heroImage.attributes.uri.url : null,
+        });
         break;
 
       case "paragraph--card":
@@ -76,7 +77,7 @@ export const processIncludedData = (included) => {
 
         const cardImageUrls = cardImages.length
           ? cardImages.map((img) => img.attributes.uri.url)
-          : null;
+          : [];
 
         data.cardImageData.push({
           id: item.id,
@@ -84,6 +85,7 @@ export const processIncludedData = (included) => {
           text: item.attributes.field_cardimg_text?.processed,
           imageUrl:
             cardImageUrls.length === 1 ? cardImageUrls[0] : cardImageUrls,
+          parentId: item.attributes.parent_id,
         });
         break;
 
@@ -100,6 +102,7 @@ export const processIncludedData = (included) => {
           title: item.attributes.field_text_title,
           link: item.attributes.field_text_link?.title,
           linkUrl: item.attributes.field_text_link?.uri,
+          parentId: item.attributes.parent_id,
         });
         break;
 
@@ -114,7 +117,7 @@ export const processIncludedData = (included) => {
 
         const imageUrls = sectionImages.length
           ? sectionImages.map((img) => img.attributes.uri.url)
-          : null;
+          : [];
 
         data.textImageData.push({
           id: item.id,
@@ -122,6 +125,7 @@ export const processIncludedData = (included) => {
           text_long: item.attributes.field_text_long?.processed,
           text_short: item.attributes.field_text,
           imageUrl: imageUrls.length === 1 ? imageUrls[0] : imageUrls,
+          parentId: item.attributes.parent_id,
         });
         break;
 
@@ -135,7 +139,7 @@ export const processIncludedData = (included) => {
           : [];
         const featureImageUrls = featureImages.length
           ? featureImages.map((img) => img.attributes.uri.url)
-          : null;
+          : [];
 
         data.featureData.push({
           text: item.attributes.field_feature_description,
@@ -157,7 +161,7 @@ export const processIncludedData = (included) => {
         break;
 
       // Handle field_tags
-      case "taxonomy_term--tags": 
+      case "taxonomy_term--tags":
         data.fieldTags.push({
           id: item.id,
           name: item.attributes.name,

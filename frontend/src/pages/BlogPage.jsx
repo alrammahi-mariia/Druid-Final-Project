@@ -61,11 +61,14 @@ const BlogPage = () => {
     fetchUsersData();
   }, [dispatch]);
 
+  console.log("Main data:", mainData);
+  console.log("Included data:", includedData);
+
   useEffect(() => {
     // Process the tags from the includedData using processIncludedData
     if (includedData) {
       const processedTags = includedData.fieldTags || [];
-      setTags(processedTags); 
+      setTags(processedTags);
     }
   }, [includedData]);
 
@@ -92,7 +95,7 @@ const BlogPage = () => {
 
   // Ensure image URL is correctly mapped by article ID or some other unique key
   const imageUrlMap = includedData?.imageUrls?.reduce((acc, image, idx) => {
-    const articleId = mainData[idx]?.id; 
+    const articleId = mainData[idx]?.id;
     if (articleId) {
       acc[articleId] = image;
     }
@@ -100,7 +103,7 @@ const BlogPage = () => {
   }, {});
 
   const renderArticle = (article, index) => {
-    const imageUrl = imageUrlMap[article.id] || ""; 
+    const imageUrl = imageUrlMap[article.id] || "";
     const slug = slugify(article.attributes.title || "untitled", {
       lower: true, // Convert to lowercase
       strict: true, // Remove special characters
@@ -138,7 +141,7 @@ const BlogPage = () => {
               text={`On ${createdDate} | By ${authorName}`}
               title={article.attributes.title}
               imageUrl={imageUrl}
-              tags={tagNames} 
+              tags={tagNames}
             />
           </div>
         </Link>
@@ -149,7 +152,7 @@ const BlogPage = () => {
   return (
     <div style={{ width: "100%", margin: "0", padding: "0" }}>
       {heroData && (
-        <HeroSection {...heroData} variant="dark" textSize="small" />
+        <HeroSection {...heroData[0]} variant="dark" textSize="small" />
       )}
 
       {/* Render the tags inside the Hero section */}

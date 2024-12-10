@@ -39,7 +39,7 @@ const Contact = () => {
   return (
     <div>
       {contactData.heroData && (
-        <HeroSection {...heroData} variant="white" textSize="small" />
+        <HeroSection {...heroData[0]} variant="white" textSize="small" />
       )}
       <Container fluid className="my-5">
         {/* <Row>

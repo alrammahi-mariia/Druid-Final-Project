@@ -5,13 +5,11 @@ import HeroSection from "../components/HeroSection/HeroSection";
 import CardImage from "../components/CardImage/CardImage";
 import Testimonial from "../components/Testimonial/Testimonial";
 import { Row, Container, Col } from "react-bootstrap";
-import TextSection from "../components/TextSection/TextSection";
 import Feature from "../components/Feature";
 
 const Services = () => {
   const dispatch = useDispatch();
   const { data, loading, error } = useSelector((state) => state.content);
-  const serviceData = data.services || {};
 
   useEffect(() => {
     dispatch(
@@ -24,26 +22,42 @@ const Services = () => {
         ],
       })
     );
+    dispatch(
+      fetchPageContent({
+        contentType: "servicesingle",
+        includedFields: [
+          "field_content",
+          "field_content.field_card_image",
+          "field_content.field_text_image",
+        ],
+      })
+    );
   }, [dispatch]);
+
+  const serviceData = data.services || {};
+  const serviceSingleData = data.servicesingle || {};
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error}</p>;
 
-  const { heroData, cardImageData, testimonialData, textData, featureData } =
-    serviceData;
+  console.log("services data:", serviceData);
+  console.log("serviceSingle data:", serviceSingleData);
+
+  const { heroData, testimonialData, textData, featureData } = serviceData;
+  const { cardImageData } = serviceSingleData;
 
   return (
     <div>
       {/* Hero section */}
       {serviceData.heroData && (
-        <HeroSection {...heroData} textSize="small" variant="light" />
+        <HeroSection {...heroData[0]} textSize="small" variant="light" />
       )}
       {/* Card section */}
       <section className="my-5">
         <Container fluid style={{ padding: "80px 160px 120px 160px" }}>
           <Row className="justify-content-center">
-            {serviceData.cardImageData &&
-              serviceData.cardImageData.map((card) => (
+            {serviceSingleData.cardImageData &&
+              serviceSingleData.cardImageData.map((card) => (
                 <Col lg={6} md={8} sm={12} className="mb-4" key={card.id}>
                   <CardImage buttonText={"Read More"} {...card} />
                 </Col>

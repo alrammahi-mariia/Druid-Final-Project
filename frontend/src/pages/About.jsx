@@ -32,7 +32,7 @@ const About = () => {
     <div>
       {/* Hero section without the button */}
       {aboutData.heroData && (
-        <HeroSection {...heroData} variant="dark" textSize="small" />
+        <HeroSection {...heroData[0]} variant="dark" textSize="small" />
       )}
 
       {/* Text sections with conditional styling */}
