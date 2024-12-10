@@ -6,6 +6,7 @@ import CardImage from "../components/CardImage/CardImage";
 import Testimonial from "../components/Testimonial/Testimonial";
 import { Row, Container, Col } from "react-bootstrap";
 import Feature from "../components/Feature";
+import { Link } from "react-router-dom";
 
 const Services = () => {
   const dispatch = useDispatch();
@@ -37,14 +38,75 @@ const Services = () => {
   const serviceData = data.services || {};
   const serviceSingleData = data.servicesingle || {};
 
+  const groupContentByParentId = () => {
+    const grouped = {};
+
+    // Helper function to initialize group if it doesn't exist
+    const initializeGroup = (parentId) => {
+      if (!grouped[parentId]) {
+        grouped[parentId] = {
+          hero: null,
+          card: null,
+          textData: [],
+          textImageData: [],
+          cardImageData: [],
+        };
+      }
+    };
+
+    if (serviceSingleData?.heroData) {
+      serviceSingleData.heroData.forEach((hero) => {
+        if (hero.parentId) {
+          initializeGroup(hero.parentId);
+          grouped[hero.parentId].hero = {
+            title: hero.title,
+            description: hero.description,
+            parentId: hero.parentId,
+            textSize: "small",
+            variant: "light",
+          };
+        }
+      });
+    }
+
+    // Group cardImageData
+    if (serviceSingleData?.cardImageData) {
+      serviceSingleData.cardImageData.forEach((card) => {
+        initializeGroup(card.parentId);
+        grouped[card.parentId].card = card;
+        grouped[card.parentId].cardImageData.push(card);
+      });
+    }
+
+    // Group textData
+    if (serviceSingleData?.textData) {
+      serviceSingleData.textData.forEach((text) => {
+        if (text.parentId) {
+          initializeGroup(text.parentId);
+          grouped[text.parentId].textData.push(text);
+        }
+      });
+    }
+
+    // Group textImageData
+    if (serviceSingleData?.textImageData) {
+      serviceSingleData.textImageData.forEach((textImage) => {
+        if (textImage.parentId) {
+          initializeGroup(textImage.parentId);
+          grouped[textImage.parentId].textImageData.push(textImage);
+        }
+      });
+    }
+
+    return grouped;
+  };
+
+  const groupedContent = groupContentByParentId();
+
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error}</p>;
 
-  console.log("services data:", serviceData);
-  console.log("serviceSingle data:", serviceSingleData);
-
   const { heroData, testimonialData, textData, featureData } = serviceData;
-  const { cardImageData } = serviceSingleData;
 
   return (
     <div>
@@ -56,12 +118,28 @@ const Services = () => {
       <section className="my-5">
         <Container fluid style={{ padding: "80px 160px 120px 160px" }}>
           <Row className="justify-content-center">
-            {serviceSingleData.cardImageData &&
-              serviceSingleData.cardImageData.map((card) => (
-                <Col lg={6} md={8} sm={12} className="mb-4" key={card.id}>
-                  <CardImage buttonText={"Read More"} {...card} />
-                </Col>
-              ))}
+            {Object.entries(groupedContent).map(([parentId, content]) => (
+              <Col lg={6} md={8} sm={12} className="mb-4" key={parentId}>
+                <Link
+                  to={`/service/${parentId}`}
+                  state={{
+                    serviceData: content,
+                    heroData: content.hero,
+                    textData: content.textData,
+                    textImageData: content.textImageData,
+                    cardImageData: content.cardImageData,
+                  }}
+                  style={{ textDecoration: "none" }}
+                >
+                  <CardImage
+                    buttonText={"Read More"}
+                    {...content.card}
+                    heroTitle={content.hero?.title}
+                    heroDescription={content.hero?.description}
+                  />
+                </Link>
+              </Col>
+            ))}
           </Row>
         </Container>
       </section>
