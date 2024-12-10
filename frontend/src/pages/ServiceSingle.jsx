@@ -42,7 +42,6 @@ const ServiceSingle = () => {
   // Use passed data if available, otherwise use fetched data
   const serviceData = passedServiceData || data.servicesingle || {};
 
-
   const heroData = passedHeroData || serviceData.hero;
   const textData = passedTextData || serviceData.textData || [];
   const textImageData = passedTextImageData || serviceData.textImageData || [];
