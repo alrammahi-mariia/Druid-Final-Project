@@ -130,7 +130,7 @@ const Services = () => {
                     textImageData: content.textImageData,
                     cardImageData: content.cardImageData,
                   }}
-                  style={{ textDecoration: "none" }}
+                  style={{ textDecoration: "none", color: "inherit" }}
                 >
                   <CardImage
                     buttonText={"Read More"}
