@@ -13,9 +13,17 @@ const ContactText = ({ title, text }) => {
         style={{ maxWidth: "700px", marginLeft: "50px" }}
       >
         <div>
-          <h1 style={{ marginBottom: "1rem", fontWeight: "300", fontSize:"48px" }}>{title}</h1>
+          <h1
+            style={{
+              marginBottom: "1rem",
+              fontWeight: "300",
+              fontSize: "48px",
+            }}
+          >
+            {title}
+          </h1>
           <div
-            style={{ fontSize: "1.1rem", lineHeight: "1.6", color: "#555" }}
+            style={{ fontSize: "1.1rem", lineHeight: "1", color: "#555" }}
             dangerouslySetInnerHTML={{ __html: text }}
           />
         </div>
