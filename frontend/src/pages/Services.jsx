@@ -41,7 +41,7 @@ const Services = () => {
   const groupContentByParentId = () => {
     const grouped = {};
 
-    // Helper function to initialize group if it doesn't exist
+    // Function to group paragraphs by parentId
     const initializeGroup = (parentId) => {
       if (!grouped[parentId]) {
         grouped[parentId] = {
@@ -54,6 +54,7 @@ const Services = () => {
       }
     };
 
+    // Group heroData
     if (serviceSingleData?.heroData) {
       serviceSingleData.heroData.forEach((hero) => {
         if (hero.parentId) {
