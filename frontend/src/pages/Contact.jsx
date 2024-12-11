@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchPageContent } from "../store/contentSlice";
@@ -39,7 +39,7 @@ const Contact = () => {
   return (
     <div>
       {contactData.heroData && (
-        <HeroSection {...heroData} variant="white" textSize="small" />
+        <HeroSection {...heroData[0]} variant="white" textSize="small" />
       )}
       <Container fluid className="my-5">
         {/* <Row>

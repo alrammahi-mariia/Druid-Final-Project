@@ -37,7 +37,7 @@ const Home = () => {
       {/* Hero section */}
       {heroData && (
         <HeroSection
-          {...heroData}
+          {...heroData[0]}
           variant="white"
           textSize="large"
           textAlign="center"

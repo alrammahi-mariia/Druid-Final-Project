@@ -62,18 +62,15 @@ const App = () => {
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route>
-          {/* This is where other routes will go to allow Layout to be visible everywhere */}
           <Route path="/" element={<Home />} />
           <Route path="/services" element={<Services />} />
-          <Route path="/services/:single" element={<ServiceSingle />} />
+          <Route path="/service/:parentId" element={<ServiceSingle />} />
           <Route path="/about" element={<About />} />
           <Route path="/blog" element={<BlogPage />} />
           <Route path="/blog/:single" element={<BlogSingle />} />
           <Route path="/career" element={<Career />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/service-single" element={<ServicePage />} />
         </Route>
-        {/* <Route path="*" element={<ErrorPage />} /> */}
       </Route>
     </Routes>
   );
