@@ -167,9 +167,7 @@ const Services = () => {
           <Row>
             {serviceData.featureData &&
               serviceData.featureData.map((feature) => (
-                <Col key={feature.id} xs={12} sm={6} md={4}>
-                  <Feature {...feature} />
-                </Col>
+                <Feature {...feature} key={feature.id} />
               ))}
           </Row>
         </Container>
