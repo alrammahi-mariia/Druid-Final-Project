@@ -26,7 +26,7 @@ const HeroSection = ({
 HeroSection.propTypes = {
   title: PropTypes.string,
   description: PropTypes.string.isRequired,
-  variant: PropTypes.oneOf(["light", "dark"]),
+  variant: PropTypes.oneOf(["light", "dark", "white"]),
   textSize: PropTypes.oneOf(["small", "medium", "large"]),
   textAlign: PropTypes.oneOf(["start", "center"]),
 };

@@ -17,11 +17,14 @@ const Footer = () => {
         <div className={styles.columns}>
           <div className={styles.column}>
             <h2>Contact Us</h2>
-            <p>
+            <a href="https://maps.app.goo.gl/xKmQ3zV7uVuCeUMk8">
               <span className={styles.iconWrapper}>
-                <FaMapMarkerAlt /> Pasilankatu 2, 00240 Helsinki, Finland
+                <FaMapMarkerAlt />
+                Pasilankatu 2, 00240
+                <br />
+                Helsinki, Finland
               </span>
-            </p>
+            </a>
             <a href="mailto:info@druid.fi">
               <span className={styles.iconWrapper}>
                 <FaEnvelope /> info@druid.fi
