@@ -36,7 +36,12 @@ const Home = () => {
     <div>
       {/* Hero section */}
       {heroData && (
-        <HeroSection {...heroData[0]} textSize="large" textAlign="center" />
+        <HeroSection
+          {...heroData[0]}
+          textSize="large"
+          textAlign="center"
+          variant="white"
+        />
       )}
 
       {/* Career Text Section for Professionals segment*/}
