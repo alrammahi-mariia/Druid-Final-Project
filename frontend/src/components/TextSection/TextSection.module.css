@@ -74,18 +74,18 @@
 }
 
 /* Responsive design */
-@media (max-width: 991px) {
+@media (max-width: 768px) {
   .textSection {
     padding: 60px 20px;
   }
 
   .textSection h1 {
-    font-size: 36px;
+    font-size: 32px;
     margin-bottom: 20px;
   }
 
   .textSection div {
-    font-size: 18px;
+    font-size: 16px;
     margin-bottom: 30px;
   }
 

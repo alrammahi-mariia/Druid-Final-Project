@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchPageContent } from "../store/contentSlice";
@@ -5,8 +6,9 @@ import HeroSection from "../components/HeroSection/HeroSection";
 import CardImage from "../components/CardImage/CardImage";
 import Testimonial from "../components/Testimonial/Testimonial";
 import { Row, Container, Col } from "react-bootstrap";
-import Feature from "../components/Feature";
+import Feature from "../components/Feature/Feature";
 import { Link } from "react-router-dom";
+import "../style/Services.css";
 
 const Services = () => {
   const dispatch = useDispatch();
@@ -117,8 +119,8 @@ const Services = () => {
       )}
       {/* Card section */}
       <section className="my-5">
-        <Container fluid style={{ padding: "80px 160px 120px 160px" }}>
-          <Row className="justify-content-center">
+        <Container fluid>
+          <Row className="justify-content-center px-0 px-md-5 mx-0 mx-md-5">
             {Object.entries(groupedContent).map(([parentId, content]) => (
               <Col lg={6} md={8} sm={12} className="mb-4" key={parentId}>
                 <Link
@@ -130,14 +132,21 @@ const Services = () => {
                     textImageData: content.textImageData,
                     cardImageData: content.cardImageData,
                   }}
-                  style={{ textDecoration: "none", color: "inherit" }}
+                  style={{
+                    textDecoration: "none",
+                    fontFamily: "inherit",
+                    fontWeight: "inherit",
+                    fontSize: "inherit",
+                    color: "inherit",
+                  }}
                 >
-                  <CardImage
-                    buttonText={"Read More"}
-                    {...content.card}
-                    heroTitle={content.hero?.title}
-                    heroDescription={content.hero?.description}
-                  />
+                  <div>
+                    <CardImage
+                      {...content.card}
+                      heroTitle={content.hero?.title}
+                      heroDescription={content.hero?.description}
+                    />
+                  </div>
                 </Link>
               </Col>
             ))}
@@ -150,7 +159,7 @@ const Services = () => {
       <section className="my-5">
         <Container className="d-flex flex-column justify-content-center align-items-center">
           <Row>
-            <h2 className="text-center my-5">
+            <h2 className="text-center my-5 responsive-heading">
               Druid is al­so your trus­ted part­ner in the fol­lo­wing web
               so­lu­tions
             </h2>

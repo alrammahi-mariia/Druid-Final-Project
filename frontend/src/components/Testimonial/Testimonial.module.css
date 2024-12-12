@@ -48,3 +48,23 @@
   display: flex;
   justify-content: center;
 }
+
+@media (max-width: 768px) {
+  .blockquote h2 {
+    font-size: 20px;
+  }
+
+  .author {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .blockquote h2 {
+    font-size: 18px;
+  }
+
+  .author {
+    font-size: 14px;
+  }
+}

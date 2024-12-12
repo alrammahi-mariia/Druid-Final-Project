@@ -1,6 +1,5 @@
 .servicesSection {
   width: 100%;
-  padding: 80px 160px 120px 160px;
   background-color: #f8f8f8;
 }
 
@@ -9,7 +8,7 @@
   justify-content: space-between;
   align-items: flex-start;
   margin-bottom: 60px;
-  padding: 0 20px;
+  padding: 80px 140px 60px 120px;
 }
 
 .titleGroup {
@@ -46,6 +45,15 @@
 @media (max-width: 991px) {
   .headerWrapper {
     flex-direction: column;
-    gap: 20px;
+    gap: 40px;
+    padding: 40px 100px;
+  }
+  .titleGroup h1 {
+    font-size: 36px;
+  }
+
+  .titleGroup h3 {
+    font-size: 20px;
+    margin: 0;
   }
 }

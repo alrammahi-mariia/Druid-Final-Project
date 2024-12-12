@@ -1,4 +1,4 @@
-import { Container, Row } from "react-bootstrap";
+import { Row } from "react-bootstrap";
 import PropTypes from "prop-types";
 import styles from "./HeroSection.module.css";
 
@@ -7,7 +7,7 @@ const HeroSection = ({
   description,
   variant = "light",
   textSize = "large",
-  textAlign = "start",
+  textAlign = "left",
 }) => {
   return (
     <div
@@ -15,12 +15,10 @@ const HeroSection = ({
         styles[textSize + "Text"]
       } ${styles[textAlign]}`}
     >
-      <Container>
-        <Row className={`justify-content-center ${styles.heroContent}`}>
-          <h1>{title}</h1>
-          <p>{description}</p>
-        </Row>
-      </Container>
+      <Row className={`${styles.heroContent}`}>
+        <h1>{title}</h1>
+        <p>{description}</p>
+      </Row>
     </div>
   );
 };

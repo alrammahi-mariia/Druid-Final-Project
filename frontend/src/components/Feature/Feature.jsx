@@ -1,5 +1,7 @@
-import { URL } from "../services/apiService";
+/* eslint-disable react/prop-types */
+import { URL } from "../../services/apiService";
 import { Col, Container, Image, Row } from "react-bootstrap";
+import "./Feature.css";
 
 const Feature = ({ text, imageUrl }) => {
   return (
@@ -24,7 +26,7 @@ const Feature = ({ text, imageUrl }) => {
         {/* Text Column */}
         <Col md={10} sm={12}>
           <div className="text-md-start text-start">
-            <p>{text}</p>
+            <p className="feature-text">{text}</p>
           </div>
         </Col>
       </Row>

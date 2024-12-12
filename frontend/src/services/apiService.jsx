@@ -7,7 +7,6 @@ export const fetchUsers = async () => {
   const endpoint = `${URL}/jsonapi/user/user`;
 
   try {
-    console.log("Fetching user data from API:", endpoint);
     const response = await axios.get(endpoint);
     return response.data;
   } catch (error) {
@@ -24,7 +23,6 @@ export const fetchPageData = async (contentType, includedFields) => {
     ? `?include=${includedFields.join(",")}`
     : "";
   const apiUrl = `${URL}/jsonapi/node/${contentType}${fieldsQuery}`;
-  console.log("Fetching from URL:", apiUrl);
 
   try {
     const response = await axios.get(apiUrl);

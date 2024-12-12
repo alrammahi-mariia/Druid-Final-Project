@@ -56,17 +56,17 @@
 /* Layout variants - modify these class names to be lowercase */
 .image-right {
   width: 100%;
-  /* margin-left: 40px; */
+  margin-left: 40px;
 }
 
 .image-left {
   width: 100%;
-  /* margin-right: 40px; */
+  margin-right: 40px;
 }
 
 .image-left .row {
   flex-direction: row-reverse;
-  gap: 50px;
+  /* gap: 50px; */
 }
 
 /* Responsive styles */
@@ -82,6 +82,19 @@
   .title {
     font-size: 36px;
   }
+  .image-right {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .image-left {
+    width: 100%;
+    margin-right: 0;
+  }
+
+  .textImageSection {
+    padding: 40px 0;
+  }
 }
 
 @media (max-width: 768px) {
@@ -96,5 +109,9 @@
 
   .title {
     font-size: 32px;
+  }
+
+  .textImageSection {
+    padding: 40px 0;
   }
 }
