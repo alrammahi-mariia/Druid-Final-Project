@@ -1,3 +1,4 @@
+/* Full-screen menu */
 .full-screen-menu {
   position: fixed;
   top: 0;
@@ -13,61 +14,51 @@
   transition: transform 0.3s ease-in-out;
 }
 
+/* Show the menu */
 .full-screen-menu.show {
   transform: translateX(0);
 }
 
+/* Hamburger button */
 .navbar-toggler {
   border: none;
   background: transparent;
   position: relative;
   z-index: 1051;
   cursor: pointer;
-  transition: none; /* Remove hover effect */
-}
-
-.full-screen-menu.show + .navbar-toggler {
-  display: none; /* Hide menu icon when menu is open */
-}
-.navbar-toggler.open {
-  transform: rotate(90deg); /* Rotate the icon to indicate the close state */
   transition: transform 0.2s ease;
 }
 
-/* When checkbox is checked, slide the menu in */
-/* .menu-toggle:checked + .hamburger-menu .full-screen-menu {
-  right: 0; 
-} */
+/* Enlarge the hamburger button on hover */
+.navbar-toggler:hover {
+  transform: scale(1.2);
+}
 
+/* Hide the hamburger icon when the menu is open */
+.full-screen-menu.show + .navbar-toggler {
+  display: none;
+}
+
+/* Rotate the hamburger icon when the menu is open */
+.navbar-toggler.open {
+  transform: rotate(90deg);
+  transition: transform 0.2s ease;
+}
+
+/* Full-screen menu links */
 .full-screen-menu .nav-link {
   font-size: 1.5rem;
   margin: 1rem 0;
-  /* color: #ffcc00; */
   text-align: center;
   transition: color 0.15s ease;
 }
-/* .full-screen-menu .nav-link:hover {
-   color: #E11000;
-} */
-/* Shine effect for menu items */
-/* .full-screen-menu .nav-link:hover {
-  color: #E11000; 
-  text-shadow: 0 0 8px #E11000, 0 0 10px #E11000, 0 0 12px #E11000; 
-} */
+
+/* Change link color when menu is open */
 .full-screen-menu.navbar-collapse.show .nav-link:hover {
   color: #e11000;
-  /* text-shadow: 0 0 8px #E11000, 0 0 10px #E11000, 0 0 12px #E11000;  */
 }
 
-/* When menu is open (collapsed), give glowing effect without hover */
-/* .full-screen-menu.navbar-collapse.show .nav-link {
-  text-shadow: 0 0 8px #ffffff, 0 0 10px #ffffff, 0 0 12px #ffffff;
-} */
-
-.navbar-collapse.collapse.show {
-  display: flex;
-}
-
+/* Close button */
 .close-menu-button {
   position: absolute;
   top: 15px;
@@ -79,9 +70,43 @@
   color: #ffffff;
   z-index: 1051;
   cursor: pointer;
-  /* transition: color 0.15s ease; */
 }
 
 .close-menu-button:hover {
   color: #e11000;
 }
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .full-screen-menu {
+    width: 40vw;
+  }
+
+  .navbar-toggler {
+    display: block;
+  }
+
+  .navbar-toggler.open {
+    transform: rotate(180deg);
+  }
+
+  .full-screen-menu .nav-link {
+    font-size: 1.2rem;
+  }
+}
+
+/* For very small screens like mobile (less than 480px) */
+@media (max-width: 480px) {
+  .full-screen-menu {
+    width: 60vw;
+  }
+
+  .navbar-toggler {
+    padding: 10px;
+  }
+
+  .full-screen-menu .nav-link {
+    font-size: 1rem;
+  }
+}
+
