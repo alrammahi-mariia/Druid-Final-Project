@@ -84,7 +84,7 @@ const Footer = () => {
           <div className={styles.column}>
             <h2>Quick Links</h2>
             <Link to="/about">About Us</Link>
-            <Link to="/services">Our Services</Link>
+            <Link to="/services">Services</Link>
             <Link to="/career">Careers</Link>
             <Link to="/blog">Blog</Link>
             <Link to="/contact">Contact Us</Link>
