@@ -119,7 +119,7 @@ const Services = () => {
       {/* Card section */}
       <section className="my-5">
         <Container fluid>
-          <Row className="justify-content-center mx-5">
+          <Row className="justify-content-center px-0 px-md-5 mx-0 mx-md-5">
             {Object.entries(groupedContent).map(([parentId, content]) => (
               <Col lg={6} md={8} sm={12} className="mb-4" key={parentId}>
                 <Link
@@ -131,13 +131,15 @@ const Services = () => {
                     textImageData: content.textImageData,
                     cardImageData: content.cardImageData,
                   }}
-                  style={{ textDecoration: "none", color: "inherit" }}
+                  className="service-link"
                 >
-                  <CardImage
-                    {...content.card}
-                    heroTitle={content.hero?.title}
-                    heroDescription={content.hero?.description}
-                  />
+                  <div className="card-image-wrapper">
+                    <CardImage
+                      {...content.card}
+                      heroTitle={content.hero?.title}
+                      heroDescription={content.hero?.description}
+                    />
+                  </div>
                 </Link>
               </Col>
             ))}
