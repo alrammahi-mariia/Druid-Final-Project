@@ -12,7 +12,7 @@ const ContactCardImageBg = ({ title, text, imageUrl }) => {
       style={{
         width: "100%",
         maxWidth: "240px",
-        margin: "2px 2px",
+        margin: "2px",
         textAlign: "center",
       }}
     >

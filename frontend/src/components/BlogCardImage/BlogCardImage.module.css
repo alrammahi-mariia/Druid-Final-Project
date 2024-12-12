@@ -1,5 +1,6 @@
 .card {
-  height: auto; 
+  min-height: 400px; 
+  max-height: 500px;
   border: none;
   box-shadow: none;
   cursor: pointer;
@@ -68,4 +69,5 @@
   color: #6c757d; 
   font-size: 0.875rem;
 }
+
 

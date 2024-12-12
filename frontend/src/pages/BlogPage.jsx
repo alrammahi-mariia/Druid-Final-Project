@@ -61,9 +61,6 @@ const BlogPage = () => {
     fetchUsersData();
   }, [dispatch]);
 
-  console.log("Main data:", mainData);
-  console.log("Included data:", includedData);
-
   useEffect(() => {
     // Process the tags from the includedData using processIncludedData
     if (includedData) {

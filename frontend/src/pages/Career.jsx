@@ -38,6 +38,7 @@ const Career = () => {
           description={hero.description || "Default Description"}
           variant="dark"
           textSize="small"
+          textAlign="start"
         />
       )}
       <Container fluid className="my-3">
@@ -51,14 +52,14 @@ const Career = () => {
                   text={item.text || "Default Text"}
                 />
                 {/* Add horizontal line after each section */}
-                <hr
+                {/* <hr
                   style={{
                     border: "0",
                     borderTop: "1px solid #ddd",
                     width: "50%",
                     margin: "auto",
                   }}
-                />
+                /> */}
               </Col>
             ))}
         </Row>

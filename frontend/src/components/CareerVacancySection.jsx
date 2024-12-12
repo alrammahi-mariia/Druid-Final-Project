@@ -4,29 +4,17 @@ import { MdOutlineSubdirectoryArrowRight } from "react-icons/md";
 
 const CareerVacancySection = ({ title, text }) => {
   return (
-    <Container
-      className="text-start pt-1"
-      style={{
-        maxWidth: "700px",
-      }}
-    >
+    <Container fluid className="text-start py-3 px-4">
+      {/* Adjusted for full-width responsiveness */}
       <Row className="justify-content-center">
-        <Col xs={12}>
+        <Col xs={12} md={8} lg={6}>
           <div
+            className="p-3 rounded bg-white shadow-sm"
             style={{
-              padding: "10px 0 0 10px",
               borderRadius: "8px",
-              backgroundColor: "#fff",
             }}
           >
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "space-between",
-                alignItems: "center",
-                marginRight: "20px",
-              }}
-            >
+            <div className="d-flex justify-content-between align-items-center">
               <h1
                 style={{
                   fontWeight: "350",

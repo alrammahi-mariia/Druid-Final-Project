@@ -2,28 +2,28 @@ import React from "react";
 import { Container, Row } from "react-bootstrap";
 
 const ContactText = ({ title, text }) => {
-  console.log(title, text);
   return (
     <Container
-      className="text-start pt-5 "
-      style={{ maxWidth: "700px", marginLeft: "100px" }}
+      className="text-start pt-5"
+      style={{ maxWidth: "700px", marginLeft: "50px", padding: "0 20px" }}
     >
-      <Row
-        className="justify-content-start"
-        style={{ maxWidth: "700px", marginLeft: "50px" }}
-      >
+      <Row className="justify-content-start">
         <div>
           <h1
             style={{
-              marginBottom: "1rem",
+              marginBottom: "2rem",
               fontWeight: "300",
-              fontSize: "48px",
+              fontSize: "clamp(32px, 5vw, 48px)", // Adjust font size based on screen width clamp(32px, 5vw, 48px)
             }}
           >
             {title}
           </h1>
           <div
-            style={{ fontSize: "1.1rem", lineHeight: "1", color: "#555" }}
+            style={{
+              fontSize: "1rem",
+              lineHeight: "1",
+              color: "#555",
+            }}
             dangerouslySetInnerHTML={{ __html: text }}
           />
         </div>
