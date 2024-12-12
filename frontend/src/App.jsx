@@ -7,12 +7,11 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Services from "./pages/Services";
 import ServiceSingle from "./pages/ServiceSingle";
-import ServicePage from "./pages/ServiceSingle";
 import Career from "./pages/Career";
 import BlogPage from "./pages/BlogPage";
-import "./App.css";
 import segmentService from "./services/segmentService";
 import BlogSingle from "./pages/BlogSingle";
+import "./style/App.css";
 
 const App = () => {
   const location = useLocation();

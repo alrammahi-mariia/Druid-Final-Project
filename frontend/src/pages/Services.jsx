@@ -5,8 +5,9 @@ import HeroSection from "../components/HeroSection/HeroSection";
 import CardImage from "../components/CardImage/CardImage";
 import Testimonial from "../components/Testimonial/Testimonial";
 import { Row, Container, Col } from "react-bootstrap";
-import Feature from "../components/Feature";
+import Feature from "../components/Feature/Feature";
 import { Link } from "react-router-dom";
+import "../style/Services.css";
 
 const Services = () => {
   const dispatch = useDispatch();
@@ -118,7 +119,7 @@ const Services = () => {
       {/* Card section */}
       <section className="my-5">
         <Container fluid>
-          <Row className="justify-content-center">
+          <Row className="justify-content-center mx-5">
             {Object.entries(groupedContent).map(([parentId, content]) => (
               <Col lg={6} md={8} sm={12} className="mb-4" key={parentId}>
                 <Link
@@ -149,7 +150,7 @@ const Services = () => {
       <section className="my-5">
         <Container className="d-flex flex-column justify-content-center align-items-center">
           <Row>
-            <h2 className="text-center my-5">
+            <h2 className="text-center my-5 responsive-heading">
               Druid is al­so your trus­ted part­ner in the fol­lo­wing web
               so­lu­tions
             </h2>
