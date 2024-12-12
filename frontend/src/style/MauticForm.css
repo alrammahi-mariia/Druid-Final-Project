@@ -204,3 +204,46 @@
   justify-content: space-around;
 }
 
+/* Responsive Design */
+
+/* For tablets */
+@media (max-width: 768px) {
+  .mauticform_wrapper {
+    max-width: 100%;
+    padding: 20px; 
+  }
+
+  .mauticform-row {
+    width: 100%; 
+    padding: 0 10px;
+    margin-bottom: 25px; 
+  }
+
+  .mauticform-textarea {
+    height: 150px; 
+  }
+}
+
+/* For phones */
+@media (max-width: 480px) {
+  .mauticform_wrapper {
+    max-width: 100%; 
+    width: 100vw; 
+    padding: 0; 
+    margin: 0; 
+  }
+
+  .mauticform-innerform {
+    padding: 0; 
+  }
+
+  .mauticform-row {
+    margin: 0; 
+    padding: 5px; 
+  }
+
+  .mauticform-textarea {
+    height: 100px;
+  }
+}
+
