@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { URL } from "../../services/apiService";
 import { Col, Container, Image, Row } from "react-bootstrap";
 import "./Feature.css";
