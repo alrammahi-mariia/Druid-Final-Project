@@ -44,8 +44,8 @@ const TextImage = ({
 
 TextImage.propTypes = {
   title: PropTypes.string.isRequired,
-  text_long: PropTypes.string.isRequired,
-  text_short: PropTypes.string.isRequired,
+  text_long: PropTypes.string,
+  text_short: PropTypes.string,
   imageUrl: PropTypes.string,
   imagePosition: PropTypes.oneOf(["right", "left"]),
   imageSize: PropTypes.oneOf(["large", "medium"]),

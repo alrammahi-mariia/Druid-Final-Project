@@ -36,12 +36,7 @@ const Home = () => {
     <div>
       {/* Hero section */}
       {heroData && (
-        <HeroSection
-          {...heroData[0]}
-          variant="white"
-          textSize="large"
-          textAlign="center"
-        />
+        <HeroSection {...heroData[0]} textSize="large" textAlign="center" />
       )}
 
       {/* Career Text Section for Professionals segment*/}
@@ -55,20 +50,23 @@ const Home = () => {
       )}
 
       {/* Services Section */}
-      <ServicesSection
-        title="Services"
-        subtitle="We offer a wide variety of services"
-        cardImageData={cardImageData}
-        link="See all"
-        linkUrl="/services"
-      />
+      {cardImageData?.length > 0 && (
+        <ServicesSection
+          title="Services"
+          subtitle="We offer a wide variety of services"
+          cardImageData={cardImageData}
+          link="See all"
+          linkUrl="/services"
+        />
+      )}
 
       {/* Customers Section */}
       {textImageData?.length ? (
         <section>
           <CustomerSection
-            title={homeData.textImageData[0]?.title}
-            imageUrls={homeData.textImageData.map((item) => item.imageUrl)}
+            title={textImageData[0]?.title}
+            text_short={textImageData[0]?.text_short}
+            imageUrls={textImageData.map((item) => item.imageUrl)}
           />
         </section>
       ) : (

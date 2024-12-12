@@ -28,19 +28,13 @@ const ServiceSingle = () => {
       {textImageData &&
         textData &&
         textImageData.map((textImage, index) => (
-          <>
+          <div key={`section-${textImage.id}-${index}`}>
             <TextImage
-              key={`textImage-${textImage.id}-${index}`}
               {...textImage}
               imagePosition={index % 2 === 0 ? "right" : "left"}
             />
-            {textData[index] && (
-              <TextSection
-                key={`text-${textData[index].id}`}
-                {...textData[index]}
-              />
-            )}
-          </>
+            {textData[index] && <TextSection {...textData[index]} />}
+          </div>
         ))}
 
       {textData &&
