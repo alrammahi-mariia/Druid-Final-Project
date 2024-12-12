@@ -117,7 +117,7 @@ const Services = () => {
       )}
       {/* Card section */}
       <section className="my-5">
-        <Container fluid style={{ padding: "80px 160px 120px 160px" }}>
+        <Container fluid>
           <Row className="justify-content-center">
             {Object.entries(groupedContent).map(([parentId, content]) => (
               <Col lg={6} md={8} sm={12} className="mb-4" key={parentId}>
