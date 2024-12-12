@@ -46,7 +46,12 @@ const Home = () => {
 
       {/* Career Text Section for Professionals segment*/}
       {textData && textData.length >= 2 && (
-        <TextSection variant="dark" {...textData[0]} />
+        <TextSection
+          variant="dark"
+          {...textData[0]}
+          link="Explore Careers"
+          linkUrl="/career"
+        />
       )}
 
       {/* Services Section */}
@@ -58,7 +63,7 @@ const Home = () => {
         linkUrl="/services"
       />
 
-      {/* Customers Sections (Pass only title and all imageUrls) */}
+      {/* Customers Section */}
       {textImageData?.length ? (
         <section>
           <CustomerSection

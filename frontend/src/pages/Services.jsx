@@ -131,9 +131,15 @@ const Services = () => {
                     textImageData: content.textImageData,
                     cardImageData: content.cardImageData,
                   }}
-                  className="service-link"
+                  style={{
+                    textDecoration: "none",
+                    fontFamily: "inherit",
+                    fontWeight: "inherit",
+                    fontSize: "inherit",
+                    color: "inherit",
+                  }}
                 >
-                  <div className="card-image-wrapper">
+                  <div>
                     <CardImage
                       {...content.card}
                       heroTitle={content.hero?.title}
