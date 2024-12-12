@@ -26,10 +26,6 @@ const CardImage = ({ title, text, imageUrl, buttonText, onButtonClick }) => {
           />
         )}
       </Card.Body>
-      {buttonText && (
-        <button className={styles.button} onClick={onButtonClick}>
-          {buttonText}
-        </button>
       )}
     </Card>
   );
