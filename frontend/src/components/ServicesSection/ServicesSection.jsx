@@ -16,7 +16,7 @@ const ServicesSection = ({ title, subtitle, cardImageData, link, linkUrl }) => {
         </a>
       </div>
       <Container fluid>
-        <Row className="justify-content-center">
+        <Row className="justify-content-center px-0 px-md-5 mx-0 mx-md-5">
           {cardImageData &&
             cardImageData.map((card) => (
               <Col lg={6} md={4} sm={12} className="mb-4" key={card.id}>

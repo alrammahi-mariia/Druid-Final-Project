@@ -16,6 +16,13 @@
   font-size: 48px;
 }
 
+@media (max-width: 768px) {
+  .title {
+    margin-bottom: 60px;
+    font-size: 36px;
+  }
+}
+
 .imageColumn {
   text-align: center;
   padding-left: 10px;
