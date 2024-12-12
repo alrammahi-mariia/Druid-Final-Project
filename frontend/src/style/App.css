@@ -1,14 +1,9 @@
 /* Apply Overpass as the global font */
 body {
-  font-family: "Overpass", sans-serif;
+  font-family: "Overpass";
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
-
-* {
-  font-family: inherit;
-  box-sizing: inherit;
 }
 
 h1,
@@ -20,7 +15,9 @@ h6 {
   font-weight: 300;
 }
 
-p, li {
+p,
+li,
+div {
   font-weight: 300;
   font-size: 22px;
 }
