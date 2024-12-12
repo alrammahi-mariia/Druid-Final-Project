@@ -16,7 +16,7 @@ const HeroSection = ({
       } ${styles[textAlign]}`}
     >
       <Row className={`${styles.heroContent}`}>
-        <h1>{title}</h1>
+        {title && <h1>{title}</h1>}
         <p>{description}</p>
       </Row>
     </div>
@@ -24,7 +24,7 @@ const HeroSection = ({
 };
 
 HeroSection.propTypes = {
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string,
   description: PropTypes.string.isRequired,
   variant: PropTypes.oneOf(["light", "dark"]),
   textSize: PropTypes.oneOf(["small", "medium", "large"]),

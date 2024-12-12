@@ -158,7 +158,7 @@ const Services = () => {
       {/* Features section */}
       <section className="my-5">
         <Container className="d-flex flex-column justify-content-center align-items-center">
-          <Row>
+          <Row key="heading-row">
             <h2 className="text-center my-5 responsive-heading">
               Druid is al­so your trus­ted part­ner in the fol­lo­wing web
               so­lu­tions
@@ -167,7 +167,9 @@ const Services = () => {
           <Row>
             {serviceData.featureData &&
               serviceData.featureData.map((feature) => (
-                <Feature {...feature} key={feature.id} />
+                <Col key={feature.id} xs={12} sm={6} md={4}>
+                  <Feature {...feature} />
+                </Col>
               ))}
           </Row>
         </Container>
