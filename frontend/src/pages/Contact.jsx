@@ -12,13 +12,6 @@ const Contact = () => {
   const { data, loading, error } = useSelector((state) => state.content);
   const contactData = data?.contact || [];
 
-  const renderContactText = (item) => (
-    <ContactText
-      title={item?.title || "Contact Us"}
-      text={item?.text || "Please reach out to us for more information."}
-    />
-  );
-
   useEffect(() => {
     dispatch(
       fetchPageContent({
@@ -37,20 +30,14 @@ const Contact = () => {
   const { heroData, textData } = contactData || [];
 
   return (
-    <div>
+    <div style={{ overflowX: "hidden" }}>
       {contactData.heroData && (
-        <HeroSection {...heroData[0]} variant="white" textSize="small" />
+        <HeroSection {...heroData[0]} variant="light" textSize="small" />
       )}
-      <Container fluid className="my-5">
-        {/* <Row>
-          <Col md={12}>
-            {Array.isArray(textData) && textData.length > 0
-              ? renderContactText(textData[0]) // Render the first element outside the loop
-              : renderContactText()}
-          </Col>
-        </Row> */}
-
-        <Row className="mb-5 ">
+      <Container fluid className="my-5 px-5">
+        {" "}
+        {/* Remove padding on the sides */}
+        <Row className="mb-5">
           {/* Left Column: Text Section */}
           <Col md={6}>
             {Array.isArray(textData) && textData.length > 1 ? (
@@ -73,27 +60,25 @@ const Contact = () => {
           {/* Right Column: Contact Form */}
           <Col
             md={6}
-            className="d-flex justify-content-center align-items-center mb-5 px-5"
+            className="d-flex justify-content-center align-items-center mb-5"
           >
             <div
               style={{
                 maxWidth: "750px",
-                height: "700px",
+                height: "auto",
                 background: "#fafafa",
                 width: "100%",
-                padding: "5px",
+                padding: "20px",
                 borderRadius: "8px",
+                transform: "translateX(0)",
               }}
             >
-              <div>
-                <h3 className="text-center mt-2">Send us a message</h3>
-              </div>
+              <h3 className="text-center mt-2">Send us a message</h3>
               <MauticEmailForm />
             </div>
           </Col>
         </Row>
-
-        {/* Our Team / Cards Section with Black Background */}
+        {/* Our Team / Cards Section */}
         <Row className="g-0" style={{ marginTop: "50px" }}>
           {/* Render the last item of ContactText component before the card images */}
           {Array.isArray(textData) && textData.length > 0 && (
