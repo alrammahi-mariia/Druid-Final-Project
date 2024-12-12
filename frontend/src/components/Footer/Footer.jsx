@@ -19,11 +19,9 @@ const Footer = () => {
             <h2>Contact Us</h2>
             <p>
               <span className={styles.iconWrapper}>
-                <FaMapMarkerAlt /> Pasilankatu 2,
+                <FaMapMarkerAlt /> Pasilankatu 2, 00240 Helsinki, Finland
               </span>
             </p>
-            <p style={{ marginLeft: "1.5em" }}>00240 Helsinki,</p>
-            <p style={{ marginLeft: "1.5em" }}>Finland</p>
             <a href="mailto:info@druid.fi">
               <span className={styles.iconWrapper}>
                 <FaEnvelope /> info@druid.fi
@@ -82,10 +80,11 @@ const Footer = () => {
 
           <div className={styles.column}>
             <h2>Quick Links</h2>
-            <Link href="/about">About Us</Link>
-            <Link href="/services">Our Services</Link>
-            <Link href="/careers">Careers</Link>
-            <Link href="/blog">Blog</Link>
+            <Link to="/about">About Us</Link>
+            <Link to="/services">Our Services</Link>
+            <Link to="/career">Careers</Link>
+            <Link to="/blog">Blog</Link>
+            <Link to="/contact">Contact Us</Link>
           </div>
         </div>
       </div>
