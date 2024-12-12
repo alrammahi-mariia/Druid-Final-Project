@@ -1,6 +1,5 @@
 .footer {
   width: 100%;
-  padding: 3rem 2rem;
   background-color: #1e1e1e;
   color: #ffffff;
   padding: 80px 0;
@@ -8,9 +7,9 @@
 }
 
 .container {
-  max-width: 1440px;
+  max-width: 1920px;
   margin: 0 auto;
-  padding: 0 40px;
+  padding-left: 100px;
 }
 
 .columns {
@@ -76,13 +75,13 @@
   }
 
   .column h2 {
-    font-size: 48px;
+    font-size: 38px;
     margin-bottom: 32px;
   }
 
   .column a,
   .column p {
-    font-size: 18px;
+    font-size: 20px;
     margin-bottom: 20px;
   }
 }
@@ -103,7 +102,7 @@
 
   .column a,
   .column p {
-    font-size: 16px;
+    font-size: 20px;
     margin-bottom: 16px;
   }
 
