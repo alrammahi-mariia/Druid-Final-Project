@@ -134,9 +134,6 @@ const Services = () => {
                   }}
                   style={{
                     textDecoration: "none",
-                    fontFamily: "inherit",
-                    fontWeight: "inherit",
-                    fontSize: "inherit",
                     color: "inherit",
                   }}
                 >
